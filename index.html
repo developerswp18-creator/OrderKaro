@@ -25,90 +25,95 @@
             admin: '4px 0 40px 0 rgba(0,0,0,0.12)',
           },
           keyframes: {
-            slideInRight: { from: { transform: 'translateX(100%)' }, to: { transform: 'translateX(0)' } },
-            slideOutRight: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(100%)' } },
-            slideInLeft: { from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } },
-            slideOutLeft: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-100%)' } },
-            fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
-            fadeOut: { from: { opacity: '1' }, to: { opacity: '0' } },
-            bounceIn: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '70%': { transform: 'scale(1.1)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
-            pulse: { '0%,100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.08)' } },
-            spin: { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+            slideInRight:  { from: { transform: 'translateX(100%)' },  to: { transform: 'translateX(0)' } },
+            slideOutRight: { from: { transform: 'translateX(0)' },     to: { transform: 'translateX(100%)' } },
+            slideInLeft:   { from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } },
+            slideOutLeft:  { from: { transform: 'translateX(0)' },     to: { transform: 'translateX(-100%)' } },
+            fadeIn:        { from: { opacity: '0' }, to: { opacity: '1' } },
+            fadeOut:       { from: { opacity: '1' }, to: { opacity: '0' } },
+            bounceIn:      { '0%': { transform: 'scale(0.8)', opacity: '0' }, '70%': { transform: 'scale(1.1)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            pulse:         { '0%,100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.08)' } },
+            shimmer:       { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
           },
           animation: {
-            slideInRight: 'slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
+            slideInRight:  'slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
             slideOutRight: 'slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
-            slideInLeft: 'slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
-            slideOutLeft: 'slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
-            fadeIn: 'fadeIn 0.25s ease forwards',
-            fadeOut: 'fadeOut 0.25s ease forwards',
-            bounceIn: 'bounceIn 0.4s ease forwards',
-            pulseSlow: 'pulse 2s ease-in-out infinite',
-            spinSlow: 'spin 3s linear infinite',
+            slideInLeft:   'slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
+            slideOutLeft:  'slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
+            fadeIn:        'fadeIn 0.25s ease forwards',
+            fadeOut:       'fadeOut 0.25s ease forwards',
+            bounceIn:      'bounceIn 0.4s ease forwards',
+            pulseSlow:     'pulse 2s ease-in-out infinite',
           }
         }
       }
     };
   </script>
   <style>
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-    body{font-family:'Inter',sans-serif;background:#F9FAFB;overscroll-behavior:none}
-    ::-webkit-scrollbar{width:4px;height:4px}
-    ::-webkit-scrollbar-track{background:#f1f1f1}
-    ::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
-    .hide-scrollbar::-webkit-scrollbar{display:none}
-    .hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
-    .card-hover{transition:transform 0.2s ease,box-shadow 0.2s ease}
-    .card-hover:active{transform:scale(0.97)}
-    .btn-add{transition:all 0.2s ease}
-    .btn-add:active{transform:scale(0.95)}
-    .qty-btn{transition:all 0.15s ease}
-    .qty-btn:active{transform:scale(0.88)}
-    .glow-wa{box-shadow:0 4px 24px 0 rgba(37,211,102,0.4)}
-    .glow-wa:hover{box-shadow:0 6px 32px 0 rgba(37,211,102,0.55)}
-    .chip-active{background:#1a1a2e!important;color:#fff!important}
-    .drawer-open{animation:slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards}
-    .drawer-close{animation:slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards}
-    .admin-open{animation:slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards}
-    .admin-close{animation:slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards}
-    .overlay-open{animation:fadeIn 0.25s ease forwards}
-    .overlay-close{animation:fadeOut 0.25s ease forwards}
-    .wa-btn-pulse{animation:pulse 2s ease-in-out infinite}
-    input:focus,textarea:focus,select:focus{outline:none}
-    .radio-custom input[type="radio"]{display:none}
-    .radio-custom label{cursor:pointer}
-    .radio-custom input[type="radio"]:checked+label .radio-box{border-color:#25D366;background:#25D366}
-    .radio-custom input[type="radio"]:checked+label .radio-text{color:#128C7E;font-weight:600}
-    .product-img{transition:transform 0.4s ease}
-    .card-hover:hover .product-img{transform:scale(1.04)}
+    *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body{ font-family:'Inter',sans-serif; background:#F9FAFB; overscroll-behavior:none; }
+    ::-webkit-scrollbar{ width:4px; height:4px; }
+    ::-webkit-scrollbar-track{ background:#f1f1f1; }
+    ::-webkit-scrollbar-thumb{ background:#d1d5db; border-radius:4px; }
+    .hide-scrollbar::-webkit-scrollbar{ display:none; }
+    .hide-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+    .card-hover{ transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:active{ transform:scale(0.97); }
+    .btn-add{ transition:all 0.2s ease; }
+    .btn-add:active{ transform:scale(0.95); }
+    .qty-btn{ transition:all 0.15s ease; }
+    .qty-btn:active{ transform:scale(0.88); }
+    .glow-wa{ box-shadow:0 4px 24px 0 rgba(37,211,102,0.4); }
+    .glow-wa:hover{ box-shadow:0 6px 32px 0 rgba(37,211,102,0.55); }
+    .chip-active{ background:#1a1a2e !important; color:#fff !important; border-color:#1a1a2e !important; }
+    .drawer-open{ animation:slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+    .drawer-close{ animation:slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards; }
+    .admin-open{ animation:slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+    .admin-close{ animation:slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards; }
+    .overlay-open{ animation:fadeIn 0.25s ease forwards; }
+    .overlay-close{ animation:fadeOut 0.25s ease forwards; }
+    .wa-btn-pulse{ animation:pulse 2s ease-in-out infinite; }
+    input:focus, textarea:focus, select:focus{ outline:none; }
+    .radio-custom input[type="radio"]{ display:none; }
+    .radio-custom label{ cursor:pointer; }
+    .radio-custom input[type="radio"]:checked + label .radio-box{ border-color:#25D366; background:#25D366; }
+    .radio-custom input[type="radio"]:checked + label .radio-text{ color:#128C7E; font-weight:600; }
+    .product-img{ transition:transform 0.4s ease; }
+    .card-hover:hover .product-img{ transform:scale(1.04); }
     @media(max-width:640px){
-      .drawer-panel{width:100%!important;border-radius:20px 20px 0 0!important}
-      .admin-panel{width:100%!important;border-radius:0 0 20px 20px!important;top:0!important}
+      .drawer-panel{ width:100% !important; border-radius:20px 20px 0 0 !important; }
+      .admin-panel{ width:100% !important; }
     }
-    .search-glow:focus{box-shadow:0 0 0 3px rgba(37,211,102,0.2)}
-    .form-input{transition:border-color 0.2s,box-shadow 0.2s}
-    .form-input:focus{border-color:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,0.15)}
-    .admin-form-input{transition:border-color 0.2s,box-shadow 0.2s}
-    .admin-form-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.15)}
-    .gear-spin:hover i{animation:spin 1s linear infinite}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .tab-active{background:#1a1a2e;color:#fff}
-    .tab-inactive{background:#f3f4f6;color:#6b7280}
-    .delete-btn{transition:all 0.15s ease}
-    .delete-btn:active{transform:scale(0.9)}
-    .preset-img-btn{transition:all 0.2s ease;border:2px solid transparent}
-    .preset-img-btn.selected{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.2)}
-    .admin-section{border-left:3px solid #6366f1;padding-left:12px}
-    .product-list-item{transition:all 0.2s ease}
-    .product-list-item:hover{background:#f8fafc}
-    .badge-new{background:linear-gradient(135deg,#667eea,#764ba2)}
+    .search-glow:focus{ box-shadow:0 0 0 3px rgba(37,211,102,0.2); }
+    .form-input{ transition:border-color 0.2s, box-shadow 0.2s; }
+    .form-input:focus{ border-color:#25D366; box-shadow:0 0 0 3px rgba(37,211,102,0.15); }
+    .admin-form-input{ transition:border-color 0.2s, box-shadow 0.2s; }
+    .admin-form-input:focus{ border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,0.15); }
+    .gear-spin:hover i{ animation:spin 1s linear infinite; }
+    @keyframes spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+    .tab-active{ background:#1a1a2e; color:#fff; }
+    .tab-inactive{ background:#f3f4f6; color:#6b7280; }
+    .delete-btn{ transition:all 0.15s ease; }
+    .delete-btn:active{ transform:scale(0.9); }
+    .preset-img-btn{ transition:all 0.2s ease; border:2px solid transparent; }
+    .preset-img-btn.selected{ border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,0.2); }
+    .admin-section{ border-left:3px solid #6366f1; padding-left:12px; }
+    .product-list-item{ transition:all 0.2s ease; }
+    .product-list-item:hover{ background:#f8fafc; }
+    .cat-chip-admin{ transition:all 0.2s ease; }
+    .cat-chip-admin:hover{ transform:translateY(-1px); }
+    .cat-row{ transition:all 0.2s ease; }
+    .cat-row:hover{ background:#f8fafc; }
+    .emoji-grid button{ transition:all 0.15s ease; }
+    .emoji-grid button:hover{ transform:scale(1.2); }
+    .emoji-grid button.selected{ background:#e0e7ff; border-radius:8px; transform:scale(1.15); }
   </style>
 </head>
 <body class="min-h-screen bg-gray-50">
 
-<!-- ============================================================ -->
-<!--  TOAST NOTIFICATION                                          -->
-<!-- ============================================================ -->
+<!-- ================================================================
+     TOAST
+================================================================ -->
 <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] hidden pointer-events-none">
   <div id="toastInner" class="bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap">
     <i id="toastIcon" class="fa-solid fa-circle-check text-wa"></i>
@@ -116,16 +121,20 @@
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!--  SHARED OVERLAY                                               -->
-<!-- ============================================================ -->
+<!-- ================================================================
+     SHARED OVERLAY
+================================================================ -->
 <div id="overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden" onclick="handleOverlayClick()"></div>
 
-<!-- ============================================================ -->
-<!--  CART DRAWER (slides from right)                             -->
-<!-- ============================================================ -->
-<div id="cartDrawer" class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px] bg-white z-50 shadow-drawer flex flex-col sm:rounded-none rounded-t-[24px] hidden" style="max-height:96vh;">
+<!-- ================================================================
+     CART DRAWER  (slides from right)
+================================================================ -->
+<div id="cartDrawer"
+     class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px]
+            bg-white z-50 shadow-drawer flex flex-col sm:rounded-none rounded-t-[24px] hidden"
+     style="max-height:96vh;">
 
+  <!-- Header -->
   <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-white sm:rounded-none rounded-t-[24px] flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-full bg-wa/10 flex items-center justify-center">
@@ -141,7 +150,10 @@
     </button>
   </div>
 
+  <!-- Body -->
   <div class="flex-1 overflow-y-auto px-4 py-3" style="overscroll-behavior:contain;">
+
+    <!-- Empty state -->
     <div id="emptyCart" class="flex flex-col items-center justify-center py-12 text-center">
       <div class="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
         <i class="fa-solid fa-cart-shopping text-gray-300 text-4xl"></i>
@@ -150,11 +162,14 @@
       <p class="text-gray-400 text-sm">Add items from the store to get started!</p>
     </div>
 
+    <!-- Items -->
     <div id="cartItemsList" class="space-y-3 hidden"></div>
 
+    <!-- Order form -->
     <div id="cartFormSection" class="hidden">
       <div class="my-4 border-t border-dashed border-gray-200"></div>
 
+      <!-- Summary -->
       <div class="bg-gray-50 rounded-2xl p-4 mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-receipt text-wa"></i> Order Summary
@@ -173,6 +188,7 @@
         </div>
       </div>
 
+      <!-- Customer details -->
       <div class="mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-user text-wa"></i> Your Details
@@ -180,19 +196,23 @@
         <div class="space-y-3">
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Full Name *</label>
-            <input id="custName" type="text" placeholder="e.g. Ali Khan" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
+            <input id="custName" type="text" placeholder="e.g. Ali Khan"
+                   class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
           </div>
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Phone Number *</label>
-            <input id="custPhone" type="tel" placeholder="e.g. 0300-1234567" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
+            <input id="custPhone" type="tel" placeholder="e.g. 0300-1234567"
+                   class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
           </div>
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Delivery Address *</label>
-            <textarea id="custAddress" placeholder="e.g. House #4, Street 2, Gulberg, Lahore" rows="2" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white resize-none"></textarea>
+            <textarea id="custAddress" placeholder="e.g. House #4, Street 2, Gulberg, Lahore" rows="2"
+                      class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white resize-none"></textarea>
           </div>
         </div>
       </div>
 
+      <!-- Payment -->
       <div class="mb-5">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-credit-card text-wa"></i> Payment Method
@@ -231,7 +251,10 @@
         </div>
       </div>
 
-      <button onclick="orderViaWhatsApp()" class="wa-btn-pulse w-full bg-wa hover:bg-wa-dark text-white font-extrabold text-base py-4 rounded-2xl flex items-center justify-center gap-3 glow-wa transition-all duration-200 mb-2">
+      <!-- WhatsApp button -->
+      <button onclick="orderViaWhatsApp()"
+              class="wa-btn-pulse w-full bg-wa hover:bg-wa-dark text-white font-extrabold text-base py-4 rounded-2xl
+                     flex items-center justify-center gap-3 glow-wa transition-all duration-200 mb-2">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
         Order via WhatsApp
         <i class="fa-solid fa-arrow-right text-sm opacity-80"></i>
@@ -241,13 +264,16 @@
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!--  ADMIN PANEL (slides from left on desktop, top on mobile)   -->
-<!-- ============================================================ -->
-<div id="adminPanel" class="admin-panel fixed left-0 top-0 h-full w-full sm:w-[480px] bg-white z-50 shadow-admin flex flex-col hidden">
+<!-- ================================================================
+     ADMIN PANEL  (slides from left)
+================================================================ -->
+<div id="adminPanel"
+     class="admin-panel fixed left-0 top-0 h-full w-full sm:w-[500px]
+            bg-white z-50 shadow-admin flex flex-col hidden">
 
   <!-- Admin Header -->
-  <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-brand to-[#16213e] flex-shrink-0">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100
+              bg-gradient-to-r from-brand to-[#16213e] flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
         <i class="fa-solid fa-screwdriver-wrench text-white text-lg"></i>
@@ -263,147 +289,200 @@
   </div>
 
   <!-- Admin Tabs -->
-  <div class="flex gap-2 px-4 py-3 border-b border-gray-100 bg-white flex-shrink-0">
-    <button id="tabStore" onclick="switchAdminTab('store')" class="tab-active flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
-      <i class="fa-solid fa-store text-sm"></i> Store Info
+  <div class="flex gap-1.5 px-4 py-3 border-b border-gray-100 bg-white flex-shrink-0 overflow-x-auto hide-scrollbar">
+    <button id="tabStore"      onclick="switchAdminTab('store')"
+            class="tab-active flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+      <i class="fa-solid fa-store text-sm"></i> Store
     </button>
-    <button id="tabProducts" onclick="switchAdminTab('products')" class="tab-inactive flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+    <button id="tabCategories" onclick="switchAdminTab('categories')"
+            class="tab-inactive flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+      <i class="fa-solid fa-tags text-sm"></i> Categories
+    </button>
+    <button id="tabProducts"   onclick="switchAdminTab('products')"
+            class="tab-inactive flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
       <i class="fa-solid fa-boxes-stacked text-sm"></i> Products
     </button>
-    <button id="tabAdd" onclick="switchAdminTab('add')" class="tab-inactive flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
-      <i class="fa-solid fa-circle-plus text-sm"></i> Add New
+    <button id="tabAdd"        onclick="switchAdminTab('add')"
+            class="tab-inactive flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+      <i class="fa-solid fa-circle-plus text-sm"></i> Add Item
     </button>
   </div>
 
   <!-- Admin Body -->
   <div class="flex-1 overflow-y-auto" style="overscroll-behavior:contain;">
 
-    <!-- ===== TAB: STORE INFO ===== -->
+    <!-- ── TAB: STORE INFO ── -->
     <div id="panelStore" class="px-4 py-4 space-y-4">
       <div class="admin-section mb-4">
         <h3 class="font-extrabold text-brand text-base">Store Settings</h3>
-        <p class="text-xs text-gray-400 mt-0.5">Changes apply live on the storefront immediately.</p>
+        <p class="text-xs text-gray-400 mt-0.5">Changes apply instantly on the storefront.</p>
       </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
           <i class="fa-solid fa-store text-indigo-400"></i> Store Name
         </label>
-        <input id="adminStoreName" type="text" placeholder="e.g. Al-Madina Cloth House" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        <input id="adminStoreName" type="text" placeholder="e.g. Al-Madina Cloth House"
+               class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
           <i class="fa-brands fa-whatsapp text-wa"></i> WhatsApp Number
         </label>
         <div class="relative">
           <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-400">+</span>
-          <input id="adminWaNumber" type="tel" placeholder="923001234567 (with country code)" class="admin-form-input w-full border-2 border-gray-200 rounded-xl pl-8 pr-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          <input id="adminWaNumber" type="tel" placeholder="923001234567"
+                 class="admin-form-input w-full border-2 border-gray-200 rounded-xl pl-8 pr-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
-        <p class="text-[11px] text-gray-400 mt-1">Include country code. e.g. 923001234567</p>
+        <p class="text-[11px] text-gray-400 mt-1">Include country code, e.g. 923001234567</p>
       </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
           <i class="fa-solid fa-coins text-yellow-500"></i> Currency Symbol
         </label>
-        <input id="adminCurrency" type="text" placeholder="e.g. Rs." class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        <input id="adminCurrency" type="text" placeholder="e.g. Rs."
+               class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
-
-      <div>
-        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
-          <i class="fa-solid fa-tag text-purple-400"></i> Store Tagline
-        </label>
-        <input id="adminTagline" type="text" placeholder="e.g. Premium Quality Since 1995" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
-      </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
           <i class="fa-solid fa-megaphone text-orange-400"></i> Banner Promo Text
         </label>
-        <input id="adminBannerText" type="text" placeholder="e.g. Flat 20% OFF on All Suits!" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        <input id="adminBannerText" type="text" placeholder="e.g. Flat 20% OFF on All Items!"
+               class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
           <i class="fa-solid fa-ticket text-pink-400"></i> Promo Code
         </label>
-        <input id="adminPromoCode" type="text" placeholder="e.g. SALE20" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        <input id="adminPromoCode" type="text" placeholder="e.g. SALE20"
+               class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
-
-      <button onclick="saveStoreSettings()" class="w-full bg-brand text-white font-extrabold py-4 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+      <button onclick="saveStoreSettings()"
+              class="w-full bg-brand text-white font-extrabold py-4 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
         <i class="fa-solid fa-floppy-disk"></i> Save Store Settings
       </button>
-
       <!-- Danger Zone -->
-      <div class="mt-6 border border-red-200 rounded-2xl p-4 bg-red-50">
+      <div class="mt-2 border border-red-200 rounded-2xl p-4 bg-red-50">
         <h4 class="font-bold text-red-600 text-sm mb-2 flex items-center gap-2">
           <i class="fa-solid fa-triangle-exclamation"></i> Danger Zone
         </h4>
-        <p class="text-xs text-red-400 mb-3">This will reset all store data including products, settings, and saved cart to factory defaults.</p>
-        <button onclick="resetAllData()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+        <p class="text-xs text-red-400 mb-3">Resets all data (products, categories, settings) to factory defaults.</p>
+        <button onclick="resetAllData()"
+                class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
           <i class="fa-solid fa-rotate-left"></i> Reset Everything to Default
         </button>
       </div>
     </div>
 
-    <!-- ===== TAB: PRODUCTS LIST ===== -->
+    <!-- ── TAB: CATEGORIES ── -->
+    <div id="panelCategories" class="px-4 py-4 hidden">
+      <div class="admin-section mb-4">
+        <h3 class="font-extrabold text-brand text-base">Manage Categories</h3>
+        <p class="text-xs text-gray-400 mt-0.5">Categories appear as filter tabs on your storefront.</p>
+      </div>
+
+      <!-- Add category form -->
+      <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 mb-5">
+        <h4 class="font-bold text-indigo-700 text-sm mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-plus-circle"></i> Add New Category
+        </h4>
+        <div class="space-y-3">
+          <div class="flex gap-2">
+            <div class="flex-1">
+              <label class="text-xs font-bold text-gray-500 mb-1 block">Category Name *</label>
+              <input id="newCatName" type="text" placeholder="e.g. Rings, Grocery, Covers…"
+                     class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm text-brand placeholder-gray-400 bg-white" />
+            </div>
+            <div class="w-24">
+              <label class="text-xs font-bold text-gray-500 mb-1 block">Slug *</label>
+              <input id="newCatSlug" type="text" placeholder="rings"
+                     class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm text-brand placeholder-gray-400 bg-white" />
+            </div>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Pick an Emoji</label>
+            <div class="emoji-grid flex flex-wrap gap-1.5" id="emojiPicker">
+              <!-- filled by JS -->
+            </div>
+            <input id="newCatEmoji" type="text" placeholder="Or type emoji…"
+                   class="admin-form-input mt-2 w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm text-brand placeholder-gray-400 bg-white" />
+          </div>
+          <button onclick="addCategory()"
+                  class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-plus"></i> Add Category
+          </button>
+        </div>
+      </div>
+
+      <!-- Existing categories -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="font-bold text-brand text-sm flex items-center gap-2">
+            <i class="fa-solid fa-list text-indigo-400"></i> Your Categories
+          </h4>
+          <span id="catCount" class="text-xs bg-gray-200 text-gray-600 font-bold px-2.5 py-1 rounded-full">0</span>
+        </div>
+        <div id="categoryList" class="space-y-2">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: PRODUCT LIST ── -->
     <div id="panelProducts" class="px-4 py-4 hidden">
       <div class="admin-section mb-4 flex items-center justify-between">
         <div>
           <h3 class="font-extrabold text-brand text-base">Product Catalog</h3>
-          <p class="text-xs text-gray-400 mt-0.5" id="adminProductCount">Loading...</p>
+          <p class="text-xs text-gray-400 mt-0.5" id="adminProductCount">Loading…</p>
         </div>
-        <button onclick="switchAdminTab('add')" class="bg-indigo-500 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 hover:bg-indigo-600 transition-colors">
+        <button onclick="switchAdminTab('add')"
+                class="bg-indigo-500 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 hover:bg-indigo-600 transition-colors">
           <i class="fa-solid fa-plus"></i> Add New
         </button>
       </div>
       <div id="adminProductList" class="space-y-2"></div>
     </div>
 
-    <!-- ===== TAB: ADD PRODUCT ===== -->
+    <!-- ── TAB: ADD / EDIT PRODUCT ── -->
     <div id="panelAdd" class="px-4 py-4 hidden">
       <div class="admin-section mb-4">
         <h3 class="font-extrabold text-brand text-base" id="addFormTitle">Add New Product</h3>
-        <p class="text-xs text-gray-400 mt-0.5">Fill in the details below and hit save.</p>
+        <p class="text-xs text-gray-400 mt-0.5">Fill in the details and save.</p>
       </div>
-
       <div class="space-y-4">
         <div>
           <label class="text-xs font-bold text-gray-500 mb-1.5 block">Product Name *</label>
-          <input id="newProductName" type="text" placeholder="e.g. Premium Khaddar Suit" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          <input id="newProductName" type="text" placeholder="e.g. Gold Ring Set"
+                 class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
-
         <div>
           <label class="text-xs font-bold text-gray-500 mb-1.5 block">Short Description</label>
-          <input id="newProductDesc" type="text" placeholder="e.g. Soft winter fabric, premium quality" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          <input id="newProductDesc" type="text" placeholder="e.g. 18k gold, handcrafted"
+                 class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
-
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Price (PKR) *</label>
-            <input id="newProductPrice" type="number" min="0" placeholder="e.g. 2499" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Price *</label>
+            <input id="newProductPrice" type="number" min="0" placeholder="e.g. 2499"
+                   class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1.5 block">Original Price</label>
-            <input id="newProductOrigPrice" type="number" min="0" placeholder="e.g. 3200" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+            <input id="newProductOrigPrice" type="number" min="0" placeholder="e.g. 3200"
+                   class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
         </div>
-
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1.5 block">Category *</label>
-            <select id="newProductCategory" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
-              <option value="all">All Items</option>
-              <option value="mens">Men's Collection</option>
-              <option value="unstitched">Unstitched</option>
-              <option value="footwear">Footwear</option>
-              <option value="discount">Special Discount</option>
+            <select id="newProductCategory"
+                    class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
+              <!-- filled by JS -->
             </select>
           </div>
           <div>
-            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Badge Label</label>
-            <select id="newProductBadge" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Badge</label>
+            <select id="newProductBadge"
+                    class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
               <option value="">None</option>
               <option value="NEW">NEW</option>
               <option value="HOT">HOT</option>
@@ -413,54 +492,30 @@
           </div>
         </div>
 
-        <!-- Image Options -->
+        <!-- Image section -->
         <div>
           <label class="text-xs font-bold text-gray-500 mb-2 block">Product Image</label>
-          <div class="space-y-3">
-            <input id="newProductImgUrl" type="url" placeholder="Paste image URL (https://...)" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" oninput="previewImage()" />
-            <p class="text-[11px] text-gray-400 text-center">— or choose a preset —</p>
-            <div class="grid grid-cols-4 gap-2" id="presetImages">
-              <button type="button" data-url="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-              <button type="button" data-url="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=100&q=60" class="w-full h-full object-cover" />
-              </button>
-            </div>
-
-            <!-- Image Preview -->
-            <div id="imgPreviewBox" class="hidden mt-2 rounded-2xl overflow-hidden border-2 border-indigo-200 aspect-video bg-gray-100 flex items-center justify-center">
-              <img id="imgPreview" class="w-full h-full object-cover" />
-            </div>
+          <input id="newProductImgUrl" type="url" placeholder="Paste image URL (https://…)"
+                 oninput="previewImage()"
+                 class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          <p class="text-[11px] text-gray-400 mt-1.5 text-center">— or choose a preset —</p>
+          <div class="grid grid-cols-4 gap-2 mt-2" id="presetImages">
+            <!-- filled by JS -->
+          </div>
+          <div id="imgPreviewBox" class="hidden mt-3 rounded-2xl overflow-hidden border-2 border-indigo-200 bg-gray-100" style="aspect-ratio:4/3;">
+            <img id="imgPreview" class="w-full h-full object-cover" />
           </div>
         </div>
 
-        <!-- Hidden edit ID -->
         <input type="hidden" id="editingProductId" value="" />
 
         <div class="flex gap-3 pt-2">
-          <button onclick="cancelEdit()" id="cancelEditBtn" class="hidden flex-1 bg-gray-100 text-gray-600 font-bold py-3.5 rounded-2xl text-sm hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+          <button onclick="cancelEdit()" id="cancelEditBtn"
+                  class="hidden flex-1 bg-gray-100 text-gray-600 font-bold py-3.5 rounded-2xl text-sm hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
             <i class="fa-solid fa-xmark"></i> Cancel
           </button>
-          <button onclick="saveProduct()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
+          <button onclick="saveProduct()"
+                  class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
             <i class="fa-solid fa-floppy-disk"></i>
             <span id="saveProductBtnText">Save Product</span>
           </button>
@@ -468,13 +523,15 @@
       </div>
     </div>
 
-  </div><!-- end admin body -->
+  </div><!-- /admin body -->
 </div>
 
-<!-- ============================================================ -->
-<!--  FLOATING CART BADGE                                         -->
-<!-- ============================================================ -->
-<button id="floatingCart" onclick="openCart()" class="fixed bottom-5 right-4 z-30 bg-brand text-white rounded-2xl px-4 py-3 flex items-center gap-2.5 shadow-float transition-all duration-200 active:scale-95 hidden">
+<!-- ================================================================
+     FLOATING CART BADGE
+================================================================ -->
+<button id="floatingCart" onclick="openCart()"
+        class="fixed bottom-5 right-4 z-30 bg-brand text-white rounded-2xl px-4 py-3
+               flex items-center gap-2.5 shadow-float transition-all duration-200 active:scale-95 hidden">
   <div class="relative">
     <i class="fa-solid fa-bag-shopping text-xl"></i>
     <span id="floatBadge" class="absolute -top-2 -right-2 w-5 h-5 bg-wa text-white text-[10px] font-extrabold rounded-full flex items-center justify-center">0</span>
@@ -486,12 +543,12 @@
   <i class="fa-solid fa-chevron-up text-xs opacity-60"></i>
 </button>
 
-<!-- ============================================================ -->
-<!--  MAIN STOREFRONT                                             -->
-<!-- ============================================================ -->
+<!-- ================================================================
+     STOREFRONT
+================================================================ -->
 <div class="max-w-2xl mx-auto">
 
-  <!-- STORE HEADER -->
+  <!-- HEADER -->
   <header class="bg-white sticky top-0 z-20 shadow-sm">
     <div class="px-4 pt-4 pb-3">
       <div class="flex items-center justify-between mb-3">
@@ -500,67 +557,61 @@
             <i class="fa-solid fa-store text-white text-lg"></i>
           </div>
           <div>
-            <h1 class="font-extrabold text-brand text-lg leading-tight" id="storeNameDisplay">Mian Ji Cloth House</h1>
-            <div class="flex items-center gap-1 mt-0.5">
-              <span class="text-[10px] bg-wa/10 text-wa-dark font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <i class="fa-solid fa-circle-check text-[9px]"></i> Official Online Store
-              </span>
-            </div>
+            <h1 id="storeNameDisplay" class="font-extrabold text-brand text-lg leading-tight">OrderKaro Store</h1>
+            <span class="text-[10px] bg-wa/10 text-wa-dark font-bold px-2 py-0.5 rounded-full flex items-center gap-1 w-fit mt-0.5">
+              <i class="fa-solid fa-circle-check text-[9px]"></i> Official Online Store
+            </span>
           </div>
         </div>
         <div class="flex items-center gap-2">
-          <!-- Admin Button -->
-          <button onclick="openAdmin()" class="gear-spin relative w-10 h-10 rounded-xl bg-indigo-50 hover:bg-indigo-100 flex items-center justify-center transition-colors group" title="Shop Admin">
-            <i class="fa-solid fa-gear text-indigo-500 text-lg group-hover:text-indigo-600 transition-colors"></i>
+          <button onclick="openAdmin()" class="gear-spin relative w-10 h-10 rounded-xl bg-indigo-50 hover:bg-indigo-100 flex items-center justify-center transition-colors" title="Shop Admin">
+            <i class="fa-solid fa-gear text-indigo-500 text-lg"></i>
             <span class="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
               <i class="fa-solid fa-lock text-white text-[7px]"></i>
             </span>
           </button>
-          <!-- Cart Button -->
           <button onclick="openCart()" class="relative w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
             <i class="fa-solid fa-bag-shopping text-brand text-lg"></i>
             <span id="headerBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-wa text-white text-[10px] font-extrabold rounded-full items-center justify-center" style="display:none;">0</span>
           </button>
         </div>
       </div>
-
+      <!-- Search -->
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-        <input id="searchInput" type="text" placeholder="Search items..." oninput="filterProducts()" class="search-glow w-full bg-gray-100 rounded-xl pl-10 pr-4 py-3 text-sm text-brand placeholder-gray-400 border-2 border-transparent transition-all" />
+        <input id="searchInput" type="text" placeholder="Search items…" oninput="filterProducts()"
+               class="search-glow w-full bg-gray-100 rounded-xl pl-10 pr-10 py-3 text-sm text-brand placeholder-gray-400 border-2 border-transparent transition-all" />
         <button id="searchClear" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-gray-400 hover:text-gray-600">
           <i class="fa-solid fa-circle-xmark text-lg"></i>
         </button>
       </div>
     </div>
-
-    <!-- Category Chips -->
+    <!-- Dynamic Category Chips -->
     <div id="categoryChips" class="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar">
-      <button class="chip flex-shrink-0 chip-active text-sm font-semibold px-4 py-2 rounded-full border-2 border-transparent bg-brand text-white transition-all" data-cat="all" onclick="filterCategory(this,'all')">All Items</button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="mens" onclick="filterCategory(this,'mens')">👔 Men's Collection</button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="unstitched" onclick="filterCategory(this,'unstitched')">🧵 Unstitched</button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="footwear" onclick="filterCategory(this,'footwear')">👟 Footwear</button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="discount" onclick="filterCategory(this,'discount')">🔥 Special Discount</button>
+      <!-- filled by JS -->
     </div>
   </header>
 
   <!-- HERO BANNER -->
   <div class="px-4 pt-4 pb-2">
-    <div id="heroBanner" class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand to-[#16213e] p-5 flex items-center justify-between" style="min-height:110px;">
+    <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand to-[#16213e] p-5 flex items-center justify-between" style="min-height:110px;">
       <div class="z-10">
         <p class="text-wa text-xs font-bold mb-1 uppercase tracking-wider">🎉 Limited Time Offer</p>
-        <h2 id="bannerText" class="text-white font-extrabold text-xl leading-tight mb-1">Flat 20% OFF<br/>on All Suits!</h2>
-        <p class="text-gray-400 text-xs">Use code: <span id="bannerCode" class="text-wa font-bold">MJCH20</span></p>
+        <h2 id="bannerText" class="text-white font-extrabold text-xl leading-tight mb-1">Welcome to Our Store!</h2>
+        <p class="text-gray-400 text-xs">Use code: <span id="bannerCode" class="text-wa font-bold">SAVE10</span></p>
       </div>
-      <div class="text-7xl opacity-20 absolute right-4 top-1/2 -translate-y-1/2">🧵</div>
-      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10"><span class="text-4xl">👗</span></div>
+      <div class="text-7xl opacity-20 absolute right-4 top-1/2 -translate-y-1/2">🛍️</div>
+      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10">
+        <span class="text-4xl">🎁</span>
+      </div>
     </div>
   </div>
 
   <!-- SECTION TITLE -->
   <div class="px-4 pt-4 pb-2 flex items-center justify-between">
     <div>
-      <h2 class="font-extrabold text-brand text-lg" id="sectionTitle">All Products</h2>
-      <p class="text-gray-400 text-xs" id="sectionSubtitle">Showing all available items</p>
+      <h2 id="sectionTitle" class="font-extrabold text-brand text-lg">All Products</h2>
+      <p id="sectionSubtitle" class="text-gray-400 text-xs">Showing all available items</p>
     </div>
     <span id="productCount" class="text-xs font-bold bg-gray-200 text-gray-600 px-2.5 py-1 rounded-full">0 items</span>
   </div>
@@ -573,118 +624,139 @@
     <div class="text-6xl mb-4">🔍</div>
     <h3 class="font-bold text-gray-500 text-lg mb-2">No items found</h3>
     <p class="text-gray-400 text-sm">Try a different search or category.</p>
-    <button onclick="clearSearch();filterCategory(document.querySelector('[data-cat=all]'),'all')" class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">Show All Items</button>
+    <button onclick="clearSearch();setCategory('all')"
+            class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">
+      Show All Items
+    </button>
   </div>
 
 </div>
 
 <!-- FOOTER -->
 <div class="max-w-2xl mx-auto px-4 pb-32 pt-4 text-center">
-  <p class="text-xs text-gray-400">© 2025 <span id="footerStoreName">Mian Ji Cloth House</span> · Powered by OrderKaro</p>
+  <p class="text-xs text-gray-400">© 2025 <span id="footerStoreName">OrderKaro Store</span> · Powered by OrderKaro</p>
 </div>
 
-<!-- ============================================================ -->
-<!--  JAVASCRIPT ENGINE                                           -->
-<!-- ============================================================ -->
+<!-- ================================================================
+     JAVASCRIPT ENGINE
+================================================================ -->
 <script>
-// ================================================================
-//  DEFAULT DATA
-// ================================================================
+'use strict';
+
+// ── PRESET IMAGE POOL ─────────────────────────────────────────────
+const PRESET_IMAGES = [
+  'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80',
+  'https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80',
+  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',
+  'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80',
+  'https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80',
+  'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80',
+  'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&q=80',
+  'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80',
+];
+
+// ── EMOJI PICKER POOL ─────────────────────────────────────────────
+const EMOJI_POOL = ['👔','👗','👟','🧵','💍','📱','🧴','🛒','🍚','🌾','💻',
+                    '🎒','🧢','👜','🩴','🕶️','🪡','🧶','🧤','🧣','🏠','🎁',
+                    '🍎','🥛','🧃','🫙','🧹','🪴','📦','🔑'];
+
+// ── DEFAULT DATA ──────────────────────────────────────────────────
 const DEFAULT_STORE = {
   name: 'Mian Ji Cloth House',
   waNumber: '923001234567',
   currency: 'Rs.',
-  tagline: 'Premium Quality Since 1995',
-  bannerText: 'Flat 20% OFF\non All Suits!',
-  promoCode: 'MJCH20'
+  bannerText: 'Flat 20% OFF on All Suits!',
+  promoCode: 'MJCH20',
 };
 
-const DEFAULT_PRODUCTS = [
-  { id: 1, name: 'Premium Khaddar Suit', price: 2499, originalPrice: 3200, category: ['all','mens','unstitched','discount'], badge: 'SALE', description: 'Soft premium khaddar fabric, winter ready', img: 'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80', emoji: '🧥', isDefault: true },
-  { id: 2, name: 'Wash & Wear Suit', price: 1899, originalPrice: null, category: ['all','mens'], badge: 'NEW', description: 'Wrinkle-free, easy to wear daily', img: 'https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80', emoji: '👔', isDefault: true },
-  { id: 3, name: 'Peshawari Chappal', price: 1800, originalPrice: 2200, category: ['all','footwear','discount'], badge: 'HOT', description: 'Traditional handmade leather chappal', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80', emoji: '👟', isDefault: true },
-  { id: 4, name: 'Linen Unstitched Fabric', price: 1250, originalPrice: null, category: ['all','unstitched'], badge: null, description: 'Premium linen, 3.5 meters per piece', img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80', emoji: '🧵', isDefault: true },
-  { id: 5, name: 'Classic Shalwar Kameez', price: 2100, originalPrice: 2800, category: ['all','mens','discount'], badge: 'SALE', description: 'Finest cotton, fully stitched & ready to wear', img: 'https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80', emoji: '👘', isDefault: true },
-  { id: 6, name: 'Leather Moccasins', price: 3200, originalPrice: null, category: ['all','footwear'], badge: 'NEW', description: 'Genuine leather, handcrafted comfort shoes', img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80', emoji: '👞', isDefault: true }
+const DEFAULT_CATEGORIES = [
+  { slug: 'mens',       name: "Men's Collection", emoji: '👔' },
+  { slug: 'unstitched', name: 'Unstitched',        emoji: '🧵' },
+  { slug: 'footwear',   name: 'Footwear',          emoji: '👟' },
+  { slug: 'discount',   name: 'Special Discount',  emoji: '🔥' },
 ];
 
-// ================================================================
-//  STATE
-// ================================================================
+const DEFAULT_PRODUCTS = [
+  { id:1, name:'Premium Khaddar Suit',    price:2499, originalPrice:3200, categorySlug:'mens',       badge:'SALE', description:'Soft premium khaddar fabric, winter ready',        img:PRESET_IMAGES[0], emoji:'🧥', isDefault:true },
+  { id:2, name:'Wash & Wear Suit',        price:1899, originalPrice:null, categorySlug:'mens',       badge:'NEW',  description:'Wrinkle-free, easy to wear daily',                 img:PRESET_IMAGES[1], emoji:'👔', isDefault:true },
+  { id:3, name:'Peshawari Chappal',       price:1800, originalPrice:2200, categorySlug:'footwear',   badge:'HOT',  description:'Traditional handmade leather chappal',             img:PRESET_IMAGES[2], emoji:'👟', isDefault:true },
+  { id:4, name:'Linen Unstitched Fabric', price:1250, originalPrice:null, categorySlug:'unstitched', badge:null,   description:'Premium linen, 3.5 meters per piece',             img:PRESET_IMAGES[3], emoji:'🧵', isDefault:true },
+  { id:5, name:'Classic Shalwar Kameez', price:2100, originalPrice:2800, categorySlug:'discount',   badge:'SALE', description:'Finest cotton, fully stitched & ready to wear',   img:PRESET_IMAGES[4], emoji:'👘', isDefault:true },
+  { id:6, name:'Leather Moccasins',       price:3200, originalPrice:null, categorySlug:'footwear',   badge:'NEW',  description:'Genuine leather, handcrafted comfort shoes',      img:PRESET_IMAGES[5], emoji:'👞', isDefault:true },
+];
+
+// ── STATE ─────────────────────────────────────────────────────────
 let cart = [];
 let products = [];
+let categories = [];       // dynamic list
 let storeSettings = { ...DEFAULT_STORE };
 let currentCategory = 'all';
-let currentSearch = '';
-let cartDrawerOpen = false;
-let adminPanelOpen = false;
-let currentAdminTab = 'store';
+let currentSearch   = '';
+let cartDrawerOpen  = false;
+let adminPanelOpen  = false;
+let selectedEmoji   = '';
+let nextId = Date.now();
 
-// ================================================================
-//  LOCAL STORAGE
-// ================================================================
-const LS = {
-  CART: 'ok_cart',
-  PRODUCTS: 'ok_products',
-  STORE: 'ok_store'
-};
+// ── LOCAL STORAGE KEYS ────────────────────────────────────────────
+const LS = { CART:'ok_cart', PRODUCTS:'ok_products', STORE:'ok_store', CATS:'ok_categories' };
 
-function saveCart()     { localStorage.setItem(LS.CART, JSON.stringify(cart)); }
-function saveProducts() { localStorage.setItem(LS.PRODUCTS, JSON.stringify(products)); }
-function saveStore()    { localStorage.setItem(LS.STORE, JSON.stringify(storeSettings)); }
+function saveCart()       { localStorage.setItem(LS.CART,     JSON.stringify(cart)); }
+function saveProducts()   { localStorage.setItem(LS.PRODUCTS, JSON.stringify(products)); }
+function saveStore()      { localStorage.setItem(LS.STORE,    JSON.stringify(storeSettings)); }
+function saveCategories() { localStorage.setItem(LS.CATS,     JSON.stringify(categories)); }
 
 function loadAll() {
-  try { cart = JSON.parse(localStorage.getItem(LS.CART)) || []; } catch(e) { cart = []; }
-  try {
-    const savedP = localStorage.getItem(LS.PRODUCTS);
-    products = savedP ? JSON.parse(savedP) : JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
-  } catch(e) { products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)); }
-  try {
-    const savedS = localStorage.getItem(LS.STORE);
-    storeSettings = savedS ? { ...DEFAULT_STORE, ...JSON.parse(savedS) } : { ...DEFAULT_STORE };
-  } catch(e) { storeSettings = { ...DEFAULT_STORE }; }
+  try { cart       = JSON.parse(localStorage.getItem(LS.CART))     || []; } catch(e){ cart=[]; }
+  try { const p    = localStorage.getItem(LS.PRODUCTS); products    = p ? JSON.parse(p) : cloneDefaults(DEFAULT_PRODUCTS); } catch(e){ products=cloneDefaults(DEFAULT_PRODUCTS); }
+  try { const s    = localStorage.getItem(LS.STORE);   storeSettings = s ? {...DEFAULT_STORE,...JSON.parse(s)} : {...DEFAULT_STORE}; } catch(e){ storeSettings={...DEFAULT_STORE}; }
+  try { const c    = localStorage.getItem(LS.CATS);    categories    = c ? JSON.parse(c) : cloneDefaults(DEFAULT_CATEGORIES); } catch(e){ categories=cloneDefaults(DEFAULT_CATEGORIES); }
 }
+function cloneDefaults(arr){ return JSON.parse(JSON.stringify(arr)); }
 
-// ================================================================
-//  CART LOGIC
-// ================================================================
+// ── HELPERS ───────────────────────────────────────────────────────
+function fmtPrice(n){ return storeSettings.currency + ' ' + Number(n).toLocaleString('en-PK'); }
+function getCatBySlug(slug){ return categories.find(c => c.slug === slug); }
+
+// ── CART LOGIC ────────────────────────────────────────────────────
 function getCartItem(id)  { return cart.find(i => i.id === id); }
 function getTotalItems()  { return cart.reduce((s,i) => s+i.qty, 0); }
 function getGrandTotal()  { return cart.reduce((s,i) => s+(i.price*i.qty), 0); }
-function fmtPrice(n)      { return storeSettings.currency + ' ' + Number(n).toLocaleString('en-PK'); }
 
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
   const ex = getCartItem(id);
-  if (ex) { ex.qty++; } else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, emoji: p.emoji||'📦', qty: 1 }); }
+  if (ex) { ex.qty++; } else { cart.push({ id:p.id, name:p.name, price:p.price, img:p.img, emoji:p.emoji||'📦', qty:1 }); }
   saveCart(); updateUI();
-  showToast('"' + p.name + '" added!', 'success');
+  showToast('"'+p.name+'" added!', 'success');
 }
 
 function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); updateUI(); }
+function increaseQty(id)    { const i=getCartItem(id); if(i){ i.qty++; saveCart(); updateUI(); } }
+function decreaseQty(id)    { const i=getCartItem(id); if(!i) return; i.qty<=1 ? removeFromCart(id) : (i.qty--, saveCart(), updateUI()); }
 
-function increaseQty(id) { const i = getCartItem(id); if (i) { i.qty++; saveCart(); updateUI(); } }
-
-function decreaseQty(id) {
-  const i = getCartItem(id);
-  if (!i) return;
-  if (i.qty <= 1) removeFromCart(id); else { i.qty--; saveCart(); updateUI(); }
-}
-
-// ================================================================
-//  UI UPDATE
-// ================================================================
+// ── FULL UI UPDATE ────────────────────────────────────────────────
 function updateUI() {
+  applyStoreSettings();
+  renderCategoryChips();
   renderProductGrid();
   renderCartDrawer();
   updateFloatingCart();
   updateHeaderBadge();
-  applyStoreSettings();
+}
+
+function applyStoreSettings() {
+  document.title = storeSettings.name + ' — OrderKaro';
+  document.getElementById('storeNameDisplay').textContent = storeSettings.name;
+  document.getElementById('footerStoreName').textContent  = storeSettings.name;
+  const bt = document.getElementById('bannerText');
+  if (bt) bt.innerHTML = (storeSettings.bannerText||'').replace(/\n/g,'<br/>');
+  const bc = document.getElementById('bannerCode');
+  if (bc) bc.textContent = storeSettings.promoCode || '';
 }
 
 function updateFloatingCart() {
-  const btn = document.getElementById('floatingCart');
+  const btn   = document.getElementById('floatingCart');
   const badge = document.getElementById('floatBadge');
   const total = document.getElementById('floatTotal');
   const n = getTotalItems();
@@ -699,24 +771,64 @@ function updateHeaderBadge() {
   else        { b.style.display = 'none'; }
 }
 
-function applyStoreSettings() {
-  document.title = storeSettings.name + ' — OrderKaro';
-  document.getElementById('storeNameDisplay').textContent = storeSettings.name;
-  document.getElementById('footerStoreName').textContent = storeSettings.name;
-  const bt = document.getElementById('bannerText');
-  if (bt) bt.innerHTML = storeSettings.bannerText.replace(/\n/g,'<br/>');
-  const bc = document.getElementById('bannerCode');
-  if (bc) bc.textContent = storeSettings.promoCode;
+// ── DYNAMIC CATEGORY CHIPS ────────────────────────────────────────
+function renderCategoryChips() {
+  const container = document.getElementById('categoryChips');
+
+  // Build chip list: "All" first, then each custom category
+  const chips = [
+    { slug: 'all', name: 'All Items', emoji: '🛍️' },
+    ...categories
+  ];
+
+  container.innerHTML = chips.map(cat => {
+    const isActive = currentCategory === cat.slug;
+    return `
+      <button
+        class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 transition-all
+               ${isActive ? 'chip-active border-brand bg-brand text-white' : 'border-gray-200 bg-white text-gray-600 hover:border-brand/40'}"
+        data-cat="${cat.slug}"
+        onclick="setCategory('${cat.slug}',this)">
+        ${cat.emoji} ${cat.name}
+      </button>`;
+  }).join('');
 }
 
-// ================================================================
-//  PRODUCT GRID RENDER
-// ================================================================
+function setCategory(slug, el) {
+  currentCategory = slug;
+  // update chip styles
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.remove('chip-active','border-brand','bg-brand','text-white');
+    c.classList.add('border-gray-200','bg-white','text-gray-600');
+  });
+  if (el) {
+    el.classList.add('chip-active','border-brand','bg-brand','text-white');
+    el.classList.remove('border-gray-200','bg-white','text-gray-600');
+  } else {
+    // find by data-cat
+    const found = document.querySelector(`[data-cat="${slug}"]`);
+    if (found) {
+      found.classList.add('chip-active','border-brand','bg-brand','text-white');
+      found.classList.remove('border-gray-200','bg-white','text-gray-600');
+    }
+  }
+  // section title
+  let title = 'All Products', subtitle = 'Showing all available items';
+  if (slug !== 'all') {
+    const cat = getCatBySlug(slug);
+    if (cat) { title = cat.emoji+' '+cat.name; subtitle = 'Showing '+cat.name+' items'; }
+  }
+  document.getElementById('sectionTitle').textContent   = title;
+  document.getElementById('sectionSubtitle').textContent = subtitle;
+  renderProductGrid();
+}
+
+// ── PRODUCT GRID ──────────────────────────────────────────────────
 function getFilteredProducts() {
   return products.filter(p => {
-    const cats = Array.isArray(p.category) ? p.category : [p.category];
-    const matchCat = currentCategory === 'all' || cats.includes(currentCategory);
-    const matchSrc = !currentSearch || p.name.toLowerCase().includes(currentSearch.toLowerCase()) || (p.description||'').toLowerCase().includes(currentSearch.toLowerCase());
+    const matchCat = currentCategory === 'all' || p.categorySlug === currentCategory;
+    const q = currentSearch.toLowerCase();
+    const matchSrc = !q || p.name.toLowerCase().includes(q) || (p.description||'').toLowerCase().includes(q);
     return matchCat && matchSrc;
   });
 }
@@ -724,65 +836,66 @@ function getFilteredProducts() {
 const BADGE_COLORS = { SALE:'bg-accent', NEW:'bg-indigo-500', HOT:'bg-orange-500', LIMITED:'bg-purple-500' };
 
 function renderProductGrid() {
-  const grid = document.getElementById('productGrid');
+  const grid  = document.getElementById('productGrid');
   const noRes = document.getElementById('noResults');
   const filtered = getFilteredProducts();
-  document.getElementById('productCount').textContent = filtered.length + ' item' + (filtered.length!==1?'s':'');
+  document.getElementById('productCount').textContent = filtered.length + ' item'+(filtered.length!==1?'s':'');
 
   if (filtered.length === 0) { grid.innerHTML = ''; noRes.classList.remove('hidden'); return; }
   noRes.classList.add('hidden');
 
   grid.innerHTML = filtered.map(p => {
-    const inCart = getCartItem(p.id);
-    const qty = inCart ? inCart.qty : 0;
+    const inCart   = getCartItem(p.id);
+    const qty      = inCart ? inCart.qty : 0;
     const origPrice = p.originalPrice || p.orig_price;
-    const discount = origPrice ? Math.round((1 - p.price / origPrice) * 100) : 0;
+    const discount  = origPrice ? Math.round((1 - p.price/origPrice)*100) : 0;
     const badgeColor = BADGE_COLORS[p.badge] || 'bg-gray-500';
     const emoji = p.emoji || '📦';
+    const cat   = getCatBySlug(p.categorySlug);
+    const catLabel = cat ? cat.emoji+' '+cat.name : '';
 
     return `
       <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-card border border-gray-100 flex flex-col">
         <div class="relative overflow-hidden bg-gray-100" style="aspect-ratio:1/1;">
           <img src="${p.img||''}" alt="${p.name}" class="product-img w-full h-full object-cover" loading="lazy"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <div class="absolute inset-0 bg-gray-100 items-center justify-center text-5xl hidden">${emoji}</div>
-          ${p.badge ? `<span class="absolute top-2 left-2 ${badgeColor} text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>` : ''}
-          ${discount>0 ? `<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${discount}%</span>` : ''}
-          ${qty>0 ? `<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>` : ''}
+          ${p.badge?`<span class="absolute top-2 left-2 ${badgeColor} text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>`:''}
+          ${discount>0?`<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${discount}%</span>`:''}
+          ${qty>0?`<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>`:''}
         </div>
         <div class="p-3 flex flex-col flex-1">
+          ${catLabel?`<p class="text-[10px] text-indigo-400 font-semibold mb-0.5">${catLabel}</p>`:''}
           <p class="text-[10px] text-gray-400 mb-0.5 truncate">${p.description||''}</p>
           <h3 class="font-bold text-brand text-sm leading-tight mb-2 flex-1">${p.name}</h3>
           <div class="mb-2.5">
             <span class="font-extrabold text-brand text-base">${fmtPrice(p.price)}</span>
-            ${origPrice ? `<span class="text-xs text-gray-400 line-through ml-1">${fmtPrice(origPrice)}</span>` : ''}
+            ${origPrice?`<span class="text-xs text-gray-400 line-through ml-1">${fmtPrice(origPrice)}</span>`:''}
           </div>
           ${qty===0
-            ? `<button onclick="addToCart(${p.id})" class="btn-add w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5"><i class="fa-solid fa-plus text-xs"></i> Add to Cart</button>`
-            : `<div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
-                 <button onclick="decreaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center font-bold"><i class="fa-solid fa-minus text-xs"></i></button>
-                 <span class="font-extrabold text-brand text-sm">${qty}</span>
-                 <button onclick="increaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center font-bold"><i class="fa-solid fa-plus text-xs"></i></button>
-               </div>`
+            ?`<button onclick="addToCart(${p.id})" class="btn-add w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5"><i class="fa-solid fa-plus text-xs"></i> Add to Cart</button>`
+            :`<div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
+               <button onclick="decreaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center"><i class="fa-solid fa-minus text-xs"></i></button>
+               <span class="font-extrabold text-brand text-sm">${qty}</span>
+               <button onclick="increaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center"><i class="fa-solid fa-plus text-xs"></i></button>
+             </div>`
           }
         </div>
       </div>`;
   }).join('');
 }
 
-// ================================================================
-//  CART DRAWER RENDER
-// ================================================================
+// ── CART DRAWER RENDER ────────────────────────────────────────────
 function renderCartDrawer() {
-  const empty   = document.getElementById('emptyCart');
-  const list    = document.getElementById('cartItemsList');
-  const form    = document.getElementById('cartFormSection');
-  const cnt     = document.getElementById('drawerItemCount');
-  const subEl   = document.getElementById('summarySubtotal');
-  const totEl   = document.getElementById('summaryTotal');
+  const empty = document.getElementById('emptyCart');
+  const list  = document.getElementById('cartItemsList');
+  const form  = document.getElementById('cartFormSection');
+  const cnt   = document.getElementById('drawerItemCount');
+  const subEl = document.getElementById('summarySubtotal');
+  const totEl = document.getElementById('summaryTotal');
 
   const total = getTotalItems(), grand = getGrandTotal();
-  cnt.textContent = total + ' item' + (total!==1?'s':'') + ' selected';
+  cnt.textContent  = total+' item'+(total!==1?'s':'')+' selected';
   subEl.textContent = fmtPrice(grand);
   totEl.textContent = fmtPrice(grand);
 
@@ -795,7 +908,7 @@ function renderCartDrawer() {
     <div class="flex items-center gap-3 bg-gray-50 rounded-2xl p-3">
       <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-2xl">
         <img src="${item.img||''}" alt="${item.name}" class="w-full h-full object-cover"
-          onerror="this.style.display='none';this.parentElement.innerHTML='${item.emoji||'📦'}'" />
+             onerror="this.style.display='none';this.parentElement.innerHTML='${item.emoji||'📦'}'" />
       </div>
       <div class="flex-1 min-w-0">
         <h4 class="font-bold text-brand text-sm leading-tight truncate">${item.name}</h4>
@@ -815,203 +928,335 @@ function renderCartDrawer() {
     </div>`).join('');
 }
 
-// ================================================================
-//  CART DRAWER OPEN / CLOSE
-// ================================================================
+// ── OPEN / CLOSE DRAWERS ──────────────────────────────────────────
 function openCart() {
   closeAdmin(true);
-  const d = document.getElementById('cartDrawer'), o = document.getElementById('overlay');
+  const d=document.getElementById('cartDrawer'), o=document.getElementById('overlay');
   d.classList.remove('hidden','drawer-close'); d.classList.add('drawer-open');
   o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
-  cartDrawerOpen = true; document.body.style.overflow = 'hidden';
+  cartDrawerOpen=true; document.body.style.overflow='hidden';
   renderCartDrawer();
 }
-
 function closeCart(silent) {
-  const d = document.getElementById('cartDrawer'), o = document.getElementById('overlay');
+  const d=document.getElementById('cartDrawer'), o=document.getElementById('overlay');
   d.classList.remove('drawer-open'); d.classList.add('drawer-close');
-  if (!adminPanelOpen) { o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
-  cartDrawerOpen = false; document.body.style.overflow = '';
-  setTimeout(() => {
-    d.classList.add('hidden'); d.classList.remove('drawer-close');
-    if (!adminPanelOpen) { o.classList.add('hidden'); o.classList.remove('overlay-close'); }
-  }, 300);
+  if (!adminPanelOpen){ o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
+  cartDrawerOpen=false; document.body.style.overflow='';
+  setTimeout(()=>{ d.classList.add('hidden'); d.classList.remove('drawer-close');
+    if(!adminPanelOpen){ o.classList.add('hidden'); o.classList.remove('overlay-close'); } }, 300);
 }
 
-// ================================================================
-//  ADMIN PANEL OPEN / CLOSE
-// ================================================================
 function openAdmin() {
   closeCart(true);
-  const a = document.getElementById('adminPanel'), o = document.getElementById('overlay');
+  const a=document.getElementById('adminPanel'), o=document.getElementById('overlay');
   a.classList.remove('hidden','admin-close'); a.classList.add('admin-open');
   o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
-  adminPanelOpen = true; document.body.style.overflow = 'hidden';
+  adminPanelOpen=true; document.body.style.overflow='hidden';
   populateAdminStoreForm();
+  populateCategoryDropdown();
+  renderAdminCategoryList();
   renderAdminProductList();
+  buildEmojiPicker();
+  buildPresetImages();
 }
-
 function closeAdmin(silent) {
-  const a = document.getElementById('adminPanel'), o = document.getElementById('overlay');
+  const a=document.getElementById('adminPanel'), o=document.getElementById('overlay');
   a.classList.remove('admin-open'); a.classList.add('admin-close');
-  if (!cartDrawerOpen) { o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
-  adminPanelOpen = false; document.body.style.overflow = '';
-  setTimeout(() => {
-    a.classList.add('hidden'); a.classList.remove('admin-close');
-    if (!cartDrawerOpen) { o.classList.add('hidden'); o.classList.remove('overlay-close'); }
-  }, 300);
+  if (!cartDrawerOpen){ o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
+  adminPanelOpen=false; document.body.style.overflow='';
+  setTimeout(()=>{ a.classList.add('hidden'); a.classList.remove('admin-close');
+    if(!cartDrawerOpen){ o.classList.add('hidden'); o.classList.remove('overlay-close'); } }, 300);
 }
-
 function handleOverlayClick() {
   if (cartDrawerOpen) closeCart();
   if (adminPanelOpen) closeAdmin();
 }
 
-// ================================================================
-//  ADMIN TABS
-// ================================================================
+// ── ADMIN TABS ────────────────────────────────────────────────────
+const TABS = ['store','categories','products','add'];
 function switchAdminTab(tab) {
-  currentAdminTab = tab;
-  ['store','products','add'].forEach(t => {
-    document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('hidden');
-    const btn = document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1));
-    btn.classList.remove('tab-active'); btn.classList.add('tab-inactive');
+  TABS.forEach(t => {
+    const panel = document.getElementById('panel'+cap(t));
+    const btn   = document.getElementById('tab'+cap(t));
+    if (panel) panel.classList.add('hidden');
+    if (btn)   { btn.classList.remove('tab-active'); btn.classList.add('tab-inactive'); }
   });
-  document.getElementById('panel' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
-  const activeBtn = document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1));
-  activeBtn.classList.add('tab-active'); activeBtn.classList.remove('tab-inactive');
+  document.getElementById('panel'+cap(tab)).classList.remove('hidden');
+  const ab = document.getElementById('tab'+cap(tab));
+  ab.classList.add('tab-active'); ab.classList.remove('tab-inactive');
 
-  if (tab === 'products') renderAdminProductList();
-  if (tab === 'add') { cancelEdit(); }
+  if (tab==='products')   renderAdminProductList();
+  if (tab==='categories') renderAdminCategoryList();
+  if (tab==='add')        { cancelEdit(); populateCategoryDropdown(); }
 }
+function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 
-// ================================================================
-//  ADMIN STORE SETTINGS
-// ================================================================
+// ── STORE SETTINGS ────────────────────────────────────────────────
 function populateAdminStoreForm() {
-  document.getElementById('adminStoreName').value   = storeSettings.name || '';
-  document.getElementById('adminWaNumber').value    = storeSettings.waNumber || '';
-  document.getElementById('adminCurrency').value    = storeSettings.currency || '';
-  document.getElementById('adminTagline').value     = storeSettings.tagline || '';
-  document.getElementById('adminBannerText').value  = storeSettings.bannerText || '';
-  document.getElementById('adminPromoCode').value   = storeSettings.promoCode || '';
+  document.getElementById('adminStoreName').value  = storeSettings.name||'';
+  document.getElementById('adminWaNumber').value   = storeSettings.waNumber||'';
+  document.getElementById('adminCurrency').value   = storeSettings.currency||'';
+  document.getElementById('adminBannerText').value = storeSettings.bannerText||'';
+  document.getElementById('adminPromoCode').value  = storeSettings.promoCode||'';
 }
-
 function saveStoreSettings() {
-  const name    = document.getElementById('adminStoreName').value.trim();
-  const wa      = document.getElementById('adminWaNumber').value.trim();
-  const cur     = document.getElementById('adminCurrency').value.trim();
-  const tag     = document.getElementById('adminTagline').value.trim();
-  const banner  = document.getElementById('adminBannerText').value.trim();
-  const promo   = document.getElementById('adminPromoCode').value.trim();
-
-  if (!name) { showToast('Store name cannot be empty!', 'error'); return; }
-  if (!wa)   { showToast('WhatsApp number cannot be empty!', 'error'); return; }
-
-  storeSettings = { name: name||storeSettings.name, waNumber: wa||storeSettings.waNumber, currency: cur||'Rs.', tagline: tag, bannerText: banner||storeSettings.bannerText, promoCode: promo };
-  saveStore();
-  updateUI();
-  showToast('Store settings saved! ✅', 'success');
+  const name   = document.getElementById('adminStoreName').value.trim();
+  const wa     = document.getElementById('adminWaNumber').value.trim();
+  const cur    = document.getElementById('adminCurrency').value.trim();
+  const banner = document.getElementById('adminBannerText').value.trim();
+  const promo  = document.getElementById('adminPromoCode').value.trim();
+  if (!name) { showToast('Store name cannot be empty!','error'); return; }
+  if (!wa)   { showToast('WhatsApp number cannot be empty!','error'); return; }
+  storeSettings = { name, waNumber:wa, currency:cur||'Rs.', bannerText:banner, promoCode:promo };
+  saveStore(); updateUI();
+  showToast('Store settings saved! ✅','success');
 }
 
-// ================================================================
-//  ADMIN PRODUCT LIST
-// ================================================================
-function renderAdminProductList() {
-  const list = document.getElementById('adminProductList');
-  const cnt  = document.getElementById('adminProductCount');
-  cnt.textContent = products.length + ' product' + (products.length!==1?'s':'') + ' in catalog';
+// ── CATEGORY MANAGEMENT ───────────────────────────────────────────
+function buildEmojiPicker() {
+  const grid = document.getElementById('emojiPicker');
+  if (!grid) return;
+  grid.innerHTML = EMOJI_POOL.map(em => `
+    <button type="button" onclick="pickEmoji('${em}',this)"
+            class="text-xl px-1.5 py-1 rounded-lg hover:bg-indigo-100 transition-all">
+      ${em}
+    </button>`).join('');
+}
+function pickEmoji(em, btn) {
+  selectedEmoji = em;
+  document.getElementById('newCatEmoji').value = em;
+  document.querySelectorAll('#emojiPicker button').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
 
-  if (products.length === 0) {
-    list.innerHTML = `<div class="text-center py-10"><div class="text-5xl mb-3">📦</div><p class="text-gray-400 font-semibold">No products yet.</p><button onclick="switchAdminTab('add')" class="mt-3 bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm">+ Add First Product</button></div>`;
+function slugify(text) {
+  return text.toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-+|-+$/g,'');
+}
+
+// Auto-fill slug when name is typed
+document.addEventListener('DOMContentLoaded', () => {
+  const nameEl = document.getElementById('newCatName');
+  if (nameEl) {
+    nameEl.addEventListener('input', () => {
+      const slugEl = document.getElementById('newCatSlug');
+      if (slugEl && !slugEl.dataset.manual) {
+        slugEl.value = slugify(nameEl.value);
+      }
+    });
+  }
+  const slugEl = document.getElementById('newCatSlug');
+  if (slugEl) {
+    slugEl.addEventListener('input', () => { slugEl.dataset.manual = '1'; });
+  }
+});
+
+function addCategory() {
+  const nameEl  = document.getElementById('newCatName');
+  const slugEl  = document.getElementById('newCatSlug');
+  const emojiEl = document.getElementById('newCatEmoji');
+
+  const name  = nameEl.value.trim();
+  let   slug  = slugEl.value.trim() || slugify(name);
+  const emoji = emojiEl.value.trim() || selectedEmoji || '📦';
+
+  if (!name) { showToast('Category name is required!','error'); nameEl.focus(); return; }
+  if (!slug) { showToast('Category slug is required!','error'); slugEl.focus(); return; }
+
+  // Reserve "all"
+  if (slug === 'all') { showToast('"all" is reserved — choose another slug.','error'); return; }
+
+  // Duplicate check
+  if (categories.find(c => c.slug === slug)) {
+    showToast('A category with this slug already exists!','error'); return;
+  }
+
+  categories.push({ slug, name, emoji });
+  saveCategories();
+  renderAdminCategoryList();
+  populateCategoryDropdown();
+  renderCategoryChips();
+
+  // Reset form
+  nameEl.value = ''; slugEl.value = ''; emojiEl.value = ''; selectedEmoji = '';
+  delete slugEl.dataset.manual;
+  document.querySelectorAll('#emojiPicker button').forEach(b=>b.classList.remove('selected'));
+  showToast('"'+name+'" category added! 🎉','success');
+}
+
+function deleteCategory(slug) {
+  const cat = categories.find(c => c.slug === slug);
+  if (!cat) return;
+
+  // Check if any products use this category
+  const affected = products.filter(p => p.categorySlug === slug).length;
+  const warn = affected > 0 ? ` ${affected} product(s) will become uncategorised.` : '';
+  if (!confirm(`Delete "${cat.name}" category?${warn}`)) return;
+
+  categories = categories.filter(c => c.slug !== slug);
+  saveCategories();
+
+  // If current filter is this category, reset to all
+  if (currentCategory === slug) { currentCategory = 'all'; }
+
+  renderAdminCategoryList();
+  populateCategoryDropdown();
+  renderCategoryChips();
+  renderProductGrid();
+  showToast('"'+cat.name+'" deleted!','error');
+}
+
+function renderAdminCategoryList() {
+  const list = document.getElementById('categoryList');
+  const cnt  = document.getElementById('catCount');
+  cnt.textContent = categories.length;
+
+  if (categories.length === 0) {
+    list.innerHTML = `
+      <div class="text-center py-8">
+        <div class="text-4xl mb-2">🏷️</div>
+        <p class="text-gray-400 font-semibold text-sm">No categories yet.</p>
+        <p class="text-gray-300 text-xs mt-1">Add your first category above.</p>
+      </div>`;
     return;
   }
 
-  list.innerHTML = products.map((p, idx) => `
-    <div class="product-list-item flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
-      <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-xl">
-        <img src="${p.img||''}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='${p.emoji||'📦'}'" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <h4 class="font-bold text-brand text-sm truncate">${p.name}</h4>
-        <p class="text-wa font-bold text-sm">${fmtPrice(p.price)}</p>
-        <div class="flex items-center gap-1.5 mt-0.5">
-          ${p.badge ? `<span class="text-[10px] font-bold bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full">${p.badge}</span>` : ''}
-          <span class="text-[10px] text-gray-400">${Array.isArray(p.category)?p.category[0]:p.category}</span>
-          ${p.isDefault ? '<span class="text-[10px] bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded-full">default</span>' : '<span class="text-[10px] bg-green-100 text-green-600 px-1.5 py-0.5 rounded-full font-bold">custom</span>'}
+  list.innerHTML = categories.map(cat => {
+    const productCount = products.filter(p => p.categorySlug === cat.slug).length;
+    return `
+      <div class="cat-row flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-xl flex-shrink-0">
+          ${cat.emoji}
         </div>
-      </div>
-      <div class="flex flex-col gap-1.5">
-        <button onclick="editProduct(${p.id})" class="delete-btn w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition-colors">
-          <i class="fa-solid fa-pen text-xs"></i>
-        </button>
-        <button onclick="deleteProduct(${p.id})" class="delete-btn w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors">
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-brand text-sm">${cat.name}</h4>
+          <div class="flex items-center gap-2 mt-0.5">
+            <span class="text-[11px] text-gray-400 font-mono bg-gray-200 px-1.5 py-0.5 rounded">${cat.slug}</span>
+            <span class="text-[11px] text-gray-400">${productCount} product${productCount!==1?'s':''}</span>
+          </div>
+        </div>
+        <button onclick="deleteCategory('${cat.slug}')"
+                class="delete-btn w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors flex-shrink-0"
+                title="Delete category">
           <i class="fa-solid fa-trash text-xs"></i>
         </button>
-      </div>
-    </div>`).join('');
+      </div>`;
+  }).join('');
 }
 
-// ================================================================
-//  ADD / EDIT / DELETE PRODUCT
-// ================================================================
-let nextId = Date.now();
+// ── POPULATE CATEGORY DROPDOWN IN ADD FORM ─────────────────────────
+function populateCategoryDropdown() {
+  const sel = document.getElementById('newProductCategory');
+  if (!sel) return;
+  const currentVal = sel.value;
+  sel.innerHTML = categories.map(cat =>
+    `<option value="${cat.slug}" ${cat.slug===currentVal?'selected':''}>${cat.emoji} ${cat.name}</option>`
+  ).join('');
+  if (categories.length === 0) {
+    sel.innerHTML = '<option value="">⚠️ Add categories first</option>';
+  }
+}
 
-function saveProduct() {
-  const name     = document.getElementById('newProductName').value.trim();
-  const desc     = document.getElementById('newProductDesc').value.trim();
-  const price    = parseFloat(document.getElementById('newProductPrice').value);
-  const origP    = parseFloat(document.getElementById('newProductOrigPrice').value) || null;
-  const cat      = document.getElementById('newProductCategory').value;
-  const badge    = document.getElementById('newProductBadge').value || null;
-  const imgUrl   = document.getElementById('newProductImgUrl').value.trim();
-  const editId   = document.getElementById('editingProductId').value;
+// ── PRODUCT ADMIN LIST ────────────────────────────────────────────
+function renderAdminProductList() {
+  const list = document.getElementById('adminProductList');
+  const cnt  = document.getElementById('adminProductCount');
+  cnt.textContent = products.length+' product'+(products.length!==1?'s':'')+' in catalog';
 
-  if (!name)         { showToast('Product name is required!', 'error'); return; }
-  if (isNaN(price) || price <= 0) { showToast('Please enter a valid price!', 'error'); return; }
-
-  const cats = cat === 'all' ? ['all'] : ['all', cat];
-  const EMOJIS = { mens:'👔', unstitched:'🧵', footwear:'👟', discount:'🔥', all:'📦' };
-  const emoji = EMOJIS[cat] || '📦';
-  const finalImg = imgUrl || 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80';
-
-  if (editId) {
-    // Update existing
-    const idx = products.findIndex(p => p.id == editId);
-    if (idx > -1) {
-      products[idx] = { ...products[idx], name, description: desc, price, originalPrice: origP, category: cats, badge, img: finalImg, emoji, isDefault: false };
-      showToast('Product updated! ✅', 'success');
-    }
-  } else {
-    // Add new
-    const newProduct = { id: ++nextId, name, description: desc, price, originalPrice: origP, category: cats, badge, img: finalImg, emoji, isDefault: false };
-    products.push(newProduct);
-    showToast('"' + name + '" added to catalog! 🎉', 'success');
+  if (products.length === 0) {
+    list.innerHTML = `
+      <div class="text-center py-10">
+        <div class="text-5xl mb-3">📦</div>
+        <p class="text-gray-400 font-semibold">No products yet.</p>
+        <button onclick="switchAdminTab('add')" class="mt-3 bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm">+ Add First Product</button>
+      </div>`;
+    return;
   }
 
-  saveProducts();
-  updateUI();
+  list.innerHTML = products.map(p => {
+    const cat = getCatBySlug(p.categorySlug);
+    const catLabel = cat ? cat.emoji+' '+cat.name : '—';
+    return `
+      <div class="product-list-item flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-xl">
+          <img src="${p.img||''}" alt="${p.name}" class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.innerHTML='${p.emoji||'📦'}'" />
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-bold text-brand text-sm truncate">${p.name}</h4>
+          <p class="text-wa font-bold text-sm">${fmtPrice(p.price)}</p>
+          <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
+            ${p.badge?`<span class="text-[10px] font-bold bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full">${p.badge}</span>`:''}
+            <span class="text-[10px] text-gray-500 bg-gray-200 px-1.5 py-0.5 rounded-full">${catLabel}</span>
+            ${p.isDefault?'<span class="text-[10px] bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded-full">default</span>':'<span class="text-[10px] bg-green-100 text-green-600 px-1.5 py-0.5 rounded-full font-bold">custom</span>'}
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <button onclick="editProduct(${p.id})"
+                  class="delete-btn w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+            <i class="fa-solid fa-pen text-xs"></i>
+          </button>
+          <button onclick="deleteProduct(${p.id})"
+                  class="delete-btn w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors">
+            <i class="fa-solid fa-trash text-xs"></i>
+          </button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ── ADD / EDIT / DELETE PRODUCT ───────────────────────────────────
+function saveProduct() {
+  const name    = document.getElementById('newProductName').value.trim();
+  const desc    = document.getElementById('newProductDesc').value.trim();
+  const price   = parseFloat(document.getElementById('newProductPrice').value);
+  const origP   = parseFloat(document.getElementById('newProductOrigPrice').value)||null;
+  const catSlug = document.getElementById('newProductCategory').value;
+  const badge   = document.getElementById('newProductBadge').value||null;
+  const imgUrl  = document.getElementById('newProductImgUrl').value.trim();
+  const editId  = document.getElementById('editingProductId').value;
+
+  if (!name)                      { showToast('Product name is required!','error'); return; }
+  if (isNaN(price)||price<=0)     { showToast('Please enter a valid price!','error'); return; }
+  if (!catSlug)                   { showToast('Please select or create a category first!','error'); return; }
+
+  const cat   = getCatBySlug(catSlug);
+  const emoji = cat ? cat.emoji : '📦';
+  const finalImg = imgUrl || PRESET_IMAGES[0];
+
+  if (editId) {
+    const idx = products.findIndex(p => p.id == editId);
+    if (idx>-1) {
+      products[idx] = { ...products[idx], name, description:desc, price, originalPrice:origP, categorySlug:catSlug, badge, img:finalImg, emoji, isDefault:false };
+      showToast('Product updated! ✅','success');
+    }
+  } else {
+    products.push({ id:++nextId, name, description:desc, price, originalPrice:origP, categorySlug:catSlug, badge, img:finalImg, emoji, isDefault:false });
+    showToast('"'+name+'" added! 🎉','success');
+  }
+
+  saveProducts(); updateUI();
   renderAdminProductList();
   clearAddForm();
   switchAdminTab('products');
 }
 
 function editProduct(id) {
-  const p = products.find(x => x.id === id);
+  const p = products.find(x => x.id===id);
   if (!p) return;
+  populateCategoryDropdown();
   switchAdminTab('add');
-  document.getElementById('addFormTitle').textContent = 'Edit Product';
-  document.getElementById('newProductName').value       = p.name;
-  document.getElementById('newProductDesc').value       = p.description || '';
-  document.getElementById('newProductPrice').value      = p.price;
-  document.getElementById('newProductOrigPrice').value  = p.originalPrice || '';
-  const cats = Array.isArray(p.category) ? p.category : [p.category];
-  const nonAll = cats.filter(c => c !== 'all');
-  document.getElementById('newProductCategory').value   = nonAll[0] || 'all';
-  document.getElementById('newProductBadge').value      = p.badge || '';
-  document.getElementById('newProductImgUrl').value     = p.img || '';
-  document.getElementById('editingProductId').value     = p.id;
-  document.getElementById('saveProductBtnText').textContent = 'Update Product';
+  document.getElementById('addFormTitle').textContent           = 'Edit Product';
+  document.getElementById('newProductName').value               = p.name;
+  document.getElementById('newProductDesc').value               = p.description||'';
+  document.getElementById('newProductPrice').value              = p.price;
+  document.getElementById('newProductOrigPrice').value          = p.originalPrice||'';
+  document.getElementById('newProductCategory').value           = p.categorySlug||'';
+  document.getElementById('newProductBadge').value              = p.badge||'';
+  document.getElementById('newProductImgUrl').value             = p.img||'';
+  document.getElementById('editingProductId').value             = p.id;
+  document.getElementById('saveProductBtnText').textContent     = 'Update Product';
   document.getElementById('cancelEditBtn').classList.remove('hidden');
   previewImage();
 }
@@ -1025,180 +1270,148 @@ function cancelEdit() {
 }
 
 function clearAddForm() {
-  ['newProductName','newProductDesc','newProductPrice','newProductOrigPrice','newProductImgUrl'].forEach(id => {
-    document.getElementById(id).value = '';
+  ['newProductName','newProductDesc','newProductPrice','newProductOrigPrice','newProductImgUrl'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
   });
-  document.getElementById('newProductCategory').value = 'all';
-  document.getElementById('newProductBadge').value = '';
+  const catSel = document.getElementById('newProductCategory');
+  if (catSel && categories.length>0) catSel.value = categories[0].slug;
+  const badgeSel = document.getElementById('newProductBadge');
+  if (badgeSel) badgeSel.value='';
   document.getElementById('imgPreviewBox').classList.add('hidden');
-  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.preset-img-btn').forEach(b=>b.classList.remove('selected'));
 }
 
 function deleteProduct(id) {
-  const p = products.find(x => x.id === id);
+  const p = products.find(x => x.id===id);
   if (!p) return;
-  if (!confirm('Delete "' + p.name + '" from your catalog?')) return;
-  products = products.filter(x => x.id !== id);
-  cart = cart.filter(i => i.id !== id);
-  saveProducts(); saveCart();
-  updateUI();
+  if (!confirm('Delete "'+p.name+'" from your catalog?')) return;
+  products = products.filter(x => x.id!==id);
+  cart     = cart.filter(i => i.id!==id);
+  saveProducts(); saveCart(); updateUI();
   renderAdminProductList();
-  showToast('"' + p.name + '" removed! 🗑️', 'error');
+  showToast('"'+p.name+'" removed! 🗑️','error');
 }
 
 function resetAllData() {
-  if (!confirm('⚠️ This will DELETE all your custom products and settings. Are you sure?')) return;
-  products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+  if (!confirm('⚠️ Reset ALL data (products, categories, settings) to defaults?')) return;
+  products      = cloneDefaults(DEFAULT_PRODUCTS);
+  categories    = cloneDefaults(DEFAULT_CATEGORIES);
   storeSettings = { ...DEFAULT_STORE };
-  cart = [];
-  saveProducts(); saveStore(); saveCart();
+  cart          = [];
+  currentCategory = 'all';
+  saveProducts(); saveCategories(); saveStore(); saveCart();
   updateUI();
   populateAdminStoreForm();
+  renderAdminCategoryList();
   renderAdminProductList();
-  showToast('Everything reset to defaults! 🔄', 'success');
+  showToast('Everything reset to defaults! 🔄','success');
 }
 
-// ================================================================
-//  IMAGE HELPERS
-// ================================================================
+// ── PRESET IMAGES ─────────────────────────────────────────────────
+function buildPresetImages() {
+  const grid = document.getElementById('presetImages');
+  if (!grid) return;
+  grid.innerHTML = PRESET_IMAGES.map(url=>`
+    <button type="button" data-url="${url}" onclick="selectPresetImg(this)"
+            class="preset-img-btn rounded-xl overflow-hidden" style="aspect-ratio:1/1;">
+      <img src="${url.replace('w=400','w=100')}" class="w-full h-full object-cover" loading="lazy" />
+    </button>`).join('');
+}
+
 function previewImage() {
   const url = document.getElementById('newProductImgUrl').value.trim();
   const box = document.getElementById('imgPreviewBox');
   const img = document.getElementById('imgPreview');
-  if (url) { img.src = url; box.classList.remove('hidden'); }
-  else      { box.classList.add('hidden'); }
-  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+  if (url) { img.src=url; box.classList.remove('hidden'); }
+  else     { box.classList.add('hidden'); }
+  document.querySelectorAll('.preset-img-btn').forEach(b=>b.classList.remove('selected'));
 }
 
 function selectPresetImg(btn) {
   const url = btn.dataset.url;
   document.getElementById('newProductImgUrl').value = url;
-  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.preset-img-btn').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
   previewImage();
 }
 
-// ================================================================
-//  FILTERING
-// ================================================================
+// ── SEARCH / FILTER ───────────────────────────────────────────────
 function filterProducts() {
-  const inp = document.getElementById('searchInput');
-  currentSearch = inp.value;
+  currentSearch = document.getElementById('searchInput').value;
   document.getElementById('searchClear').classList.toggle('hidden', !currentSearch);
   renderProductGrid();
 }
-
 function clearSearch() {
-  document.getElementById('searchInput').value = '';
-  currentSearch = '';
+  document.getElementById('searchInput').value='';
+  currentSearch='';
   document.getElementById('searchClear').classList.add('hidden');
   renderProductGrid();
 }
 
-const SECTION_TITLES = {
-  all:        ['All Products', 'Showing all available items'],
-  mens:       ["Men's Collection", 'Premium suits & kurtas for men'],
-  unstitched: ['Unstitched Fabric', 'Choose your style & stitch your way'],
-  footwear:   ['Footwear', 'Traditional & modern shoes'],
-  discount:   ['Special Discounts 🔥', 'Best deals — limited time only!']
-};
-
-function filterCategory(el, cat) {
-  currentCategory = cat;
-  document.querySelectorAll('.chip').forEach(c => {
-    c.classList.remove('chip-active','bg-brand','text-white');
-    c.classList.add('bg-white','text-gray-600');
-  });
-  el.classList.add('chip-active','bg-brand','text-white');
-  el.classList.remove('bg-white','text-gray-600');
-  const t = SECTION_TITLES[cat] || ['Products', ''];
-  document.getElementById('sectionTitle').textContent   = t[0];
-  document.getElementById('sectionSubtitle').textContent = t[1];
-  renderProductGrid();
-}
-
-// ================================================================
-//  WHATSAPP ORDER ENGINE
-// ================================================================
+// ── WHATSAPP ORDER ────────────────────────────────────────────────
 function orderViaWhatsApp() {
-  if (cart.length === 0) { showToast('Add items first!', 'error'); return; }
+  if (cart.length===0) { showToast('Add items first!','error'); return; }
   const name    = document.getElementById('custName').value.trim();
   const phone   = document.getElementById('custPhone').value.trim();
   const address = document.getElementById('custAddress').value.trim();
   const payEl   = document.querySelector('input[name="payment"]:checked');
   const payment = payEl ? payEl.value : 'Cash on Delivery';
 
-  if (!name)    { hilite('custName', 'Enter your full name'); return; }
-  if (!phone)   { hilite('custPhone', 'Enter your phone number'); return; }
-  if (!address) { hilite('custAddress', 'Enter delivery address'); return; }
+  if (!name)    { hilite('custName','Enter your full name'); return; }
+  if (!phone)   { hilite('custPhone','Enter your phone number'); return; }
+  if (!address) { hilite('custAddress','Enter delivery address'); return; }
 
-  const div = '--------------------------------';
-  const items = cart.map(i => `${i.qty}x ${i.name} — ${fmtPrice(i.price * i.qty)}`).join('\n');
-
+  const div   = '--------------------------------';
+  const items = cart.map(i=>`${i.qty}x ${i.name} — ${fmtPrice(i.price*i.qty)}`).join('\n');
   const msg = [
-    `🛍️ *NEW ORDER FROM WEBSITE*`,
-    div,
-    items,
-    div,
+    `🛍️ *NEW ORDER FROM WEBSITE*`, div, items, div,
     `💵 *Total Amount:* ${fmtPrice(getGrandTotal())}`,
     `🚚 *Payment Method:* ${payment}`,
-    ``,
-    `📍 *CUSTOMER DETAILS:*`,
-    `• Name: ${name}`,
-    `• Phone: ${phone}`,
-    `• Address: ${address}`,
-    div,
-    `*Please confirm my order!* 🙏`
+    ``, `📍 *CUSTOMER DETAILS:*`,
+    `• Name: ${name}`, `• Phone: ${phone}`, `• Address: ${address}`,
+    div, `*Please confirm my order!* 🙏`
   ].join('\n');
 
   const waNum = storeSettings.waNumber || '923001234567';
   window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`, '_blank');
-  showToast('Redirecting to WhatsApp... ✅', 'success');
+  showToast('Redirecting to WhatsApp… ✅','success');
 }
 
 function hilite(id, msg) {
   const f = document.getElementById(id);
-  f.classList.add('border-red-400');
-  f.focus();
-  showToast('⚠️ ' + msg, 'error');
-  setTimeout(() => f.classList.remove('border-red-400'), 2500);
+  f.classList.add('border-red-400'); f.focus();
+  showToast('⚠️ '+msg,'error');
+  setTimeout(()=>f.classList.remove('border-red-400'),2500);
 }
 
-// ================================================================
-//  TOAST
-// ================================================================
-let toastTimer = null;
-function showToast(msg, type='success') {
+// ── TOAST ─────────────────────────────────────────────────────────
+let _toastTimer=null;
+function showToast(msg,type='success'){
   const t  = document.getElementById('toast');
   const ti = document.getElementById('toastInner');
   const ic = document.getElementById('toastIcon');
-  document.getElementById('toastMsg').textContent = msg;
-
-  if (type === 'error') {
-    ti.className = 'bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
-    ic.className = 'fa-solid fa-circle-exclamation text-white';
+  document.getElementById('toastMsg').textContent=msg;
+  if(type==='error'){
+    ti.className='bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
+    ic.className='fa-solid fa-circle-exclamation text-white';
   } else {
-    ti.className = 'bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
-    ic.className = 'fa-solid fa-circle-check text-wa';
+    ti.className='bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
+    ic.className='fa-solid fa-circle-check text-wa';
   }
   t.classList.remove('hidden');
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
+  if(_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(()=>t.classList.add('hidden'),2800);
 }
 
-// ================================================================
-//  KEYBOARD
-// ================================================================
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (cartDrawerOpen) closeCart(); if (adminPanelOpen) closeAdmin(); }
+// ── KEYBOARD ──────────────────────────────────────────────────────
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ if(cartDrawerOpen) closeCart(); if(adminPanelOpen) closeAdmin(); }
 });
 
-// ================================================================
-//  INIT
-// ================================================================
-window.addEventListener('DOMContentLoaded', () => {
+// ── INIT ──────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', ()=>{
   loadAll();
-  nextId = products.length > 0 ? Math.max(...products.map(p=>p.id), Date.now()) : Date.now();
+  nextId = products.length>0 ? Math.max(...products.map(p=>p.id), Date.now()) : Date.now();
   updateUI();
 });
 </script>
