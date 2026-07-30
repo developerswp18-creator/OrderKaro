@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mian Ji Cloth House — Official Online Store</title>
+  <title>OrderKaro — Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -15,102 +15,124 @@
         extend: {
           fontFamily: { inter: ['Inter', 'sans-serif'] },
           colors: {
-            wa: '#25D366',
-            'wa-dark': '#128C7E',
-            'wa-light': '#DCF8C6',
-            brand: '#1a1a2e',
-            accent: '#e94560',
+            wa: '#25D366', 'wa-dark': '#128C7E', 'wa-light': '#DCF8C6',
+            brand: '#1a1a2e', accent: '#e94560',
           },
           boxShadow: {
             card: '0 2px 16px 0 rgba(0,0,0,0.07)',
             float: '0 8px 32px 0 rgba(37,211,102,0.25)',
             drawer: '-4px 0 40px 0 rgba(0,0,0,0.12)',
+            admin: '4px 0 40px 0 rgba(0,0,0,0.12)',
           },
           keyframes: {
             slideInRight: { from: { transform: 'translateX(100%)' }, to: { transform: 'translateX(0)' } },
             slideOutRight: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(100%)' } },
+            slideInLeft: { from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } },
+            slideOutLeft: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-100%)' } },
             fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
             fadeOut: { from: { opacity: '1' }, to: { opacity: '0' } },
             bounceIn: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '70%': { transform: 'scale(1.1)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
-            pulse: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.08)' } },
+            pulse: { '0%,100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.08)' } },
+            spin: { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
           },
           animation: {
             slideInRight: 'slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
             slideOutRight: 'slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
+            slideInLeft: 'slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
+            slideOutLeft: 'slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
             fadeIn: 'fadeIn 0.25s ease forwards',
             fadeOut: 'fadeOut 0.25s ease forwards',
             bounceIn: 'bounceIn 0.4s ease forwards',
             pulseSlow: 'pulse 2s ease-in-out infinite',
+            spinSlow: 'spin 3s linear infinite',
           }
         }
       }
     };
   </script>
   <style>
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body { font-family: 'Inter', sans-serif; background: #F9FAFB; overscroll-behavior: none; }
-    ::-webkit-scrollbar { width: 4px; height: 4px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .card-hover:active { transform: scale(0.97); }
-    .btn-add { transition: all 0.2s ease; }
-    .btn-add:active { transform: scale(0.95); }
-    .qty-btn { transition: all 0.15s ease; }
-    .qty-btn:active { transform: scale(0.88); }
-    .glow-wa { box-shadow: 0 4px 24px 0 rgba(37,211,102,0.4); }
-    .glow-wa:hover { box-shadow: 0 6px 32px 0 rgba(37,211,102,0.55); }
-    .chip-active { background: #1a1a2e !important; color: #fff !important; }
-    .drawer-open { animation: slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
-    .drawer-close { animation: slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards; }
-    .overlay-open { animation: fadeIn 0.25s ease forwards; }
-    .overlay-close { animation: fadeOut 0.25s ease forwards; }
-    .badge-bounce { animation: bounceIn 0.4s ease forwards; }
-    .wa-btn-pulse { animation: pulse 2s ease-in-out infinite; }
-    input:focus, textarea:focus { outline: none; }
-    .radio-custom input[type="radio"] { display: none; }
-    .radio-custom label { cursor: pointer; }
-    .radio-custom input[type="radio"]:checked + label .radio-box {
-      border-color: #25D366; background: #25D366;
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    body{font-family:'Inter',sans-serif;background:#F9FAFB;overscroll-behavior:none}
+    ::-webkit-scrollbar{width:4px;height:4px}
+    ::-webkit-scrollbar-track{background:#f1f1f1}
+    ::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+    .hide-scrollbar::-webkit-scrollbar{display:none}
+    .hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+    .card-hover{transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .card-hover:active{transform:scale(0.97)}
+    .btn-add{transition:all 0.2s ease}
+    .btn-add:active{transform:scale(0.95)}
+    .qty-btn{transition:all 0.15s ease}
+    .qty-btn:active{transform:scale(0.88)}
+    .glow-wa{box-shadow:0 4px 24px 0 rgba(37,211,102,0.4)}
+    .glow-wa:hover{box-shadow:0 6px 32px 0 rgba(37,211,102,0.55)}
+    .chip-active{background:#1a1a2e!important;color:#fff!important}
+    .drawer-open{animation:slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards}
+    .drawer-close{animation:slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards}
+    .admin-open{animation:slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards}
+    .admin-close{animation:slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards}
+    .overlay-open{animation:fadeIn 0.25s ease forwards}
+    .overlay-close{animation:fadeOut 0.25s ease forwards}
+    .wa-btn-pulse{animation:pulse 2s ease-in-out infinite}
+    input:focus,textarea:focus,select:focus{outline:none}
+    .radio-custom input[type="radio"]{display:none}
+    .radio-custom label{cursor:pointer}
+    .radio-custom input[type="radio"]:checked+label .radio-box{border-color:#25D366;background:#25D366}
+    .radio-custom input[type="radio"]:checked+label .radio-text{color:#128C7E;font-weight:600}
+    .product-img{transition:transform 0.4s ease}
+    .card-hover:hover .product-img{transform:scale(1.04)}
+    @media(max-width:640px){
+      .drawer-panel{width:100%!important;border-radius:20px 20px 0 0!important}
+      .admin-panel{width:100%!important;border-radius:0 0 20px 20px!important;top:0!important}
     }
-    .radio-custom input[type="radio"]:checked + label .radio-text { color: #128C7E; font-weight: 600; }
-    .product-img { transition: transform 0.4s ease; }
-    .card-hover:hover .product-img { transform: scale(1.04); }
-    @media (max-width: 640px) {
-      .drawer-panel { width: 100% !important; border-radius: 20px 20px 0 0 !important; }
-    }
-    .search-glow:focus { box-shadow: 0 0 0 3px rgba(37,211,102,0.2); }
-    .form-input { transition: border-color 0.2s, box-shadow 0.2s; }
-    .form-input:focus { border-color: #25D366; box-shadow: 0 0 0 3px rgba(37,211,102,0.15); }
-    .toast { animation: bounceIn 0.4s ease forwards; }
+    .search-glow:focus{box-shadow:0 0 0 3px rgba(37,211,102,0.2)}
+    .form-input{transition:border-color 0.2s,box-shadow 0.2s}
+    .form-input:focus{border-color:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,0.15)}
+    .admin-form-input{transition:border-color 0.2s,box-shadow 0.2s}
+    .admin-form-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.15)}
+    .gear-spin:hover i{animation:spin 1s linear infinite}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .tab-active{background:#1a1a2e;color:#fff}
+    .tab-inactive{background:#f3f4f6;color:#6b7280}
+    .delete-btn{transition:all 0.15s ease}
+    .delete-btn:active{transform:scale(0.9)}
+    .preset-img-btn{transition:all 0.2s ease;border:2px solid transparent}
+    .preset-img-btn.selected{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.2)}
+    .admin-section{border-left:3px solid #6366f1;padding-left:12px}
+    .product-list-item{transition:all 0.2s ease}
+    .product-list-item:hover{background:#f8fafc}
+    .badge-new{background:linear-gradient(135deg,#667eea,#764ba2)}
   </style>
 </head>
 <body class="min-h-screen bg-gray-50">
 
-<!-- ===== TOAST NOTIFICATION ===== -->
-<div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] hidden">
-  <div class="toast bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2">
-    <i class="fa-solid fa-circle-check text-wa"></i>
-    <span id="toastMsg">Added to cart!</span>
+<!-- ============================================================ -->
+<!--  TOAST NOTIFICATION                                          -->
+<!-- ============================================================ -->
+<div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] hidden pointer-events-none">
+  <div id="toastInner" class="bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-wa"></i>
+    <span id="toastMsg">Done!</span>
   </div>
 </div>
 
-<!-- ===== OVERLAY ===== -->
-<div id="overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden" onclick="closeCart()"></div>
+<!-- ============================================================ -->
+<!--  SHARED OVERLAY                                               -->
+<!-- ============================================================ -->
+<div id="overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden" onclick="handleOverlayClick()"></div>
 
-<!-- ===== CART DRAWER ===== -->
-<div id="cartDrawer" class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px] bg-white z-50 shadow-drawer flex flex-col sm:rounded-none rounded-t-[24px] hidden" style="max-height:96vh; sm:max-height:100vh;">
+<!-- ============================================================ -->
+<!--  CART DRAWER (slides from right)                             -->
+<!-- ============================================================ -->
+<div id="cartDrawer" class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px] bg-white z-50 shadow-drawer flex flex-col sm:rounded-none rounded-t-[24px] hidden" style="max-height:96vh;">
 
-  <!-- Drawer Header -->
   <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-white sm:rounded-none rounded-t-[24px] flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-full bg-wa/10 flex items-center justify-center">
         <i class="fa-solid fa-bag-shopping text-wa text-lg"></i>
       </div>
       <div>
-        <h2 class="font-800 text-brand text-lg font-extrabold">Your Cart</h2>
+        <h2 class="font-extrabold text-brand text-lg">Your Cart</h2>
         <p class="text-xs text-gray-400" id="drawerItemCount">0 items selected</p>
       </div>
     </div>
@@ -119,10 +141,7 @@
     </button>
   </div>
 
-  <!-- Drawer Body (scrollable) -->
-  <div class="flex-1 overflow-y-auto px-4 py-3" style="overscroll-behavior: contain;">
-
-    <!-- Empty Cart State -->
+  <div class="flex-1 overflow-y-auto px-4 py-3" style="overscroll-behavior:contain;">
     <div id="emptyCart" class="flex flex-col items-center justify-center py-12 text-center">
       <div class="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
         <i class="fa-solid fa-cart-shopping text-gray-300 text-4xl"></i>
@@ -131,26 +150,21 @@
       <p class="text-gray-400 text-sm">Add items from the store to get started!</p>
     </div>
 
-    <!-- Cart Items List -->
     <div id="cartItemsList" class="space-y-3 hidden"></div>
 
-    <!-- Divider -->
     <div id="cartFormSection" class="hidden">
       <div class="my-4 border-t border-dashed border-gray-200"></div>
 
-      <!-- Order Summary -->
       <div class="bg-gray-50 rounded-2xl p-4 mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-receipt text-wa"></i> Order Summary
         </h3>
         <div class="space-y-1.5">
           <div class="flex justify-between text-sm text-gray-600">
-            <span>Subtotal</span>
-            <span id="summarySubtotal" class="font-semibold">Rs. 0</span>
+            <span>Subtotal</span><span id="summarySubtotal" class="font-semibold">Rs. 0</span>
           </div>
           <div class="flex justify-between text-sm text-gray-600">
-            <span>Delivery</span>
-            <span class="font-semibold text-wa">Free 🎉</span>
+            <span>Delivery</span><span class="font-semibold text-wa">Free 🎉</span>
           </div>
           <div class="border-t border-gray-200 pt-2 mt-2 flex justify-between">
             <span class="font-bold text-brand">Grand Total</span>
@@ -159,7 +173,6 @@
         </div>
       </div>
 
-      <!-- Customer Details Form -->
       <div class="mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-user text-wa"></i> Your Details
@@ -180,7 +193,6 @@
         </div>
       </div>
 
-      <!-- Payment Method -->
       <div class="mb-5">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2">
           <i class="fa-solid fa-credit-card text-wa"></i> Payment Method
@@ -219,7 +231,6 @@
         </div>
       </div>
 
-      <!-- WhatsApp Order Button -->
       <button onclick="orderViaWhatsApp()" class="wa-btn-pulse w-full bg-wa hover:bg-wa-dark text-white font-extrabold text-base py-4 rounded-2xl flex items-center justify-center gap-3 glow-wa transition-all duration-200 mb-2">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
         Order via WhatsApp
@@ -230,7 +241,239 @@
   </div>
 </div>
 
-<!-- ===== FLOATING CART BADGE ===== -->
+<!-- ============================================================ -->
+<!--  ADMIN PANEL (slides from left on desktop, top on mobile)   -->
+<!-- ============================================================ -->
+<div id="adminPanel" class="admin-panel fixed left-0 top-0 h-full w-full sm:w-[480px] bg-white z-50 shadow-admin flex flex-col hidden">
+
+  <!-- Admin Header -->
+  <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-brand to-[#16213e] flex-shrink-0">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
+        <i class="fa-solid fa-screwdriver-wrench text-white text-lg"></i>
+      </div>
+      <div>
+        <h2 class="font-extrabold text-white text-lg">Admin Panel</h2>
+        <p class="text-xs text-gray-400">Manage your store settings</p>
+      </div>
+    </div>
+    <button onclick="closeAdmin()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+      <i class="fa-solid fa-xmark text-white text-lg"></i>
+    </button>
+  </div>
+
+  <!-- Admin Tabs -->
+  <div class="flex gap-2 px-4 py-3 border-b border-gray-100 bg-white flex-shrink-0">
+    <button id="tabStore" onclick="switchAdminTab('store')" class="tab-active flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+      <i class="fa-solid fa-store text-sm"></i> Store Info
+    </button>
+    <button id="tabProducts" onclick="switchAdminTab('products')" class="tab-inactive flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+      <i class="fa-solid fa-boxes-stacked text-sm"></i> Products
+    </button>
+    <button id="tabAdd" onclick="switchAdminTab('add')" class="tab-inactive flex-1 text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+      <i class="fa-solid fa-circle-plus text-sm"></i> Add New
+    </button>
+  </div>
+
+  <!-- Admin Body -->
+  <div class="flex-1 overflow-y-auto" style="overscroll-behavior:contain;">
+
+    <!-- ===== TAB: STORE INFO ===== -->
+    <div id="panelStore" class="px-4 py-4 space-y-4">
+      <div class="admin-section mb-4">
+        <h3 class="font-extrabold text-brand text-base">Store Settings</h3>
+        <p class="text-xs text-gray-400 mt-0.5">Changes apply live on the storefront immediately.</p>
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-solid fa-store text-indigo-400"></i> Store Name
+        </label>
+        <input id="adminStoreName" type="text" placeholder="e.g. Al-Madina Cloth House" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-brands fa-whatsapp text-wa"></i> WhatsApp Number
+        </label>
+        <div class="relative">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-400">+</span>
+          <input id="adminWaNumber" type="tel" placeholder="923001234567 (with country code)" class="admin-form-input w-full border-2 border-gray-200 rounded-xl pl-8 pr-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        </div>
+        <p class="text-[11px] text-gray-400 mt-1">Include country code. e.g. 923001234567</p>
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-solid fa-coins text-yellow-500"></i> Currency Symbol
+        </label>
+        <input id="adminCurrency" type="text" placeholder="e.g. Rs." class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-solid fa-tag text-purple-400"></i> Store Tagline
+        </label>
+        <input id="adminTagline" type="text" placeholder="e.g. Premium Quality Since 1995" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-solid fa-megaphone text-orange-400"></i> Banner Promo Text
+        </label>
+        <input id="adminBannerText" type="text" placeholder="e.g. Flat 20% OFF on All Suits!" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+      </div>
+
+      <div>
+        <label class="text-xs font-bold text-gray-500 mb-1.5 block flex items-center gap-1.5">
+          <i class="fa-solid fa-ticket text-pink-400"></i> Promo Code
+        </label>
+        <input id="adminPromoCode" type="text" placeholder="e.g. SALE20" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+      </div>
+
+      <button onclick="saveStoreSettings()" class="w-full bg-brand text-white font-extrabold py-4 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+        <i class="fa-solid fa-floppy-disk"></i> Save Store Settings
+      </button>
+
+      <!-- Danger Zone -->
+      <div class="mt-6 border border-red-200 rounded-2xl p-4 bg-red-50">
+        <h4 class="font-bold text-red-600 text-sm mb-2 flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation"></i> Danger Zone
+        </h4>
+        <p class="text-xs text-red-400 mb-3">This will reset all store data including products, settings, and saved cart to factory defaults.</p>
+        <button onclick="resetAllData()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+          <i class="fa-solid fa-rotate-left"></i> Reset Everything to Default
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== TAB: PRODUCTS LIST ===== -->
+    <div id="panelProducts" class="px-4 py-4 hidden">
+      <div class="admin-section mb-4 flex items-center justify-between">
+        <div>
+          <h3 class="font-extrabold text-brand text-base">Product Catalog</h3>
+          <p class="text-xs text-gray-400 mt-0.5" id="adminProductCount">Loading...</p>
+        </div>
+        <button onclick="switchAdminTab('add')" class="bg-indigo-500 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 hover:bg-indigo-600 transition-colors">
+          <i class="fa-solid fa-plus"></i> Add New
+        </button>
+      </div>
+      <div id="adminProductList" class="space-y-2"></div>
+    </div>
+
+    <!-- ===== TAB: ADD PRODUCT ===== -->
+    <div id="panelAdd" class="px-4 py-4 hidden">
+      <div class="admin-section mb-4">
+        <h3 class="font-extrabold text-brand text-base" id="addFormTitle">Add New Product</h3>
+        <p class="text-xs text-gray-400 mt-0.5">Fill in the details below and hit save.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-bold text-gray-500 mb-1.5 block">Product Name *</label>
+          <input id="newProductName" type="text" placeholder="e.g. Premium Khaddar Suit" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-gray-500 mb-1.5 block">Short Description</label>
+          <input id="newProductDesc" type="text" placeholder="e.g. Soft winter fabric, premium quality" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Price (PKR) *</label>
+            <input id="newProductPrice" type="number" min="0" placeholder="e.g. 2499" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          </div>
+          <div>
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Original Price</label>
+            <input id="newProductOrigPrice" type="number" min="0" placeholder="e.g. 3200" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Category *</label>
+            <select id="newProductCategory" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
+              <option value="all">All Items</option>
+              <option value="mens">Men's Collection</option>
+              <option value="unstitched">Unstitched</option>
+              <option value="footwear">Footwear</option>
+              <option value="discount">Special Discount</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-gray-500 mb-1.5 block">Badge Label</label>
+            <select id="newProductBadge" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand bg-gray-50 appearance-none">
+              <option value="">None</option>
+              <option value="NEW">NEW</option>
+              <option value="HOT">HOT</option>
+              <option value="SALE">SALE</option>
+              <option value="LIMITED">LIMITED</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Image Options -->
+        <div>
+          <label class="text-xs font-bold text-gray-500 mb-2 block">Product Image</label>
+          <div class="space-y-3">
+            <input id="newProductImgUrl" type="url" placeholder="Paste image URL (https://...)" class="admin-form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" oninput="previewImage()" />
+            <p class="text-[11px] text-gray-400 text-center">— or choose a preset —</p>
+            <div class="grid grid-cols-4 gap-2" id="presetImages">
+              <button type="button" data-url="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+              <button type="button" data-url="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" onclick="selectPresetImg(this)" class="preset-img-btn rounded-xl overflow-hidden aspect-square">
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=100&q=60" class="w-full h-full object-cover" />
+              </button>
+            </div>
+
+            <!-- Image Preview -->
+            <div id="imgPreviewBox" class="hidden mt-2 rounded-2xl overflow-hidden border-2 border-indigo-200 aspect-video bg-gray-100 flex items-center justify-center">
+              <img id="imgPreview" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden edit ID -->
+        <input type="hidden" id="editingProductId" value="" />
+
+        <div class="flex gap-3 pt-2">
+          <button onclick="cancelEdit()" id="cancelEditBtn" class="hidden flex-1 bg-gray-100 text-gray-600 font-bold py-3.5 rounded-2xl text-sm hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-xmark"></i> Cancel
+          </button>
+          <button onclick="saveProduct()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span id="saveProductBtnText">Save Product</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end admin body -->
+</div>
+
+<!-- ============================================================ -->
+<!--  FLOATING CART BADGE                                         -->
+<!-- ============================================================ -->
 <button id="floatingCart" onclick="openCart()" class="fixed bottom-5 right-4 z-30 bg-brand text-white rounded-2xl px-4 py-3 flex items-center gap-2.5 shadow-float transition-all duration-200 active:scale-95 hidden">
   <div class="relative">
     <i class="fa-solid fa-bag-shopping text-xl"></i>
@@ -243,20 +486,21 @@
   <i class="fa-solid fa-chevron-up text-xs opacity-60"></i>
 </button>
 
-<!-- ===== MAIN CONTENT ===== -->
+<!-- ============================================================ -->
+<!--  MAIN STOREFRONT                                             -->
+<!-- ============================================================ -->
 <div class="max-w-2xl mx-auto">
 
-  <!-- ===== STORE HEADER ===== -->
+  <!-- STORE HEADER -->
   <header class="bg-white sticky top-0 z-20 shadow-sm">
     <div class="px-4 pt-4 pb-3">
-      <!-- Logo Row -->
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-3">
           <div class="w-11 h-11 rounded-2xl bg-brand flex items-center justify-center shadow-md flex-shrink-0">
             <i class="fa-solid fa-store text-white text-lg"></i>
           </div>
           <div>
-            <h1 class="font-extrabold text-brand text-lg leading-tight">Mian Ji Cloth House</h1>
+            <h1 class="font-extrabold text-brand text-lg leading-tight" id="storeNameDisplay">Mian Ji Cloth House</h1>
             <div class="flex items-center gap-1 mt-0.5">
               <span class="text-[10px] bg-wa/10 text-wa-dark font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
                 <i class="fa-solid fa-circle-check text-[9px]"></i> Official Online Store
@@ -264,13 +508,22 @@
             </div>
           </div>
         </div>
-        <button onclick="openCart()" class="relative w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-          <i class="fa-solid fa-bag-shopping text-brand text-lg"></i>
-          <span id="headerBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-wa text-white text-[10px] font-extrabold rounded-full items-center justify-center hidden" style="display:none;">0</span>
-        </button>
+        <div class="flex items-center gap-2">
+          <!-- Admin Button -->
+          <button onclick="openAdmin()" class="gear-spin relative w-10 h-10 rounded-xl bg-indigo-50 hover:bg-indigo-100 flex items-center justify-center transition-colors group" title="Shop Admin">
+            <i class="fa-solid fa-gear text-indigo-500 text-lg group-hover:text-indigo-600 transition-colors"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-lock text-white text-[7px]"></i>
+            </span>
+          </button>
+          <!-- Cart Button -->
+          <button onclick="openCart()" class="relative w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+            <i class="fa-solid fa-bag-shopping text-brand text-lg"></i>
+            <span id="headerBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-wa text-white text-[10px] font-extrabold rounded-full items-center justify-center" style="display:none;">0</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Search Bar -->
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
         <input id="searchInput" type="text" placeholder="Search items..." oninput="filterProducts()" class="search-glow w-full bg-gray-100 rounded-xl pl-10 pr-4 py-3 text-sm text-brand placeholder-gray-400 border-2 border-transparent transition-all" />
@@ -281,543 +534,673 @@
     </div>
 
     <!-- Category Chips -->
-    <div class="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar">
-      <button class="chip flex-shrink-0 chip-active text-sm font-semibold px-4 py-2 rounded-full border-2 border-transparent bg-brand text-white transition-all" data-cat="all" onclick="filterCategory(this,'all')">
-        All Items
-      </button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="mens" onclick="filterCategory(this,'mens')">
-        👔 Men's Collection
-      </button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="unstitched" onclick="filterCategory(this,'unstitched')">
-        🧵 Unstitched
-      </button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="footwear" onclick="filterCategory(this,'footwear')">
-        👟 Footwear
-      </button>
-      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="discount" onclick="filterCategory(this,'discount')">
-        🔥 Special Discount
-      </button>
+    <div id="categoryChips" class="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar">
+      <button class="chip flex-shrink-0 chip-active text-sm font-semibold px-4 py-2 rounded-full border-2 border-transparent bg-brand text-white transition-all" data-cat="all" onclick="filterCategory(this,'all')">All Items</button>
+      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="mens" onclick="filterCategory(this,'mens')">👔 Men's Collection</button>
+      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="unstitched" onclick="filterCategory(this,'unstitched')">🧵 Unstitched</button>
+      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="footwear" onclick="filterCategory(this,'footwear')">👟 Footwear</button>
+      <button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-gray-600 hover:border-brand/40 transition-all" data-cat="discount" onclick="filterCategory(this,'discount')">🔥 Special Discount</button>
     </div>
   </header>
 
-  <!-- ===== HERO BANNER ===== -->
+  <!-- HERO BANNER -->
   <div class="px-4 pt-4 pb-2">
-    <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand to-[#16213e] p-5 flex items-center justify-between" style="min-height:110px;">
+    <div id="heroBanner" class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand to-[#16213e] p-5 flex items-center justify-between" style="min-height:110px;">
       <div class="z-10">
         <p class="text-wa text-xs font-bold mb-1 uppercase tracking-wider">🎉 Limited Time Offer</p>
-        <h2 class="text-white font-extrabold text-xl leading-tight mb-1">Flat 20% OFF<br/>on All Suits!</h2>
-        <p class="text-gray-400 text-xs">Use code: <span class="text-wa font-bold">MJCH20</span></p>
+        <h2 id="bannerText" class="text-white font-extrabold text-xl leading-tight mb-1">Flat 20% OFF<br/>on All Suits!</h2>
+        <p class="text-gray-400 text-xs">Use code: <span id="bannerCode" class="text-wa font-bold">MJCH20</span></p>
       </div>
       <div class="text-7xl opacity-20 absolute right-4 top-1/2 -translate-y-1/2">🧵</div>
-      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10">
-        <span class="text-4xl">👗</span>
-      </div>
+      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10"><span class="text-4xl">👗</span></div>
     </div>
   </div>
 
-  <!-- ===== SECTION TITLE ===== -->
+  <!-- SECTION TITLE -->
   <div class="px-4 pt-4 pb-2 flex items-center justify-between">
     <div>
       <h2 class="font-extrabold text-brand text-lg" id="sectionTitle">All Products</h2>
       <p class="text-gray-400 text-xs" id="sectionSubtitle">Showing all available items</p>
     </div>
-    <span id="productCount" class="text-xs font-bold bg-gray-200 text-gray-600 px-2.5 py-1 rounded-full">6 items</span>
+    <span id="productCount" class="text-xs font-bold bg-gray-200 text-gray-600 px-2.5 py-1 rounded-full">0 items</span>
   </div>
 
-  <!-- ===== PRODUCT GRID ===== -->
+  <!-- PRODUCT GRID -->
   <div id="productGrid" class="grid grid-cols-2 gap-3 px-4 pb-28"></div>
 
-  <!-- No Results -->
+  <!-- NO RESULTS -->
   <div id="noResults" class="hidden flex flex-col items-center py-16 px-4 text-center">
     <div class="text-6xl mb-4">🔍</div>
     <h3 class="font-bold text-gray-500 text-lg mb-2">No items found</h3>
-    <p class="text-gray-400 text-sm">Try searching for something else or browse all categories.</p>
-    <button onclick="clearSearch(); filterCategory(document.querySelector('[data-cat=all]'), 'all')" class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">
-      Show All Items
-    </button>
+    <p class="text-gray-400 text-sm">Try a different search or category.</p>
+    <button onclick="clearSearch();filterCategory(document.querySelector('[data-cat=all]'),'all')" class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">Show All Items</button>
   </div>
 
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <div class="max-w-2xl mx-auto px-4 pb-32 pt-4 text-center">
-  <p class="text-xs text-gray-400">© 2025 Mian Ji Cloth House · Lahore, Pakistan</p>
-  <p class="text-xs text-gray-400 mt-1">For queries: <span class="text-wa font-semibold">+92 300 1234567</span></p>
+  <p class="text-xs text-gray-400">© 2025 <span id="footerStoreName">Mian Ji Cloth House</span> · Powered by OrderKaro</p>
 </div>
 
-<!-- ===== JAVASCRIPT ENGINE ===== -->
+<!-- ============================================================ -->
+<!--  JAVASCRIPT ENGINE                                           -->
+<!-- ============================================================ -->
 <script>
-  // ==================== PRODUCT DATA ====================
-  const PRODUCTS = [
-    {
-      id: 1,
-      name: "Premium Khaddar Suit",
-      price: 2499,
-      originalPrice: 3200,
-      category: ["all", "mens", "unstitched", "discount"],
-      badge: "SALE",
-      badgeColor: "bg-accent",
-      description: "Soft premium khaddar fabric, winter ready",
-      img: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80",
-      emoji: "🧥"
-    },
-    {
-      id: 2,
-      name: "Wash & Wear Suit",
-      price: 1899,
-      originalPrice: null,
-      category: ["all", "mens"],
-      badge: "NEW",
-      badgeColor: "bg-wa",
-      description: "Wrinkle-free, easy to wear daily",
-      img: "https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80",
-      emoji: "👔"
-    },
-    {
-      id: 3,
-      name: "Peshawari Chappal",
-      price: 1800,
-      originalPrice: 2200,
-      category: ["all", "footwear", "discount"],
-      badge: "HOT",
-      badgeColor: "bg-orange-500",
-      description: "Traditional handmade leather chappal",
-      img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",
-      emoji: "👟"
-    },
-    {
-      id: 4,
-      name: "Linen Unstitched Fabric",
-      price: 1250,
-      originalPrice: null,
-      category: ["all", "unstitched"],
-      badge: null,
-      badgeColor: "",
-      description: "Premium linen, 3.5 meters per piece",
-      img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80",
-      emoji: "🧵"
-    },
-    {
-      id: 5,
-      name: "Classic Shalwar Kameez",
-      price: 2100,
-      originalPrice: 2800,
-      category: ["all", "mens", "discount"],
-      badge: "SALE",
-      badgeColor: "bg-accent",
-      description: "Finest cotton, fully stitched & ready to wear",
-      img: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80",
-      emoji: "👘"
-    },
-    {
-      id: 6,
-      name: "Leather Moccasins",
-      price: 3200,
-      originalPrice: null,
-      category: ["all", "footwear"],
-      badge: "NEW",
-      badgeColor: "bg-blue-500",
-      description: "Genuine leather, handcrafted comfort shoes",
-      img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80",
-      emoji: "👞"
-    }
-  ];
+// ================================================================
+//  DEFAULT DATA
+// ================================================================
+const DEFAULT_STORE = {
+  name: 'Mian Ji Cloth House',
+  waNumber: '923001234567',
+  currency: 'Rs.',
+  tagline: 'Premium Quality Since 1995',
+  bannerText: 'Flat 20% OFF\non All Suits!',
+  promoCode: 'MJCH20'
+};
 
-  // ==================== STATE ====================
-  let cart = [];
-  let currentCategory = "all";
-  let currentSearch = "";
-  let cartDrawerOpen = false;
+const DEFAULT_PRODUCTS = [
+  { id: 1, name: 'Premium Khaddar Suit', price: 2499, originalPrice: 3200, category: ['all','mens','unstitched','discount'], badge: 'SALE', description: 'Soft premium khaddar fabric, winter ready', img: 'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80', emoji: '🧥', isDefault: true },
+  { id: 2, name: 'Wash & Wear Suit', price: 1899, originalPrice: null, category: ['all','mens'], badge: 'NEW', description: 'Wrinkle-free, easy to wear daily', img: 'https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80', emoji: '👔', isDefault: true },
+  { id: 3, name: 'Peshawari Chappal', price: 1800, originalPrice: 2200, category: ['all','footwear','discount'], badge: 'HOT', description: 'Traditional handmade leather chappal', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80', emoji: '👟', isDefault: true },
+  { id: 4, name: 'Linen Unstitched Fabric', price: 1250, originalPrice: null, category: ['all','unstitched'], badge: null, description: 'Premium linen, 3.5 meters per piece', img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80', emoji: '🧵', isDefault: true },
+  { id: 5, name: 'Classic Shalwar Kameez', price: 2100, originalPrice: 2800, category: ['all','mens','discount'], badge: 'SALE', description: 'Finest cotton, fully stitched & ready to wear', img: 'https://images.unsplash.com/photo-1506634572416-48cdfe530110?w=400&q=80', emoji: '👘', isDefault: true },
+  { id: 6, name: 'Leather Moccasins', price: 3200, originalPrice: null, category: ['all','footwear'], badge: 'NEW', description: 'Genuine leather, handcrafted comfort shoes', img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80', emoji: '👞', isDefault: true }
+];
 
-  // ==================== LOCAL STORAGE ====================
-  function saveCart() {
-    localStorage.setItem('mjch_cart', JSON.stringify(cart));
-  }
+// ================================================================
+//  STATE
+// ================================================================
+let cart = [];
+let products = [];
+let storeSettings = { ...DEFAULT_STORE };
+let currentCategory = 'all';
+let currentSearch = '';
+let cartDrawerOpen = false;
+let adminPanelOpen = false;
+let currentAdminTab = 'store';
 
-  function loadCart() {
-    try {
-      const saved = localStorage.getItem('mjch_cart');
-      if (saved) cart = JSON.parse(saved);
-    } catch(e) { cart = []; }
-  }
+// ================================================================
+//  LOCAL STORAGE
+// ================================================================
+const LS = {
+  CART: 'ok_cart',
+  PRODUCTS: 'ok_products',
+  STORE: 'ok_store'
+};
 
-  // ==================== CART LOGIC ====================
-  function getCartItem(id) {
-    return cart.find(i => i.id === id);
-  }
+function saveCart()     { localStorage.setItem(LS.CART, JSON.stringify(cart)); }
+function saveProducts() { localStorage.setItem(LS.PRODUCTS, JSON.stringify(products)); }
+function saveStore()    { localStorage.setItem(LS.STORE, JSON.stringify(storeSettings)); }
 
-  function addToCart(id) {
-    const product = PRODUCTS.find(p => p.id === id);
-    if (!product) return;
-    const existing = getCartItem(id);
-    if (existing) {
-      existing.qty++;
-    } else {
-      cart.push({ id: product.id, name: product.name, price: product.price, img: product.img, emoji: product.emoji, qty: 1 });
-    }
-    saveCart();
-    updateUI();
-    showToast(`"${product.name}" added to cart!`);
-  }
+function loadAll() {
+  try { cart = JSON.parse(localStorage.getItem(LS.CART)) || []; } catch(e) { cart = []; }
+  try {
+    const savedP = localStorage.getItem(LS.PRODUCTS);
+    products = savedP ? JSON.parse(savedP) : JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+  } catch(e) { products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)); }
+  try {
+    const savedS = localStorage.getItem(LS.STORE);
+    storeSettings = savedS ? { ...DEFAULT_STORE, ...JSON.parse(savedS) } : { ...DEFAULT_STORE };
+  } catch(e) { storeSettings = { ...DEFAULT_STORE }; }
+}
 
-  function removeFromCart(id) {
-    cart = cart.filter(i => i.id !== id);
-    saveCart();
-    updateUI();
-  }
+// ================================================================
+//  CART LOGIC
+// ================================================================
+function getCartItem(id)  { return cart.find(i => i.id === id); }
+function getTotalItems()  { return cart.reduce((s,i) => s+i.qty, 0); }
+function getGrandTotal()  { return cart.reduce((s,i) => s+(i.price*i.qty), 0); }
+function fmtPrice(n)      { return storeSettings.currency + ' ' + Number(n).toLocaleString('en-PK'); }
 
-  function increaseQty(id) {
-    const item = getCartItem(id);
-    if (item) { item.qty++; saveCart(); updateUI(); }
-  }
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  const ex = getCartItem(id);
+  if (ex) { ex.qty++; } else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, emoji: p.emoji||'📦', qty: 1 }); }
+  saveCart(); updateUI();
+  showToast('"' + p.name + '" added!', 'success');
+}
 
-  function decreaseQty(id) {
-    const item = getCartItem(id);
-    if (!item) return;
-    if (item.qty <= 1) {
-      removeFromCart(id);
-    } else {
-      item.qty--;
-      saveCart();
-      updateUI();
-    }
-  }
+function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); updateUI(); }
 
-  function getTotalItems() {
-    return cart.reduce((sum, i) => sum + i.qty, 0);
-  }
+function increaseQty(id) { const i = getCartItem(id); if (i) { i.qty++; saveCart(); updateUI(); } }
 
-  function getGrandTotal() {
-    return cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-  }
+function decreaseQty(id) {
+  const i = getCartItem(id);
+  if (!i) return;
+  if (i.qty <= 1) removeFromCart(id); else { i.qty--; saveCart(); updateUI(); }
+}
 
-  function formatPrice(n) {
-    return 'Rs. ' + n.toLocaleString('en-PK');
-  }
+// ================================================================
+//  UI UPDATE
+// ================================================================
+function updateUI() {
+  renderProductGrid();
+  renderCartDrawer();
+  updateFloatingCart();
+  updateHeaderBadge();
+  applyStoreSettings();
+}
 
-  // ==================== UI UPDATE ====================
-  function updateUI() {
-    renderProductGrid();
-    renderCartDrawer();
-    updateFloatingCart();
-    updateHeaderBadge();
-  }
+function updateFloatingCart() {
+  const btn = document.getElementById('floatingCart');
+  const badge = document.getElementById('floatBadge');
+  const total = document.getElementById('floatTotal');
+  const n = getTotalItems();
+  if (n > 0) { btn.classList.remove('hidden'); badge.textContent = n; total.textContent = fmtPrice(getGrandTotal()); }
+  else        { btn.classList.add('hidden'); }
+}
 
-  function updateFloatingCart() {
-    const btn = document.getElementById('floatingCart');
-    const badge = document.getElementById('floatBadge');
-    const total = document.getElementById('floatTotal');
-    const count = getTotalItems();
-    if (count > 0) {
-      btn.classList.remove('hidden');
-      badge.textContent = count;
-      total.textContent = formatPrice(getGrandTotal());
-    } else {
-      btn.classList.add('hidden');
-    }
-  }
+function updateHeaderBadge() {
+  const b = document.getElementById('headerBadge');
+  const n = getTotalItems();
+  if (n > 0) { b.textContent = n; b.style.display = 'flex'; }
+  else        { b.style.display = 'none'; }
+}
 
-  function updateHeaderBadge() {
-    const badge = document.getElementById('headerBadge');
-    const count = getTotalItems();
-    if (count > 0) {
-      badge.textContent = count;
-      badge.style.display = 'flex';
-    } else {
-      badge.style.display = 'none';
-    }
-  }
+function applyStoreSettings() {
+  document.title = storeSettings.name + ' — OrderKaro';
+  document.getElementById('storeNameDisplay').textContent = storeSettings.name;
+  document.getElementById('footerStoreName').textContent = storeSettings.name;
+  const bt = document.getElementById('bannerText');
+  if (bt) bt.innerHTML = storeSettings.bannerText.replace(/\n/g,'<br/>');
+  const bc = document.getElementById('bannerCode');
+  if (bc) bc.textContent = storeSettings.promoCode;
+}
 
-  // ==================== RENDER PRODUCT GRID ====================
-  function renderProductGrid() {
-    const grid = document.getElementById('productGrid');
-    const noResults = document.getElementById('noResults');
-    const filtered = getFilteredProducts();
-    document.getElementById('productCount').textContent = filtered.length + ' item' + (filtered.length !== 1 ? 's' : '');
+// ================================================================
+//  PRODUCT GRID RENDER
+// ================================================================
+function getFilteredProducts() {
+  return products.filter(p => {
+    const cats = Array.isArray(p.category) ? p.category : [p.category];
+    const matchCat = currentCategory === 'all' || cats.includes(currentCategory);
+    const matchSrc = !currentSearch || p.name.toLowerCase().includes(currentSearch.toLowerCase()) || (p.description||'').toLowerCase().includes(currentSearch.toLowerCase());
+    return matchCat && matchSrc;
+  });
+}
 
-    if (filtered.length === 0) {
-      grid.innerHTML = '';
-      noResults.classList.remove('hidden');
-      return;
-    }
-    noResults.classList.add('hidden');
+const BADGE_COLORS = { SALE:'bg-accent', NEW:'bg-indigo-500', HOT:'bg-orange-500', LIMITED:'bg-purple-500' };
 
-    grid.innerHTML = filtered.map(p => {
-      const inCart = getCartItem(p.id);
-      const qty = inCart ? inCart.qty : 0;
-      const discount = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+function renderProductGrid() {
+  const grid = document.getElementById('productGrid');
+  const noRes = document.getElementById('noResults');
+  const filtered = getFilteredProducts();
+  document.getElementById('productCount').textContent = filtered.length + ' item' + (filtered.length!==1?'s':'');
 
-      return `
-        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-card border border-gray-100 flex flex-col">
-          <!-- Product Image -->
-          <div class="relative overflow-hidden bg-gray-100" style="aspect-ratio:1/1;">
-            <img src="${p.img}" alt="${p.name}" class="product-img w-full h-full object-cover" loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 bg-gray-100 items-center justify-center text-5xl hidden">${p.emoji}</div>
-            ${p.badge ? `<span class="absolute top-2 left-2 ${p.badgeColor} text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>` : ''}
-            ${discount > 0 ? `<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${discount}%</span>` : ''}
-            ${qty > 0 ? `<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>` : ''}
-          </div>
+  if (filtered.length === 0) { grid.innerHTML = ''; noRes.classList.remove('hidden'); return; }
+  noRes.classList.add('hidden');
 
-          <!-- Product Info -->
-          <div class="p-3 flex flex-col flex-1">
-            <p class="text-[10px] text-gray-400 mb-0.5">${p.description}</p>
-            <h3 class="font-bold text-brand text-sm leading-tight mb-2 flex-1">${p.name}</h3>
-            <div class="mb-2.5">
-              <span class="font-extrabold text-brand text-base">${formatPrice(p.price)}</span>
-              ${p.originalPrice ? `<span class="text-xs text-gray-400 line-through ml-1">${formatPrice(p.originalPrice)}</span>` : ''}
-            </div>
+  grid.innerHTML = filtered.map(p => {
+    const inCart = getCartItem(p.id);
+    const qty = inCart ? inCart.qty : 0;
+    const origPrice = p.originalPrice || p.orig_price;
+    const discount = origPrice ? Math.round((1 - p.price / origPrice) * 100) : 0;
+    const badgeColor = BADGE_COLORS[p.badge] || 'bg-gray-500';
+    const emoji = p.emoji || '📦';
 
-            <!-- Add/Qty Controls -->
-            ${qty === 0 ? `
-              <button onclick="addToCart(${p.id})" class="btn-add w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5">
-                <i class="fa-solid fa-plus text-xs"></i> Add to Cart
-              </button>
-            ` : `
-              <div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
-                <button onclick="decreaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center font-bold">
-                  <i class="fa-solid fa-minus text-xs"></i>
-                </button>
-                <span class="font-extrabold text-brand text-sm">${qty}</span>
-                <button onclick="increaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center font-bold">
-                  <i class="fa-solid fa-plus text-xs"></i>
-                </button>
-              </div>
-            `}
-          </div>
+    return `
+      <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-card border border-gray-100 flex flex-col">
+        <div class="relative overflow-hidden bg-gray-100" style="aspect-ratio:1/1;">
+          <img src="${p.img||''}" alt="${p.name}" class="product-img w-full h-full object-cover" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="absolute inset-0 bg-gray-100 items-center justify-center text-5xl hidden">${emoji}</div>
+          ${p.badge ? `<span class="absolute top-2 left-2 ${badgeColor} text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>` : ''}
+          ${discount>0 ? `<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${discount}%</span>` : ''}
+          ${qty>0 ? `<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>` : ''}
         </div>
-      `;
-    }).join('');
+        <div class="p-3 flex flex-col flex-1">
+          <p class="text-[10px] text-gray-400 mb-0.5 truncate">${p.description||''}</p>
+          <h3 class="font-bold text-brand text-sm leading-tight mb-2 flex-1">${p.name}</h3>
+          <div class="mb-2.5">
+            <span class="font-extrabold text-brand text-base">${fmtPrice(p.price)}</span>
+            ${origPrice ? `<span class="text-xs text-gray-400 line-through ml-1">${fmtPrice(origPrice)}</span>` : ''}
+          </div>
+          ${qty===0
+            ? `<button onclick="addToCart(${p.id})" class="btn-add w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5"><i class="fa-solid fa-plus text-xs"></i> Add to Cart</button>`
+            : `<div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
+                 <button onclick="decreaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center font-bold"><i class="fa-solid fa-minus text-xs"></i></button>
+                 <span class="font-extrabold text-brand text-sm">${qty}</span>
+                 <button onclick="increaseQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center font-bold"><i class="fa-solid fa-plus text-xs"></i></button>
+               </div>`
+          }
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ================================================================
+//  CART DRAWER RENDER
+// ================================================================
+function renderCartDrawer() {
+  const empty   = document.getElementById('emptyCart');
+  const list    = document.getElementById('cartItemsList');
+  const form    = document.getElementById('cartFormSection');
+  const cnt     = document.getElementById('drawerItemCount');
+  const subEl   = document.getElementById('summarySubtotal');
+  const totEl   = document.getElementById('summaryTotal');
+
+  const total = getTotalItems(), grand = getGrandTotal();
+  cnt.textContent = total + ' item' + (total!==1?'s':'') + ' selected';
+  subEl.textContent = fmtPrice(grand);
+  totEl.textContent = fmtPrice(grand);
+
+  if (cart.length === 0) {
+    empty.classList.remove('hidden'); list.classList.add('hidden'); form.classList.add('hidden'); return;
+  }
+  empty.classList.add('hidden'); list.classList.remove('hidden'); form.classList.remove('hidden');
+
+  list.innerHTML = cart.map(item => `
+    <div class="flex items-center gap-3 bg-gray-50 rounded-2xl p-3">
+      <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-2xl">
+        <img src="${item.img||''}" alt="${item.name}" class="w-full h-full object-cover"
+          onerror="this.style.display='none';this.parentElement.innerHTML='${item.emoji||'📦'}'" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 class="font-bold text-brand text-sm leading-tight truncate">${item.name}</h4>
+        <p class="text-wa font-extrabold text-sm mt-0.5">${fmtPrice(item.price)}</p>
+        <p class="text-gray-400 text-xs">Subtotal: ${fmtPrice(item.price*item.qty)}</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-1 bg-white rounded-xl border border-gray-200 p-1">
+          <button onclick="decreaseQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-gray-100 text-brand flex items-center justify-center"><i class="fa-solid fa-minus text-[10px]"></i></button>
+          <span class="w-6 text-center font-extrabold text-brand text-sm">${item.qty}</span>
+          <button onclick="increaseQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-brand text-white flex items-center justify-center"><i class="fa-solid fa-plus text-[10px]"></i></button>
+        </div>
+        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-500 text-xs flex items-center gap-1 transition-colors">
+          <i class="fa-solid fa-trash text-[10px]"></i> Remove
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+// ================================================================
+//  CART DRAWER OPEN / CLOSE
+// ================================================================
+function openCart() {
+  closeAdmin(true);
+  const d = document.getElementById('cartDrawer'), o = document.getElementById('overlay');
+  d.classList.remove('hidden','drawer-close'); d.classList.add('drawer-open');
+  o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
+  cartDrawerOpen = true; document.body.style.overflow = 'hidden';
+  renderCartDrawer();
+}
+
+function closeCart(silent) {
+  const d = document.getElementById('cartDrawer'), o = document.getElementById('overlay');
+  d.classList.remove('drawer-open'); d.classList.add('drawer-close');
+  if (!adminPanelOpen) { o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
+  cartDrawerOpen = false; document.body.style.overflow = '';
+  setTimeout(() => {
+    d.classList.add('hidden'); d.classList.remove('drawer-close');
+    if (!adminPanelOpen) { o.classList.add('hidden'); o.classList.remove('overlay-close'); }
+  }, 300);
+}
+
+// ================================================================
+//  ADMIN PANEL OPEN / CLOSE
+// ================================================================
+function openAdmin() {
+  closeCart(true);
+  const a = document.getElementById('adminPanel'), o = document.getElementById('overlay');
+  a.classList.remove('hidden','admin-close'); a.classList.add('admin-open');
+  o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
+  adminPanelOpen = true; document.body.style.overflow = 'hidden';
+  populateAdminStoreForm();
+  renderAdminProductList();
+}
+
+function closeAdmin(silent) {
+  const a = document.getElementById('adminPanel'), o = document.getElementById('overlay');
+  a.classList.remove('admin-open'); a.classList.add('admin-close');
+  if (!cartDrawerOpen) { o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
+  adminPanelOpen = false; document.body.style.overflow = '';
+  setTimeout(() => {
+    a.classList.add('hidden'); a.classList.remove('admin-close');
+    if (!cartDrawerOpen) { o.classList.add('hidden'); o.classList.remove('overlay-close'); }
+  }, 300);
+}
+
+function handleOverlayClick() {
+  if (cartDrawerOpen) closeCart();
+  if (adminPanelOpen) closeAdmin();
+}
+
+// ================================================================
+//  ADMIN TABS
+// ================================================================
+function switchAdminTab(tab) {
+  currentAdminTab = tab;
+  ['store','products','add'].forEach(t => {
+    document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('hidden');
+    const btn = document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1));
+    btn.classList.remove('tab-active'); btn.classList.add('tab-inactive');
+  });
+  document.getElementById('panel' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
+  const activeBtn = document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1));
+  activeBtn.classList.add('tab-active'); activeBtn.classList.remove('tab-inactive');
+
+  if (tab === 'products') renderAdminProductList();
+  if (tab === 'add') { cancelEdit(); }
+}
+
+// ================================================================
+//  ADMIN STORE SETTINGS
+// ================================================================
+function populateAdminStoreForm() {
+  document.getElementById('adminStoreName').value   = storeSettings.name || '';
+  document.getElementById('adminWaNumber').value    = storeSettings.waNumber || '';
+  document.getElementById('adminCurrency').value    = storeSettings.currency || '';
+  document.getElementById('adminTagline').value     = storeSettings.tagline || '';
+  document.getElementById('adminBannerText').value  = storeSettings.bannerText || '';
+  document.getElementById('adminPromoCode').value   = storeSettings.promoCode || '';
+}
+
+function saveStoreSettings() {
+  const name    = document.getElementById('adminStoreName').value.trim();
+  const wa      = document.getElementById('adminWaNumber').value.trim();
+  const cur     = document.getElementById('adminCurrency').value.trim();
+  const tag     = document.getElementById('adminTagline').value.trim();
+  const banner  = document.getElementById('adminBannerText').value.trim();
+  const promo   = document.getElementById('adminPromoCode').value.trim();
+
+  if (!name) { showToast('Store name cannot be empty!', 'error'); return; }
+  if (!wa)   { showToast('WhatsApp number cannot be empty!', 'error'); return; }
+
+  storeSettings = { name: name||storeSettings.name, waNumber: wa||storeSettings.waNumber, currency: cur||'Rs.', tagline: tag, bannerText: banner||storeSettings.bannerText, promoCode: promo };
+  saveStore();
+  updateUI();
+  showToast('Store settings saved! ✅', 'success');
+}
+
+// ================================================================
+//  ADMIN PRODUCT LIST
+// ================================================================
+function renderAdminProductList() {
+  const list = document.getElementById('adminProductList');
+  const cnt  = document.getElementById('adminProductCount');
+  cnt.textContent = products.length + ' product' + (products.length!==1?'s':'') + ' in catalog';
+
+  if (products.length === 0) {
+    list.innerHTML = `<div class="text-center py-10"><div class="text-5xl mb-3">📦</div><p class="text-gray-400 font-semibold">No products yet.</p><button onclick="switchAdminTab('add')" class="mt-3 bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm">+ Add First Product</button></div>`;
+    return;
   }
 
-  // ==================== RENDER CART DRAWER ====================
-  function renderCartDrawer() {
-    const emptyCart = document.getElementById('emptyCart');
-    const cartList = document.getElementById('cartItemsList');
-    const formSection = document.getElementById('cartFormSection');
-    const drawerCount = document.getElementById('drawerItemCount');
-    const summarySubtotal = document.getElementById('summarySubtotal');
-    const summaryTotal = document.getElementById('summaryTotal');
-
-    const total = getTotalItems();
-    const grand = getGrandTotal();
-
-    drawerCount.textContent = total + ' item' + (total !== 1 ? 's' : '') + ' selected';
-    summarySubtotal.textContent = formatPrice(grand);
-    summaryTotal.textContent = formatPrice(grand);
-
-    if (cart.length === 0) {
-      emptyCart.classList.remove('hidden');
-      cartList.classList.add('hidden');
-      formSection.classList.add('hidden');
-      return;
-    }
-
-    emptyCart.classList.add('hidden');
-    cartList.classList.remove('hidden');
-    formSection.classList.remove('hidden');
-
-    cartList.innerHTML = cart.map(item => `
-      <div class="flex items-center gap-3 bg-gray-50 rounded-2xl p-3">
-        <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-2xl">
-          <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"
-            onerror="this.style.display='none'; this.parentElement.innerHTML='${item.emoji}';" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <h4 class="font-bold text-brand text-sm leading-tight truncate">${item.name}</h4>
-          <p class="text-wa font-extrabold text-sm mt-0.5">${formatPrice(item.price)}</p>
-          <p class="text-gray-400 text-xs">Subtotal: ${formatPrice(item.price * item.qty)}</p>
-        </div>
-        <div class="flex flex-col items-center gap-1.5">
-          <div class="flex items-center gap-1 bg-white rounded-xl border border-gray-200 p-1">
-            <button onclick="decreaseQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-gray-100 text-brand flex items-center justify-center">
-              <i class="fa-solid fa-minus text-[10px]"></i>
-            </button>
-            <span class="w-6 text-center font-extrabold text-brand text-sm">${item.qty}</span>
-            <button onclick="increaseQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-brand text-white flex items-center justify-center">
-              <i class="fa-solid fa-plus text-[10px]"></i>
-            </button>
-          </div>
-          <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-500 text-xs flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-trash text-[10px]"></i> Remove
-          </button>
+  list.innerHTML = products.map((p, idx) => `
+    <div class="product-list-item flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
+      <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-xl">
+        <img src="${p.img||''}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='${p.emoji||'📦'}'" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 class="font-bold text-brand text-sm truncate">${p.name}</h4>
+        <p class="text-wa font-bold text-sm">${fmtPrice(p.price)}</p>
+        <div class="flex items-center gap-1.5 mt-0.5">
+          ${p.badge ? `<span class="text-[10px] font-bold bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full">${p.badge}</span>` : ''}
+          <span class="text-[10px] text-gray-400">${Array.isArray(p.category)?p.category[0]:p.category}</span>
+          ${p.isDefault ? '<span class="text-[10px] bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded-full">default</span>' : '<span class="text-[10px] bg-green-100 text-green-600 px-1.5 py-0.5 rounded-full font-bold">custom</span>'}
         </div>
       </div>
-    `).join('');
-  }
+      <div class="flex flex-col gap-1.5">
+        <button onclick="editProduct(${p.id})" class="delete-btn w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+          <i class="fa-solid fa-pen text-xs"></i>
+        </button>
+        <button onclick="deleteProduct(${p.id})" class="delete-btn w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors">
+          <i class="fa-solid fa-trash text-xs"></i>
+        </button>
+      </div>
+    </div>`).join('');
+}
 
-  // ==================== CART DRAWER OPEN/CLOSE ====================
-  function openCart() {
-    const drawer = document.getElementById('cartDrawer');
-    const overlay = document.getElementById('overlay');
-    drawer.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-    drawer.classList.remove('drawer-close');
-    drawer.classList.add('drawer-open');
-    overlay.classList.remove('overlay-close');
-    overlay.classList.add('overlay-open');
-    cartDrawerOpen = true;
-    document.body.style.overflow = 'hidden';
-    renderCartDrawer();
-  }
+// ================================================================
+//  ADD / EDIT / DELETE PRODUCT
+// ================================================================
+let nextId = Date.now();
 
-  function closeCart() {
-    const drawer = document.getElementById('cartDrawer');
-    const overlay = document.getElementById('overlay');
-    drawer.classList.remove('drawer-open');
-    drawer.classList.add('drawer-close');
-    overlay.classList.remove('overlay-open');
-    overlay.classList.add('overlay-close');
-    cartDrawerOpen = false;
-    document.body.style.overflow = '';
-    setTimeout(() => {
-      drawer.classList.add('hidden');
-      overlay.classList.add('hidden');
-      drawer.classList.remove('drawer-close');
-      overlay.classList.remove('overlay-close');
-    }, 300);
-  }
+function saveProduct() {
+  const name     = document.getElementById('newProductName').value.trim();
+  const desc     = document.getElementById('newProductDesc').value.trim();
+  const price    = parseFloat(document.getElementById('newProductPrice').value);
+  const origP    = parseFloat(document.getElementById('newProductOrigPrice').value) || null;
+  const cat      = document.getElementById('newProductCategory').value;
+  const badge    = document.getElementById('newProductBadge').value || null;
+  const imgUrl   = document.getElementById('newProductImgUrl').value.trim();
+  const editId   = document.getElementById('editingProductId').value;
 
-  // ==================== FILTERING ====================
-  function getFilteredProducts() {
-    return PRODUCTS.filter(p => {
-      const matchCat = currentCategory === 'all' || p.category.includes(currentCategory);
-      const matchSearch = currentSearch === '' ||
-        p.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-        p.description.toLowerCase().includes(currentSearch.toLowerCase());
-      return matchCat && matchSearch;
-    });
-  }
+  if (!name)         { showToast('Product name is required!', 'error'); return; }
+  if (isNaN(price) || price <= 0) { showToast('Please enter a valid price!', 'error'); return; }
 
-  function filterCategory(el, cat) {
-    currentCategory = cat;
-    document.querySelectorAll('.chip').forEach(c => {
-      c.classList.remove('chip-active', 'bg-brand', 'text-white');
-      c.classList.add('bg-white', 'text-gray-600');
-    });
-    el.classList.add('chip-active', 'bg-brand', 'text-white');
-    el.classList.remove('bg-white', 'text-gray-600');
+  const cats = cat === 'all' ? ['all'] : ['all', cat];
+  const EMOJIS = { mens:'👔', unstitched:'🧵', footwear:'👟', discount:'🔥', all:'📦' };
+  const emoji = EMOJIS[cat] || '📦';
+  const finalImg = imgUrl || 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80';
 
-    const titles = {
-      all: ['All Products', 'Showing all available items'],
-      mens: ["Men's Collection", 'Premium suits & kurtas for men'],
-      unstitched: ['Unstitched Fabric', 'Choose your favorite fabric & stitch it your way'],
-      footwear: ['Footwear', 'Traditional & modern shoes'],
-      discount: ['Special Discounts 🔥', 'Best deals, limited time only!']
-    };
-    document.getElementById('sectionTitle').textContent = titles[cat][0];
-    document.getElementById('sectionSubtitle').textContent = titles[cat][1];
-    renderProductGrid();
-  }
-
-  function filterProducts() {
-    const input = document.getElementById('searchInput');
-    currentSearch = input.value;
-    const clearBtn = document.getElementById('searchClear');
-    clearBtn.classList.toggle('hidden', currentSearch === '');
-    renderProductGrid();
-  }
-
-  function clearSearch() {
-    document.getElementById('searchInput').value = '';
-    currentSearch = '';
-    document.getElementById('searchClear').classList.add('hidden');
-    renderProductGrid();
-  }
-
-  // ==================== TOAST ====================
-  let toastTimer = null;
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    document.getElementById('toastMsg').textContent = msg;
-    toast.classList.remove('hidden');
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.add('hidden');
-    }, 2500);
-  }
-
-  // ==================== WHATSAPP ORDER ENGINE ====================
-  function orderViaWhatsApp() {
-    // Validate cart
-    if (cart.length === 0) {
-      showToast('Please add items to your cart first!');
-      return;
+  if (editId) {
+    // Update existing
+    const idx = products.findIndex(p => p.id == editId);
+    if (idx > -1) {
+      products[idx] = { ...products[idx], name, description: desc, price, originalPrice: origP, category: cats, badge, img: finalImg, emoji, isDefault: false };
+      showToast('Product updated! ✅', 'success');
     }
-
-    // Get form values
-    const name = document.getElementById('custName').value.trim();
-    const phone = document.getElementById('custPhone').value.trim();
-    const address = document.getElementById('custAddress').value.trim();
-    const paymentEl = document.querySelector('input[name="payment"]:checked');
-    const payment = paymentEl ? paymentEl.value : 'Cash on Delivery';
-
-    // Validate
-    if (!name) { highlightField('custName', 'Please enter your full name'); return; }
-    if (!phone) { highlightField('custPhone', 'Please enter your phone number'); return; }
-    if (!address) { highlightField('custAddress', 'Please enter your delivery address'); return; }
-
-    // Build the WhatsApp message
-    const divider = '--------------------------------';
-
-    let itemLines = cart.map((item, idx) => {
-      return `${item.qty}x ${item.name} — ${formatPrice(item.price * item.qty)}`;
-    }).join('\n');
-
-    const grandTotal = getGrandTotal();
-
-    const message = [
-      `🛍️ *NEW ORDER FROM WEBSITE*`,
-      divider,
-      itemLines,
-      divider,
-      `💵 *Total Amount:* ${formatPrice(grandTotal)}`,
-      `🚚 *Payment Method:* ${payment}`,
-      ``,
-      `📍 *CUSTOMER DETAILS:*`,
-      `• Name: ${name}`,
-      `• Phone: ${phone}`,
-      `• Address: ${address}`,
-      divider,
-      `*Please confirm my order!* 🙏`
-    ].join('\n');
-
-    // Encode the message for WhatsApp URL
-    const encoded = encodeURIComponent(message);
-    const waNumber = '923001234567'; // Replace with actual WhatsApp number
-    const waURL = `https://wa.me/${waNumber}?text=${encoded}`;
-
-    // Open WhatsApp
-    window.open(waURL, '_blank');
-
-    // Show success toast
-    showToast('Redirecting to WhatsApp... ✅');
+  } else {
+    // Add new
+    const newProduct = { id: ++nextId, name, description: desc, price, originalPrice: origP, category: cats, badge, img: finalImg, emoji, isDefault: false };
+    products.push(newProduct);
+    showToast('"' + name + '" added to catalog! 🎉', 'success');
   }
 
-  function highlightField(fieldId, msg) {
-    const field = document.getElementById(fieldId);
-    field.classList.add('border-red-400');
-    field.focus();
-    field.placeholder = msg;
-    showToast('⚠️ ' + msg);
-    setTimeout(() => {
-      field.classList.remove('border-red-400');
-    }, 2500);
+  saveProducts();
+  updateUI();
+  renderAdminProductList();
+  clearAddForm();
+  switchAdminTab('products');
+}
+
+function editProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  switchAdminTab('add');
+  document.getElementById('addFormTitle').textContent = 'Edit Product';
+  document.getElementById('newProductName').value       = p.name;
+  document.getElementById('newProductDesc').value       = p.description || '';
+  document.getElementById('newProductPrice').value      = p.price;
+  document.getElementById('newProductOrigPrice').value  = p.originalPrice || '';
+  const cats = Array.isArray(p.category) ? p.category : [p.category];
+  const nonAll = cats.filter(c => c !== 'all');
+  document.getElementById('newProductCategory').value   = nonAll[0] || 'all';
+  document.getElementById('newProductBadge').value      = p.badge || '';
+  document.getElementById('newProductImgUrl').value     = p.img || '';
+  document.getElementById('editingProductId').value     = p.id;
+  document.getElementById('saveProductBtnText').textContent = 'Update Product';
+  document.getElementById('cancelEditBtn').classList.remove('hidden');
+  previewImage();
+}
+
+function cancelEdit() {
+  clearAddForm();
+  document.getElementById('addFormTitle').textContent       = 'Add New Product';
+  document.getElementById('saveProductBtnText').textContent = 'Save Product';
+  document.getElementById('editingProductId').value         = '';
+  document.getElementById('cancelEditBtn').classList.add('hidden');
+}
+
+function clearAddForm() {
+  ['newProductName','newProductDesc','newProductPrice','newProductOrigPrice','newProductImgUrl'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('newProductCategory').value = 'all';
+  document.getElementById('newProductBadge').value = '';
+  document.getElementById('imgPreviewBox').classList.add('hidden');
+  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+}
+
+function deleteProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm('Delete "' + p.name + '" from your catalog?')) return;
+  products = products.filter(x => x.id !== id);
+  cart = cart.filter(i => i.id !== id);
+  saveProducts(); saveCart();
+  updateUI();
+  renderAdminProductList();
+  showToast('"' + p.name + '" removed! 🗑️', 'error');
+}
+
+function resetAllData() {
+  if (!confirm('⚠️ This will DELETE all your custom products and settings. Are you sure?')) return;
+  products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+  storeSettings = { ...DEFAULT_STORE };
+  cart = [];
+  saveProducts(); saveStore(); saveCart();
+  updateUI();
+  populateAdminStoreForm();
+  renderAdminProductList();
+  showToast('Everything reset to defaults! 🔄', 'success');
+}
+
+// ================================================================
+//  IMAGE HELPERS
+// ================================================================
+function previewImage() {
+  const url = document.getElementById('newProductImgUrl').value.trim();
+  const box = document.getElementById('imgPreviewBox');
+  const img = document.getElementById('imgPreview');
+  if (url) { img.src = url; box.classList.remove('hidden'); }
+  else      { box.classList.add('hidden'); }
+  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+}
+
+function selectPresetImg(btn) {
+  const url = btn.dataset.url;
+  document.getElementById('newProductImgUrl').value = url;
+  document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  previewImage();
+}
+
+// ================================================================
+//  FILTERING
+// ================================================================
+function filterProducts() {
+  const inp = document.getElementById('searchInput');
+  currentSearch = inp.value;
+  document.getElementById('searchClear').classList.toggle('hidden', !currentSearch);
+  renderProductGrid();
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  currentSearch = '';
+  document.getElementById('searchClear').classList.add('hidden');
+  renderProductGrid();
+}
+
+const SECTION_TITLES = {
+  all:        ['All Products', 'Showing all available items'],
+  mens:       ["Men's Collection", 'Premium suits & kurtas for men'],
+  unstitched: ['Unstitched Fabric', 'Choose your style & stitch your way'],
+  footwear:   ['Footwear', 'Traditional & modern shoes'],
+  discount:   ['Special Discounts 🔥', 'Best deals — limited time only!']
+};
+
+function filterCategory(el, cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.remove('chip-active','bg-brand','text-white');
+    c.classList.add('bg-white','text-gray-600');
+  });
+  el.classList.add('chip-active','bg-brand','text-white');
+  el.classList.remove('bg-white','text-gray-600');
+  const t = SECTION_TITLES[cat] || ['Products', ''];
+  document.getElementById('sectionTitle').textContent   = t[0];
+  document.getElementById('sectionSubtitle').textContent = t[1];
+  renderProductGrid();
+}
+
+// ================================================================
+//  WHATSAPP ORDER ENGINE
+// ================================================================
+function orderViaWhatsApp() {
+  if (cart.length === 0) { showToast('Add items first!', 'error'); return; }
+  const name    = document.getElementById('custName').value.trim();
+  const phone   = document.getElementById('custPhone').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const payEl   = document.querySelector('input[name="payment"]:checked');
+  const payment = payEl ? payEl.value : 'Cash on Delivery';
+
+  if (!name)    { hilite('custName', 'Enter your full name'); return; }
+  if (!phone)   { hilite('custPhone', 'Enter your phone number'); return; }
+  if (!address) { hilite('custAddress', 'Enter delivery address'); return; }
+
+  const div = '--------------------------------';
+  const items = cart.map(i => `${i.qty}x ${i.name} — ${fmtPrice(i.price * i.qty)}`).join('\n');
+
+  const msg = [
+    `🛍️ *NEW ORDER FROM WEBSITE*`,
+    div,
+    items,
+    div,
+    `💵 *Total Amount:* ${fmtPrice(getGrandTotal())}`,
+    `🚚 *Payment Method:* ${payment}`,
+    ``,
+    `📍 *CUSTOMER DETAILS:*`,
+    `• Name: ${name}`,
+    `• Phone: ${phone}`,
+    `• Address: ${address}`,
+    div,
+    `*Please confirm my order!* 🙏`
+  ].join('\n');
+
+  const waNum = storeSettings.waNumber || '923001234567';
+  window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`, '_blank');
+  showToast('Redirecting to WhatsApp... ✅', 'success');
+}
+
+function hilite(id, msg) {
+  const f = document.getElementById(id);
+  f.classList.add('border-red-400');
+  f.focus();
+  showToast('⚠️ ' + msg, 'error');
+  setTimeout(() => f.classList.remove('border-red-400'), 2500);
+}
+
+// ================================================================
+//  TOAST
+// ================================================================
+let toastTimer = null;
+function showToast(msg, type='success') {
+  const t  = document.getElementById('toast');
+  const ti = document.getElementById('toastInner');
+  const ic = document.getElementById('toastIcon');
+  document.getElementById('toastMsg').textContent = msg;
+
+  if (type === 'error') {
+    ti.className = 'bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
+    ic.className = 'fa-solid fa-circle-exclamation text-white';
+  } else {
+    ti.className = 'bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-lg flex items-center gap-2 whitespace-nowrap';
+    ic.className = 'fa-solid fa-circle-check text-wa';
   }
+  t.classList.remove('hidden');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
+}
 
-  // ==================== KEYBOARD CLOSE ====================
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && cartDrawerOpen) closeCart();
-  });
+// ================================================================
+//  KEYBOARD
+// ================================================================
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (cartDrawerOpen) closeCart(); if (adminPanelOpen) closeAdmin(); }
+});
 
-  // ==================== INIT ====================
-  window.addEventListener('DOMContentLoaded', () => {
-    loadCart();
-    renderProductGrid();
-    updateFloatingCart();
-    updateHeaderBadge();
-  });
+// ================================================================
+//  INIT
+// ================================================================
+window.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  nextId = products.length > 0 ? Math.max(...products.map(p=>p.id), Date.now()) : Date.now();
+  updateUI();
+});
 </script>
-
 </body>
 </html>
