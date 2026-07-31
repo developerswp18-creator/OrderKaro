@@ -20,24 +20,22 @@
             brand: '#1a1a2e', accent: '#e94560',
           },
           keyframes: {
-            slideInRight:  { from:{transform:'translateX(100%)'},  to:{transform:'translateX(0)'} },
-            slideOutRight: { from:{transform:'translateX(0)'},     to:{transform:'translateX(100%)'} },
-            slideInLeft:   { from:{transform:'translateX(-100%)'}, to:{transform:'translateX(0)'} },
-            slideOutLeft:  { from:{transform:'translateX(0)'},     to:{transform:'translateX(-100%)'} },
-            slideUp:       { from:{transform:'translateY(100%)',opacity:'0'}, to:{transform:'translateY(0)',opacity:'1'} },
-            fadeIn:        { from:{opacity:'0'}, to:{opacity:'1'} },
-            fadeOut:       { from:{opacity:'1'}, to:{opacity:'0'} },
-            bounceIn:      { '0%':{transform:'scale(0.85)',opacity:'0'},'70%':{transform:'scale(1.05)'},'100%':{transform:'scale(1)',opacity:'1'} },
-            pulse:         { '0%,100%':{transform:'scale(1)'},'50%':{transform:'scale(1.06)'} },
-            spin:          { from:{transform:'rotate(0deg)'}, to:{transform:'rotate(360deg)'} },
-            shimmer:       { '0%':{backgroundPosition:'200% 0'},'100%':{backgroundPosition:'-200% 0'} },
+            slideInRight:  { from: { transform: 'translateX(100%)' },  to: { transform: 'translateX(0)' } },
+            slideOutRight: { from: { transform: 'translateX(0)' },     to: { transform: 'translateX(100%)' } },
+            slideInLeft:   { from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } },
+            slideOutLeft:  { from: { transform: 'translateX(0)' },     to: { transform: 'translateX(-100%)' } },
+            fadeIn:        { from: { opacity: '0' }, to: { opacity: '1' } },
+            fadeOut:       { from: { opacity: '1' }, to: { opacity: '0' } },
+            bounceIn:      { '0%': { transform: 'scale(0.85)', opacity: '0' }, '70%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            pulse:         { '0%,100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.06)' } },
+            spin:          { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+            shimmer:       { '0%': { backgroundPosition: '200% 0' }, '100%': { backgroundPosition: '-200% 0' } },
           },
           animation: {
             slideInRight:  'slideInRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
             slideOutRight: 'slideOutRight 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
             slideInLeft:   'slideInLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards',
             slideOutLeft:  'slideOutLeft 0.3s cubic-bezier(0.4,0,0.2,1) forwards',
-            slideUp:       'slideUp 0.4s cubic-bezier(0.4,0,0.2,1) forwards',
             fadeIn:        'fadeIn 0.25s ease forwards',
             fadeOut:       'fadeOut 0.25s ease forwards',
             bounceIn:      'bounceIn 0.4s ease forwards',
@@ -48,113 +46,76 @@
     };
   </script>
   <style>
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-    body{font-family:'Inter',sans-serif;background:#F9FAFB;overscroll-behavior:none}
-    ::-webkit-scrollbar{width:4px;height:4px}
-    ::-webkit-scrollbar-track{background:#f1f1f1}
-    ::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
-    .hide-scrollbar::-webkit-scrollbar{display:none}
-    .hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
-
-    /* transitions */
-    .card-hover{transition:transform .2s ease,box-shadow .2s ease}
-    .card-hover:active{transform:scale(.97)}
-    .btn-press:active{transform:scale(.95)}
-    .qty-btn:active{transform:scale(.88)}
-    .glow-wa{box-shadow:0 4px 24px rgba(37,211,102,.4)}
-    .glow-wa:hover{box-shadow:0 6px 32px rgba(37,211,102,.55)}
-
-    /* category chips */
-    .chip-active{background:#1a1a2e!important;color:#fff!important;border-color:#1a1a2e!important}
-
-    /* drawers */
-    .drawer-open{animation:slideInRight .35s cubic-bezier(.4,0,.2,1) forwards}
-    .drawer-close{animation:slideOutRight .3s cubic-bezier(.4,0,.2,1) forwards}
-    .admin-open{animation:slideInLeft .35s cubic-bezier(.4,0,.2,1) forwards}
-    .admin-close{animation:slideOutLeft .3s cubic-bezier(.4,0,.2,1) forwards}
-    .overlay-open{animation:fadeIn .25s ease forwards}
-    .overlay-close{animation:fadeOut .25s ease forwards}
-
-    /* form inputs */
-    input:focus,textarea:focus,select:focus{outline:none}
-    .form-input{transition:border-color .2s,box-shadow .2s}
-    .form-input:focus{border-color:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.15)}
-    .admin-input{transition:border-color .2s,box-shadow .2s}
-    .admin-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
-    .auth-input{transition:border-color .2s,box-shadow .2s}
-    .auth-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.15)}
-
-    /* radio */
-    .radio-custom input[type="radio"]{display:none}
-    .radio-custom input[type="radio"]:checked+label .radio-box{border-color:#25D366;background:#25D366}
-    .radio-custom input[type="radio"]:checked+label .radio-text{color:#128C7E;font-weight:600}
-
-    /* product image zoom */
-    .product-img{transition:transform .4s ease}
-    .card-hover:hover .product-img{transform:scale(1.05)}
-
-    /* gear spin */
-    .gear-btn:hover i{animation:spin 1s linear infinite}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-
-    /* tabs */
-    .tab-on{background:#1a1a2e;color:#fff}
-    .tab-off{background:#f3f4f6;color:#6b7280}
-
-    /* search */
-    #searchInput:focus{box-shadow:0 0 0 3px rgba(37,211,102,.2);border-color:transparent}
-
-    /* shimmer skeleton */
-    .shimmer{background:linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
-
-    /* preset img */
-    .preset-btn{border:2px solid transparent;transition:all .2s}
-    .preset-btn.sel{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.2)}
-
-    /* admin section accent */
-    .section-bar{border-left:3px solid #6366f1;padding-left:10px}
-
-    /* badge colors */
-    .badge-SALE{background:#e94560}
-    .badge-NEW{background:#6366f1}
-    .badge-HOT{background:#f97316}
-    .badge-LIMITED{background:#8b5cf6}
-
-    /* sync dot */
-    .dot-online{background:#25D366}
-    .dot-offline{background:#e94560}
-    .dot-busy{background:#f59e0b;animation:pulse 1s infinite}
-
-    /* auth modal */
-    .auth-modal{animation:bounceIn .4s ease forwards}
-
-    /* mobile */
-    @media(max-width:640px){
-      .drawer-panel{width:100%!important;border-radius:20px 20px 0 0!important}
-      .admin-panel{width:100%!important}
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'Inter', sans-serif; background: #F9FAFB; overscroll-behavior: none; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .card-hover { transition: transform .2s ease, box-shadow .2s ease; }
+    .card-hover:active { transform: scale(.97); }
+    .btn-press { transition: all .2s ease; }
+    .btn-press:active { transform: scale(.95); }
+    .qty-btn { transition: all .15s ease; }
+    .qty-btn:active { transform: scale(.88); }
+    .glow-wa { box-shadow: 0 4px 24px rgba(37,211,102,.4); }
+    .glow-wa:hover { box-shadow: 0 6px 32px rgba(37,211,102,.55); }
+    .chip-active { background: #1a1a2e !important; color: #fff !important; border-color: #1a1a2e !important; }
+    .drawer-open  { animation: slideInRight .35s cubic-bezier(.4,0,.2,1) forwards; }
+    .drawer-close { animation: slideOutRight .3s cubic-bezier(.4,0,.2,1) forwards; }
+    .admin-open   { animation: slideInLeft .35s cubic-bezier(.4,0,.2,1) forwards; }
+    .admin-close  { animation: slideOutLeft .3s cubic-bezier(.4,0,.2,1) forwards; }
+    .overlay-open  { animation: fadeIn .25s ease forwards; }
+    .overlay-close { animation: fadeOut .25s ease forwards; }
+    input:focus, textarea:focus, select:focus { outline: none; }
+    .form-input  { transition: border-color .2s, box-shadow .2s; }
+    .form-input:focus  { border-color: #25D366; box-shadow: 0 0 0 3px rgba(37,211,102,.15); }
+    .admin-input { transition: border-color .2s, box-shadow .2s; }
+    .admin-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+    .auth-input  { transition: border-color .2s, box-shadow .2s; }
+    .auth-input:focus  { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+    .radio-custom input[type="radio"] { display: none; }
+    .radio-custom input[type="radio"]:checked + label .radio-box  { border-color: #25D366; background: #25D366; }
+    .radio-custom input[type="radio"]:checked + label .radio-text { color: #128C7E; font-weight: 600; }
+    .product-img { transition: transform .4s ease; }
+    .card-hover:hover .product-img { transform: scale(1.05); }
+    .gear-btn:hover i { animation: spin 1s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .tab-on  { background: #1a1a2e; color: #fff; }
+    .tab-off { background: #f3f4f6; color: #6b7280; }
+    #searchInput:focus { box-shadow: 0 0 0 3px rgba(37,211,102,.2); border-color: transparent; }
+    .shimmer { background: linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+    .preset-btn { border: 2px solid transparent; transition: all .2s; }
+    .preset-btn.sel { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.2); }
+    .section-bar { border-left: 3px solid #6366f1; padding-left: 10px; }
+    .badge-SALE    { background: #e94560; }
+    .badge-NEW     { background: #6366f1; }
+    .badge-HOT     { background: #f97316; }
+    .badge-LIMITED { background: #8b5cf6; }
+    .dot-online  { background: #25D366; }
+    .dot-offline { background: #e94560; }
+    .dot-busy    { background: #f59e0b; animation: pulse 1s infinite; }
+    .auth-modal  { animation: bounceIn .4s ease forwards; }
+    @media (max-width: 640px) {
+      .drawer-panel { width: 100% !important; border-radius: 20px 20px 0 0 !important; }
+      .admin-panel  { width: 100% !important; }
     }
-
-    /* wa pulse */
-    .wa-pulse{animation:pulse 2s ease-in-out infinite}
-
-    /* link box */
-    .link-box{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.08));border:1.5px dashed #6366f1}
-
-    /* trial badge */
-    .trial-bar{background:linear-gradient(135deg,#667eea,#764ba2)}
-
-    /* password toggle */
-    .pw-wrap{position:relative}
-    .pw-wrap input{padding-right:44px}
-    .pw-eye{position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;color:#9ca3af}
-    .pw-eye:hover{color:#6366f1}
+    .wa-pulse  { animation: pulse 2s ease-in-out infinite; }
+    .link-box  { background: linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.08)); border: 1.5px dashed #6366f1; }
+    .trial-bar { background: linear-gradient(135deg,#667eea,#764ba2); }
+    .pw-wrap   { position: relative; }
+    .pw-wrap input { padding-right: 44px; }
+    .pw-eye    { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #9ca3af; }
+    .pw-eye:hover { color: #6366f1; }
+    .emoji-btn-sel { background: #e0e7ff; border-radius: 8px; transform: scale(1.15); }
   </style>
 </head>
 <body class="min-h-screen bg-gray-50">
 
-<!-- ═══════════════════════════════════════════════
-     GLOBAL LOADING SCREEN
-═══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════
+     APP LOADER
+════════════════════════════════════════════════════════ -->
 <div id="appLoader" class="fixed inset-0 bg-white z-[99999] flex flex-col items-center justify-center">
   <div class="w-16 h-16 rounded-2xl bg-brand flex items-center justify-center shadow-lg mb-4">
     <i class="fa-solid fa-store text-white text-2xl"></i>
@@ -168,9 +129,9 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════════════
      STORE SUSPENDED SCREEN
-═══════════════════════════════════════════════ -->
+════════════════════════════════════════════════════════ -->
 <div id="suspendedScreen" class="fixed inset-0 bg-white z-[99998] hidden flex-col items-center justify-center px-8 text-center">
   <div class="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center mb-5">
     <i class="fa-solid fa-lock text-red-500 text-3xl"></i>
@@ -189,9 +150,9 @@
   </a>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     STORE NOT FOUND SCREEN
-═══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════
+     NOT FOUND SCREEN
+════════════════════════════════════════════════════════ -->
 <div id="notFoundScreen" class="fixed inset-0 bg-white z-[99997] hidden flex-col items-center justify-center px-8 text-center">
   <div class="text-7xl mb-4">🏪</div>
   <h2 class="font-extrabold text-brand text-2xl mb-2">Store Not Found</h2>
@@ -199,13 +160,11 @@
   <a href="/" class="bg-brand text-white font-bold px-6 py-3 rounded-xl text-sm">Go to OrderKaro Home</a>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     AUTH MODAL  (Login / Sign Up)
-═══════════════════════════════════════════════ -->
-<div id="authOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9000] hidden flex items-end sm:items-center justify-center p-4">
+<!-- ════════════════════════════════════════════════════════
+     AUTH MODAL
+════════════════════════════════════════════════════════ -->
+<div id="authOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9000] hidden items-end sm:items-center justify-center p-4">
   <div class="auth-modal bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden">
-
-    <!-- Auth Header -->
     <div class="bg-gradient-to-r from-brand to-[#16213e] px-6 py-5 text-center">
       <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3">
         <i class="fa-solid fa-store text-white text-xl"></i>
@@ -213,48 +172,34 @@
       <h2 class="font-extrabold text-white text-xl">OrderKaro Admin</h2>
       <p class="text-gray-400 text-xs mt-1">Sign in to manage your store</p>
     </div>
-
-    <!-- Tab switcher -->
     <div class="flex border-b border-gray-100">
-      <button id="loginTabBtn" onclick="showAuthTab('login')"
-              class="flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all">
-        Sign In
-      </button>
-      <button id="signupTabBtn" onclick="showAuthTab('signup')"
-              class="flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all">
-        Create Account
-      </button>
+      <button id="loginTabBtn" onclick="showAuthTab('login')" class="flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all">Sign In</button>
+      <button id="signupTabBtn" onclick="showAuthTab('signup')" class="flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all">Create Account</button>
     </div>
-
     <div class="px-6 py-5">
-
-      <!-- ── LOGIN FORM ── -->
+      <!-- LOGIN -->
       <div id="loginForm">
         <div class="space-y-3 mb-4">
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Email Address</label>
-            <input id="loginEmail" type="email" placeholder="you@example.com"
-                   class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+            <input id="loginEmail" type="email" placeholder="you@example.com" class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Password</label>
             <div class="pw-wrap">
-              <input id="loginPassword" type="password" placeholder="Your password"
-                     class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
-              <span class="pw-eye" onclick="togglePw('loginPassword',this)"><i class="fa-solid fa-eye-slash"></i></span>
+              <input id="loginPassword" type="password" placeholder="Your password" class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+              <span class="pw-eye" onclick="togglePw('loginPassword', this)"><i class="fa-solid fa-eye-slash"></i></span>
             </div>
           </div>
         </div>
-        <button onclick="handleLogin()" id="loginBtn"
-                class="w-full bg-brand hover:opacity-90 text-white font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-opacity mb-3">
+        <button id="loginBtn" onclick="handleLogin()" class="w-full bg-brand hover:opacity-90 text-white font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-opacity mb-3">
           <i class="fa-solid fa-right-to-bracket"></i> Sign In
         </button>
         <p class="text-center text-xs text-gray-400">Don't have an account?
           <button onclick="showAuthTab('signup')" class="text-indigo-600 font-bold">Create one free →</button>
         </p>
       </div>
-
-      <!-- ── SIGNUP FORM ── -->
+      <!-- SIGNUP -->
       <div id="signupForm" class="hidden">
         <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-3 mb-4 flex items-start gap-2">
           <i class="fa-solid fa-gift text-indigo-500 mt-0.5 flex-shrink-0"></i>
@@ -266,48 +211,42 @@
         <div class="space-y-3 mb-4">
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Store Name *</label>
-            <input id="signupStoreName" type="text" placeholder="e.g. Mian Ji Cloth House" oninput="autoSignupSlug()"
-                   class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+            <input id="signupStoreName" type="text" placeholder="e.g. Mian Ji Cloth House" oninput="autoSignupSlug()" class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Store Slug (your store link) *</label>
-            <div class="flex items-center gap-0">
+            <div class="flex items-center">
               <span class="text-xs text-gray-400 bg-gray-100 border-2 border-r-0 border-gray-200 px-3 py-3 rounded-l-xl whitespace-nowrap">?store=</span>
-              <input id="signupSlug" type="text" placeholder="mianji-cloth"
-                     class="auth-input flex-1 border-2 border-gray-200 rounded-r-xl px-3 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50 font-mono" />
+              <input id="signupSlug" type="text" placeholder="mianji-cloth" class="auth-input flex-1 border-2 border-gray-200 rounded-r-xl px-3 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50 font-mono" />
             </div>
-            <p class="text-[11px] text-gray-400 mt-1">Lowercase letters, numbers, hyphens. Cannot be changed later easily.</p>
+            <p class="text-[11px] text-gray-400 mt-1">Lowercase letters, numbers, hyphens only.</p>
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Email Address *</label>
-            <input id="signupEmail" type="email" placeholder="you@example.com"
-                   class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+            <input id="signupEmail" type="email" placeholder="you@example.com" class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1 block">Password *</label>
             <div class="pw-wrap">
-              <input id="signupPassword" type="password" placeholder="Min 6 characters"
-                     class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
-              <span class="pw-eye" onclick="togglePw('signupPassword',this)"><i class="fa-solid fa-eye-slash"></i></span>
+              <input id="signupPassword" type="password" placeholder="Min 6 characters" class="auth-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
+              <span class="pw-eye" onclick="togglePw('signupPassword', this)"><i class="fa-solid fa-eye-slash"></i></span>
             </div>
           </div>
         </div>
-        <button onclick="handleSignup()" id="signupBtn"
-                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-colors mb-3">
+        <button id="signupBtn" onclick="handleSignup()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-colors mb-3">
           <i class="fa-solid fa-rocket"></i> Start Free Trial
         </button>
         <p class="text-center text-xs text-gray-400">Already have an account?
           <button onclick="showAuthTab('login')" class="text-indigo-600 font-bold">Sign in →</button>
         </p>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════════════
      TOAST
-═══════════════════════════════════════════════ -->
+════════════════════════════════════════════════════════ -->
 <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] hidden pointer-events-none">
   <div id="toastInner" class="bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 max-w-[90vw]">
     <i id="toastIcon" class="fa-solid fa-circle-check text-wa flex-shrink-0"></i>
@@ -315,19 +254,15 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════════════
      SHARED OVERLAY
-═══════════════════════════════════════════════ -->
+════════════════════════════════════════════════════════ -->
 <div id="overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden" onclick="handleOverlayClick()"></div>
 
-<!-- ═══════════════════════════════════════════════
-     CART DRAWER  (slides from right)
-═══════════════════════════════════════════════ -->
-<div id="cartDrawer"
-     class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px]
-            bg-white z-50 flex flex-col sm:rounded-none rounded-t-[24px] hidden"
-     style="max-height:96vh;box-shadow:-4px 0 40px rgba(0,0,0,.12)">
-
+<!-- ════════════════════════════════════════════════════════
+     CART DRAWER
+════════════════════════════════════════════════════════ -->
+<div id="cartDrawer" class="drawer-panel fixed right-0 bottom-0 sm:top-0 sm:h-full w-full sm:w-[420px] bg-white z-50 flex flex-col sm:rounded-none rounded-t-[24px] hidden" style="max-height:96vh;box-shadow:-4px 0 40px rgba(0,0,0,.12)">
   <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0 sm:rounded-none rounded-t-[24px]">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-full bg-wa/10 flex items-center justify-center">
@@ -342,9 +277,7 @@
       <i class="fa-solid fa-xmark text-gray-600 text-lg"></i>
     </button>
   </div>
-
   <div class="flex-1 overflow-y-auto px-4 py-3" style="overscroll-behavior:contain">
-    <!-- Empty -->
     <div id="emptyCart" class="flex flex-col items-center justify-center py-14 text-center">
       <div class="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-4">
         <i class="fa-solid fa-cart-shopping text-gray-300 text-4xl"></i>
@@ -352,12 +285,9 @@
       <h3 class="font-bold text-gray-500 text-lg mb-1">Cart is empty</h3>
       <p class="text-gray-400 text-sm">Add items to get started!</p>
     </div>
-    <!-- Items -->
     <div id="cartItemsList" class="space-y-3 hidden"></div>
-    <!-- Form -->
     <div id="cartFormSection" class="hidden">
       <div class="my-4 border-t border-dashed border-gray-200"></div>
-      <!-- Summary -->
       <div class="bg-gray-50 rounded-2xl p-4 mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2"><i class="fa-solid fa-receipt text-wa"></i> Order Summary</h3>
         <div class="space-y-1.5">
@@ -369,17 +299,16 @@
           </div>
         </div>
       </div>
-      <!-- Customer info -->
       <div class="mb-4">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2"><i class="fa-solid fa-user text-wa"></i> Your Details</h3>
         <div class="space-y-3">
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Full Name *</label>
-            <input id="custName" type="text" placeholder="e.g. Ali Khan" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white"/>
+            <input id="custName" type="text" placeholder="e.g. Ali Khan" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
           </div>
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Phone Number *</label>
-            <input id="custPhone" type="tel" placeholder="e.g. 0300-1234567" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white"/>
+            <input id="custPhone" type="tel" placeholder="e.g. 0300-1234567" class="form-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-white" />
           </div>
           <div>
             <label class="text-xs font-semibold text-gray-500 mb-1 block">Delivery Address *</label>
@@ -387,12 +316,11 @@
           </div>
         </div>
       </div>
-      <!-- Payment -->
       <div class="mb-5">
         <h3 class="font-bold text-brand text-sm mb-3 flex items-center gap-2"><i class="fa-solid fa-credit-card text-wa"></i> Payment Method</h3>
         <div class="space-y-2">
           <div class="radio-custom">
-            <input type="radio" id="pmCOD" name="payment" value="Cash on Delivery" checked/>
+            <input type="radio" id="pmCOD" name="payment" value="Cash on Delivery" checked />
             <label for="pmCOD" class="flex items-center gap-3 p-3.5 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-wa/40 transition-all">
               <span class="radio-box w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 transition-all"></span>
               <div class="flex items-center gap-2 flex-1">
@@ -402,7 +330,7 @@
             </label>
           </div>
           <div class="radio-custom">
-            <input type="radio" id="pmJazz" name="payment" value="JazzCash / EasyPaisa"/>
+            <input type="radio" id="pmJazz" name="payment" value="JazzCash / EasyPaisa" />
             <label for="pmJazz" class="flex items-center gap-3 p-3.5 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-wa/40 transition-all">
               <span class="radio-box w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0 transition-all"></span>
               <div class="flex items-center gap-2 flex-1">
@@ -413,24 +341,18 @@
           </div>
         </div>
       </div>
-      <!-- WA Button -->
       <button onclick="orderViaWhatsApp()" class="wa-pulse w-full bg-wa hover:bg-wa-dark text-white font-extrabold text-base py-4 rounded-2xl flex items-center justify-center gap-3 glow-wa transition-all mb-2">
         <i class="fa-brands fa-whatsapp text-2xl"></i> Order via WhatsApp <i class="fa-solid fa-arrow-right text-sm opacity-80"></i>
       </button>
-      <p class="text-center text-xs text-gray-400 pb-2">You'll be sent to WhatsApp to confirm</p>
+      <p class="text-center text-xs text-gray-400 pb-2">You'll be redirected to WhatsApp to confirm</p>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     ADMIN PANEL  (slides from left)
-═══════════════════════════════════════════════ -->
-<div id="adminPanel"
-     class="admin-panel fixed left-0 top-0 h-full w-full sm:w-[500px]
-            bg-white z-50 flex flex-col hidden"
-     style="box-shadow:4px 0 40px rgba(0,0,0,.12)">
-
-  <!-- Header -->
+<!-- ════════════════════════════════════════════════════════
+     ADMIN PANEL
+════════════════════════════════════════════════════════ -->
+<div id="adminPanel" class="admin-panel fixed left-0 top-0 h-full w-full sm:w-[500px] bg-white z-50 flex flex-col hidden" style="box-shadow:4px 0 40px rgba(0,0,0,.12)">
   <div class="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-brand to-[#16213e] flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
@@ -445,7 +367,6 @@
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <!-- Trial badge -->
       <div id="trialBadge" class="trial-bar hidden text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
         <i class="fa-solid fa-hourglass-half text-[9px]"></i>
         <span id="trialDaysLeft">9</span>d left
@@ -458,8 +379,6 @@
       </button>
     </div>
   </div>
-
-  <!-- Admin User Info -->
   <div id="adminUserBar" class="flex items-center gap-3 px-4 py-3 bg-indigo-50 border-b border-indigo-100 hidden">
     <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0">
       <i class="fa-solid fa-user text-white text-xs"></i>
@@ -469,30 +388,24 @@
       <p id="adminPlanBadge" class="text-[11px] text-indigo-500 font-semibold"></p>
     </div>
   </div>
-
-  <!-- Tabs -->
   <div class="flex gap-1.5 px-4 py-3 border-b border-gray-100 bg-white flex-shrink-0 overflow-x-auto hide-scrollbar">
     <button id="tabStore"      onclick="adminTab('store')"      class="tab-on  flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5"><i class="fa-solid fa-store"></i> Store</button>
     <button id="tabCategories" onclick="adminTab('categories')" class="tab-off flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5"><i class="fa-solid fa-tags"></i> Categories</button>
     <button id="tabProducts"   onclick="adminTab('products')"   class="tab-off flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5"><i class="fa-solid fa-boxes-stacked"></i> Products</button>
     <button id="tabAdd"        onclick="adminTab('add')"        class="tab-off flex-shrink-0 text-xs font-bold px-3 py-2.5 rounded-xl transition-all flex items-center gap-1.5"><i class="fa-solid fa-circle-plus"></i> Add Item</button>
   </div>
-
-  <!-- Scrollable body -->
   <div class="flex-1 overflow-y-auto" style="overscroll-behavior:contain">
 
-    <!-- ── STORE INFO ── -->
+    <!-- STORE TAB -->
     <div id="panelStore" class="px-4 py-4 space-y-4">
       <div class="section-bar">
         <h3 class="font-extrabold text-brand text-base">Store Settings</h3>
         <p class="text-xs text-gray-400 mt-0.5">Sync to cloud to publish changes live.</p>
       </div>
-
-      <!-- Customer link box -->
       <div id="customerLinkBox" class="link-box rounded-2xl p-4 hidden">
         <p class="text-xs font-bold text-indigo-600 mb-2 flex items-center gap-1.5"><i class="fa-solid fa-link"></i> Your Customer Store Link</p>
         <div class="flex items-center gap-2">
-          <input id="customerLinkInput" type="text" readonly class="flex-1 bg-white border border-indigo-200 rounded-xl px-3 py-2 text-xs text-brand font-mono"/>
+          <input id="customerLinkInput" type="text" readonly class="flex-1 bg-white border border-indigo-200 rounded-xl px-3 py-2 text-xs text-brand font-mono" />
           <button onclick="copyLink()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-3 py-2 rounded-xl flex items-center gap-1.5 transition-colors whitespace-nowrap">
             <i class="fa-solid fa-copy"></i> Copy
           </button>
@@ -501,48 +414,42 @@
           <i class="fa-brands fa-whatsapp"></i> Share via WhatsApp
         </button>
       </div>
-
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-solid fa-store text-indigo-400 mr-1"></i> Store Name *</label>
-        <input id="aStoreName" type="text" placeholder="e.g. Al-Madina Cloth House" oninput="liveSlug()" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+        <input id="aStoreName" type="text" placeholder="e.g. Al-Madina Cloth House" oninput="liveSlug()" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-solid fa-link text-indigo-400 mr-1"></i> Store Slug</label>
         <div class="flex items-center">
           <span class="text-xs text-gray-400 bg-gray-100 border-2 border-r-0 border-gray-200 px-3 py-3 rounded-l-xl whitespace-nowrap">?store=</span>
-          <input id="aStoreSlug" type="text" class="admin-input flex-1 border-2 border-gray-200 rounded-r-xl px-3 py-3 text-sm text-brand bg-gray-50 font-mono"/>
+          <input id="aStoreSlug" type="text" class="admin-input flex-1 border-2 border-gray-200 rounded-r-xl px-3 py-3 text-sm text-brand bg-gray-50 font-mono" />
         </div>
       </div>
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-brands fa-whatsapp text-wa mr-1"></i> WhatsApp Number *</label>
         <div class="relative">
           <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-400">+</span>
-          <input id="aWaNumber" type="tel" placeholder="923001234567" class="admin-input w-full border-2 border-gray-200 rounded-xl pl-8 pr-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+          <input id="aWaNumber" type="tel" placeholder="923001234567" class="admin-input w-full border-2 border-gray-200 rounded-xl pl-8 pr-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
       </div>
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-solid fa-coins text-yellow-500 mr-1"></i> Currency Symbol</label>
-        <input id="aCurrency" type="text" placeholder="e.g. Rs." class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+        <input id="aCurrency" type="text" placeholder="e.g. Rs." class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-solid fa-megaphone text-orange-400 mr-1"></i> Banner Promo Text</label>
-        <input id="aBannerText" type="text" placeholder="e.g. Flat 20% OFF on All Items!" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+        <input id="aBannerText" type="text" placeholder="e.g. Flat 20% OFF on All Items!" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
       <div>
         <label class="text-xs font-bold text-gray-500 mb-1.5 block"><i class="fa-solid fa-ticket text-pink-400 mr-1"></i> Promo Code</label>
-        <input id="aPromoCode" type="text" placeholder="e.g. SALE20" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+        <input id="aPromoCode" type="text" placeholder="e.g. SALE20" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
       </div>
-
-      <button onclick="syncToCloud()" id="syncBtn"
-              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-4 rounded-2xl flex items-center justify-center gap-2 transition-colors">
+      <button id="syncBtn" onclick="syncToCloud()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-4 rounded-2xl flex items-center justify-center gap-2 transition-colors">
         <i class="fa-solid fa-cloud-arrow-up"></i> Save & Sync to Cloud ☁️
       </button>
-      <button onclick="saveLocal()"
-              class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm">
+      <button onclick="saveLocal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 transition-colors text-sm">
         <i class="fa-solid fa-floppy-disk"></i> Save Locally Only
       </button>
-
-      <!-- Danger zone -->
       <div class="border border-red-200 rounded-2xl p-4 bg-red-50">
         <h4 class="font-bold text-red-600 text-sm mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Danger Zone</h4>
         <p class="text-xs text-red-400 mb-3">Resets local data only. Cloud data is not affected.</p>
@@ -552,7 +459,7 @@
       </div>
     </div>
 
-    <!-- ── CATEGORIES ── -->
+    <!-- CATEGORIES TAB -->
     <div id="panelCategories" class="px-4 py-4 hidden">
       <div class="section-bar mb-4">
         <h3 class="font-extrabold text-brand text-base">Manage Categories</h3>
@@ -564,17 +471,17 @@
           <div class="flex gap-2">
             <div class="flex-1">
               <label class="text-xs font-bold text-gray-500 mb-1 block">Name *</label>
-              <input id="newCatName" type="text" placeholder="e.g. Rings" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-brand placeholder-gray-400"/>
+              <input id="newCatName" type="text" placeholder="e.g. Rings" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-brand placeholder-gray-400" />
             </div>
             <div class="w-28">
               <label class="text-xs font-bold text-gray-500 mb-1 block">Slug *</label>
-              <input id="newCatSlug" type="text" placeholder="rings" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-brand placeholder-gray-400 font-mono"/>
+              <input id="newCatSlug" type="text" placeholder="rings" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-brand placeholder-gray-400 font-mono" />
             </div>
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1.5 block">Pick Emoji</label>
             <div id="emojiPicker" class="flex flex-wrap gap-1.5 mb-2"></div>
-            <input id="newCatEmoji" type="text" placeholder="Or type emoji…" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm bg-white text-brand placeholder-gray-400"/>
+            <input id="newCatEmoji" type="text" placeholder="Or type emoji…" class="admin-input w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm bg-white text-brand placeholder-gray-400" />
           </div>
           <button onclick="addCategory()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
             <i class="fa-solid fa-plus"></i> Add Category
@@ -588,7 +495,7 @@
       <div id="categoryList" class="space-y-2"></div>
     </div>
 
-    <!-- ── PRODUCTS ── -->
+    <!-- PRODUCTS TAB -->
     <div id="panelProducts" class="px-4 py-4 hidden">
       <div class="section-bar mb-4 flex items-center justify-between">
         <div>
@@ -602,7 +509,7 @@
       <div id="adminProdList" class="space-y-2"></div>
     </div>
 
-    <!-- ── ADD / EDIT PRODUCT ── -->
+    <!-- ADD/EDIT PRODUCT TAB -->
     <div id="panelAdd" class="px-4 py-4 hidden">
       <div class="section-bar mb-4">
         <h3 id="addFormTitle" class="font-extrabold text-brand text-base">Add New Product</h3>
@@ -611,20 +518,20 @@
       <div class="space-y-4">
         <div>
           <label class="text-xs font-bold text-gray-500 mb-1.5 block">Product Name *</label>
-          <input id="pName" type="text" placeholder="e.g. Gold Ring Set" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+          <input id="pName" type="text" placeholder="e.g. Gold Ring Set" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
         <div>
           <label class="text-xs font-bold text-gray-500 mb-1.5 block">Short Description</label>
-          <input id="pDesc" type="text" placeholder="e.g. 18k gold, handcrafted" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+          <input id="pDesc" type="text" placeholder="e.g. 18k gold, handcrafted" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1.5 block">Price *</label>
-            <input id="pPrice" type="number" min="0" placeholder="2499" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+            <input id="pPrice" type="number" min="0" placeholder="2499" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
           <div>
             <label class="text-xs font-bold text-gray-500 mb-1.5 block">Original Price</label>
-            <input id="pOrigPrice" type="number" min="0" placeholder="3200" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+            <input id="pOrigPrice" type="number" min="0" placeholder="3200" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           </div>
         </div>
         <div class="grid grid-cols-2 gap-3">
@@ -645,16 +552,16 @@
         </div>
         <div>
           <label class="text-xs font-bold text-gray-500 mb-2 block">Product Image</label>
-          <input id="pImg" type="url" placeholder="Paste image URL (https://…)" oninput="previewImg()" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50"/>
+          <input id="pImg" type="url" placeholder="Paste image URL (https://…)" oninput="previewImg()" class="admin-input w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm text-brand placeholder-gray-400 bg-gray-50" />
           <p class="text-[11px] text-gray-400 mt-1.5 text-center">— or pick a preset —</p>
           <div id="presetImgs" class="grid grid-cols-4 gap-2 mt-2"></div>
           <div id="imgPreviewBox" class="hidden mt-3 rounded-2xl overflow-hidden border-2 border-indigo-200 bg-gray-100" style="aspect-ratio:4/3">
-            <img id="imgPreview" class="w-full h-full object-cover"/>
+            <img id="imgPreview" class="w-full h-full object-cover" alt="Preview" />
           </div>
         </div>
-        <input type="hidden" id="editProdId"/>
+        <input type="hidden" id="editProdId" />
         <div class="flex gap-3 pt-2">
-          <button onclick="cancelEdit()" id="cancelEditBtn" class="hidden flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
+          <button id="cancelEditBtn" onclick="cancelEdit()" class="hidden flex-1 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
             <i class="fa-solid fa-xmark"></i> Cancel
           </button>
           <button onclick="saveProd()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2">
@@ -668,9 +575,9 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     FLOATING CART BUTTON
-═══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════
+     FLOATING CART
+════════════════════════════════════════════════════════ -->
 <button id="floatCart" onclick="openCart()" class="fixed bottom-5 right-4 z-30 bg-brand text-white rounded-2xl px-4 py-3 flex items-center gap-2.5 hidden transition-all active:scale-95" style="box-shadow:0 8px 32px rgba(37,211,102,.25)">
   <div class="relative">
     <i class="fa-solid fa-bag-shopping text-xl"></i>
@@ -683,9 +590,9 @@
   <i class="fa-solid fa-chevron-up text-xs opacity-60"></i>
 </button>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ════════════════════════════════════════════════════════
      STOREFRONT
-═══════════════════════════════════════════════ -->
+════════════════════════════════════════════════════════ -->
 <div class="max-w-2xl mx-auto">
 
   <!-- HEADER -->
@@ -716,17 +623,14 @@
           </button>
         </div>
       </div>
-      <!-- Search -->
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-        <input id="searchInput" type="text" placeholder="Search items…" oninput="filterProducts()"
-               class="w-full bg-gray-100 rounded-xl pl-10 pr-10 py-3 text-sm text-brand placeholder-gray-400 border-2 border-transparent transition-all"/>
+        <input id="searchInput" type="text" placeholder="Search items…" oninput="filterProducts()" class="w-full bg-gray-100 rounded-xl pl-10 pr-10 py-3 text-sm text-brand placeholder-gray-400 border-2 border-transparent transition-all" />
         <button id="searchClear" onclick="clearSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-gray-400 hover:text-gray-600">
           <i class="fa-solid fa-circle-xmark text-lg"></i>
         </button>
       </div>
     </div>
-    <!-- Category chips -->
     <div id="categoryChips" class="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar"></div>
   </header>
 
@@ -739,11 +643,13 @@
         <p class="text-gray-400 text-xs">Code: <span id="bannerCode" class="text-wa font-bold">SAVE10</span></p>
       </div>
       <div class="text-7xl opacity-20 absolute right-4 top-1/2 -translate-y-1/2">🛍️</div>
-      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10"><span class="text-4xl">🎁</span></div>
+      <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center z-10">
+        <span class="text-4xl">🎁</span>
+      </div>
     </div>
   </div>
 
-  <!-- Section title -->
+  <!-- SECTION TITLE -->
   <div class="px-4 pt-4 pb-2 flex items-center justify-between">
     <div>
       <h2 id="sectionTitle" class="font-extrabold text-brand text-lg">All Products</h2>
@@ -752,15 +658,15 @@
     <span id="prodCountBadge" class="text-xs font-bold bg-gray-200 text-gray-600 px-2.5 py-1 rounded-full">0 items</span>
   </div>
 
-  <!-- Product grid -->
+  <!-- PRODUCT GRID -->
   <div id="productGrid" class="grid grid-cols-2 gap-3 px-4 pb-28"></div>
 
-  <!-- No results -->
+  <!-- NO RESULTS -->
   <div id="noResults" class="hidden flex-col items-center py-16 px-4 text-center">
     <div class="text-6xl mb-4">🔍</div>
     <h3 class="font-bold text-gray-500 text-lg mb-2">No items found</h3>
     <p class="text-gray-400 text-sm">Try a different search or category.</p>
-    <button onclick="clearSearch();setCategory('all')" class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">Show All Items</button>
+    <button onclick="clearSearch(); setCategory('all')" class="mt-4 bg-brand text-white font-bold px-6 py-2.5 rounded-xl text-sm">Show All Items</button>
   </div>
 
 </div>
@@ -770,18 +676,31 @@
   <p class="text-xs text-gray-400">© 2025 <span id="footerName">OrderKaro</span> · Powered by OrderKaro</p>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT ENGINE
-═══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
-/* ── SUPABASE ─────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   SUPABASE INIT
+───────────────────────────────────────────── */
 const SB_URL = 'https://oatvobdnayaxvulavhvg.supabase.co';
 const SB_KEY = 'sb_publishable_bn0c6reqpoJAqOKxJ1Abew_7MEkZOay';
-const sb     = supabase.createClient(SB_URL, SB_KEY);
+const sb = supabase.createClient(SB_URL, SB_KEY, {
+  auth: { persistSession: true, autoRefreshToken: true }
+});
 
-/* ── PRESETS ─────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   CORE SELECTOR HELPER
+   Uses querySelector so both '#id' and '.class'
+   and tag selectors all work correctly.
+───────────────────────────────────────────── */
+const $ = selector => document.querySelector(selector);
+
+/* ─────────────────────────────────────────────
+   PRESET DATA
+───────────────────────────────────────────── */
 const PRESET_IMGS = [
   'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&q=80',
   'https://images.unsplash.com/photo-1594938298603-6fdb0c5c2dc7?w=400&q=80',
@@ -792,34 +711,48 @@ const PRESET_IMGS = [
   'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&q=80',
   'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80',
 ];
-const EMOJI_POOL = ['👔','👗','👟','🧵','💍','📱','🧴','🛒','🍚','🌾','💻','🎒','🧢','👜','🩴','🕶️','🪡','🧶','🧤','🧣','🏠','🎁','🍎','🥛','🧃','🫙','🧹','🪴','📦','🔑'];
 
-/* ── DEFAULTS ─────────────────────────────────────────────────── */
+const EMOJI_POOL = [
+  '👔','👗','👟','🧵','💍','📱','🧴','🛒','🍚','🌾',
+  '💻','🎒','🧢','👜','🩴','🕶️','🪡','🧶','🧤','🧣',
+  '🏠','🎁','🍎','🥛','🧃','🫙','🧹','🪴','📦','🔑'
+];
+
+/* ─────────────────────────────────────────────
+   DEFAULT DATA
+───────────────────────────────────────────── */
 const DEF_STORE = {
-  name:'Mian Ji Cloth House', slug:'mianji-cloth',
-  waNumber:'923001234567', currency:'Rs.',
-  bannerText:'Flat 20% OFF on All Suits!', promoCode:'MJCH20',
+  name: 'Mian Ji Cloth House',
+  slug: 'mianji-cloth',
+  waNumber: '923001234567',
+  currency: 'Rs.',
+  bannerText: 'Flat 20% OFF on All Suits!',
+  promoCode: 'MJCH20',
 };
+
 const DEF_CATS = [
-  {slug:'mens',       name:"Men's Collection", emoji:'👔'},
-  {slug:'unstitched', name:'Unstitched',        emoji:'🧵'},
-  {slug:'footwear',   name:'Footwear',          emoji:'👟'},
-  {slug:'discount',   name:'Special Discount',  emoji:'🔥'},
-];
-const DEF_PRODS = [
-  {id:1,name:'Premium Khaddar Suit',   price:2499,originalPrice:3200,categorySlug:'mens',      badge:'SALE',description:'Soft premium khaddar fabric',        img:PRESET_IMGS[0],emoji:'🧥'},
-  {id:2,name:'Wash & Wear Suit',       price:1899,originalPrice:null,categorySlug:'mens',      badge:'NEW', description:'Wrinkle-free, easy to wear daily',     img:PRESET_IMGS[1],emoji:'👔'},
-  {id:3,name:'Peshawari Chappal',      price:1800,originalPrice:2200,categorySlug:'footwear',  badge:'HOT', description:'Traditional handmade leather chappal', img:PRESET_IMGS[2],emoji:'👟'},
-  {id:4,name:'Linen Unstitched Fabric',price:1250,originalPrice:null,categorySlug:'unstitched',badge:null,  description:'Premium linen, 3.5 meters per piece', img:PRESET_IMGS[3],emoji:'🧵'},
-  {id:5,name:'Classic Shalwar Kameez', price:2100,originalPrice:2800,categorySlug:'discount',  badge:'SALE',description:'Finest cotton, fully stitched',        img:PRESET_IMGS[4],emoji:'👘'},
-  {id:6,name:'Leather Moccasins',      price:3200,originalPrice:null,categorySlug:'footwear',  badge:'NEW', description:'Genuine leather, handcrafted comfort', img:PRESET_IMGS[5],emoji:'👞'},
+  { slug: 'mens',       name: "Men's Collection", emoji: '👔' },
+  { slug: 'unstitched', name: 'Unstitched',        emoji: '🧵' },
+  { slug: 'footwear',   name: 'Footwear',          emoji: '👟' },
+  { slug: 'discount',   name: 'Special Discount',  emoji: '🔥' },
 ];
 
-/* ── APP STATE ────────────────────────────────────────────────── */
+const DEF_PRODS = [
+  { id:1, name:'Premium Khaddar Suit',    price:2499, originalPrice:3200, categorySlug:'mens',       badge:'SALE', description:'Soft premium khaddar fabric',        img:PRESET_IMGS[0], emoji:'🧥' },
+  { id:2, name:'Wash & Wear Suit',        price:1899, originalPrice:null, categorySlug:'mens',       badge:'NEW',  description:'Wrinkle-free, easy to wear daily',   img:PRESET_IMGS[1], emoji:'👔' },
+  { id:3, name:'Peshawari Chappal',       price:1800, originalPrice:2200, categorySlug:'footwear',   badge:'HOT',  description:'Traditional handmade leather',        img:PRESET_IMGS[2], emoji:'👟' },
+  { id:4, name:'Linen Unstitched Fabric', price:1250, originalPrice:null, categorySlug:'unstitched', badge:null,   description:'Premium linen, 3.5 meters per piece', img:PRESET_IMGS[3], emoji:'🧵' },
+  { id:5, name:'Classic Shalwar Kameez', price:2100, originalPrice:2800, categorySlug:'discount',   badge:'SALE', description:'Finest cotton, fully stitched',        img:PRESET_IMGS[4], emoji:'👘' },
+  { id:6, name:'Leather Moccasins',       price:3200, originalPrice:null, categorySlug:'footwear',   badge:'NEW',  description:'Genuine leather, handcrafted',        img:PRESET_IMGS[5], emoji:'👞' },
+];
+
+/* ─────────────────────────────────────────────
+   APP STATE
+───────────────────────────────────────────── */
 let cart          = [];
 let products      = [];
 let categories    = [];
-let store         = {...DEF_STORE};
+let store         = { ...DEF_STORE };
 let currentCat    = 'all';
 let currentSearch = '';
 let cartOpen      = false;
@@ -827,155 +760,261 @@ let adminOpen     = false;
 let selEmoji      = '';
 let nextId        = Date.now();
 let isCustomerView= false;
-let currentUser   = null;   // Supabase auth user
-let storeRow      = null;   // full Supabase stores row
+let currentUser   = null;
+let storeRow      = null;
+let storeCartKey  = 'ok_cart';
 
-/* ── LOCAL STORAGE ────────────────────────────────────────────── */
-const LS = {C:'ok_cart', P:'ok_prods', S:'ok_store', K:'ok_cats'};
-const save  = (k,v) => localStorage.setItem(k, JSON.stringify(v));
-const load  = (k,d) => { try{ const r=localStorage.getItem(k); return r?JSON.parse(r):d; }catch(e){return d;} };
-const saveAll = () => { save(LS.C,cart); save(LS.P,products); save(LS.S,store); save(LS.K,categories); };
-const loadAll = () => {
-  cart       = load(LS.C, []);
-  products   = load(LS.P, J(DEF_PRODS));
-  store      = load(LS.S, {...DEF_STORE});
-  categories = load(LS.K, J(DEF_CATS));
-};
-const J = x => JSON.parse(JSON.stringify(x));
+/* ─────────────────────────────────────────────
+   LOCAL STORAGE
+───────────────────────────────────────────── */
+const LS = { C: 'ok_cart', P: 'ok_prods', S: 'ok_store', K: 'ok_cats' };
 
-/* ── HELPERS ──────────────────────────────────────────────────── */
-const fmt   = n => store.currency + ' ' + Number(n).toLocaleString('en-PK');
-const catBy = slug => categories.find(c=>c.slug===slug);
-const slug  = t => t.toLowerCase().trim().replace(/[^\w\s-]/g,'').replace(/[\s_]+/g,'-').replace(/^-+|-+$/g,'');
-const $ = id => document.getElementById(id);
+function lsSave(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+}
+function lsLoad(key, def) {
+  try {
+    const r = localStorage.getItem(key);
+    return r ? JSON.parse(r) : def;
+  } catch(e) { return def; }
+}
 
-/* ── PASSWORD TOGGLE ──────────────────────────────────────────── */
-function togglePw(id, el) {
-  const inp = $(id);
+function saveAllLocal() {
+  lsSave(LS.P, products);
+  lsSave(LS.S, store);
+  lsSave(LS.K, categories);
+  saveCartLocal();
+}
+
+function saveCartLocal() {
+  lsSave(storeCartKey, cart);
+}
+
+function loadAllLocal() {
+  cart       = lsLoad(storeCartKey, []);
+  products   = lsLoad(LS.P,        cloneDeep(DEF_PRODS));
+  store      = lsLoad(LS.S,        { ...DEF_STORE });
+  categories = lsLoad(LS.K,        cloneDeep(DEF_CATS));
+}
+
+function cloneDeep(x) { return JSON.parse(JSON.stringify(x)); }
+
+/* ─────────────────────────────────────────────
+   HELPERS
+───────────────────────────────────────────── */
+function fmt(n) {
+  return (store.currency || 'Rs.') + ' ' + Number(n).toLocaleString('en-PK');
+}
+
+function catBySlug(sl) {
+  return categories.find(c => c.slug === sl);
+}
+
+function slugify(text) {
+  return text.toLowerCase().trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function setEl(id, val) {
+  const el = $(`#${id}`);
+  if (el) el.textContent = val;
+}
+
+/* ─────────────────────────────────────────────
+   PASSWORD TOGGLE
+───────────────────────────────────────────── */
+function togglePw(inputId, iconEl) {
+  const inp = $(`#${inputId}`);
+  if (!inp) return;
   const show = inp.type === 'password';
   inp.type = show ? 'text' : 'password';
-  el.innerHTML = show ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+  iconEl.innerHTML = show
+    ? '<i class="fa-solid fa-eye"></i>'
+    : '<i class="fa-solid fa-eye-slash"></i>';
 }
 
-/* ═══════════════════════════════════════════════
-   AUTH FUNCTIONS
-═══════════════════════════════════════════════ */
+/* ─────────────────────────────────────────────
+   AUTH MODAL
+───────────────────────────────────────────── */
 function showAuthModal() {
-  $('authOverlay').classList.remove('hidden');
-  $('authOverlay').classList.add('flex');
+  const overlay = $('#authOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('hidden');
+  overlay.classList.add('flex');
   showAuthTab('login');
 }
+
 function hideAuthModal() {
-  $('authOverlay').classList.add('hidden');
-  $('authOverlay').classList.remove('flex');
+  const overlay = $('#authOverlay');
+  if (!overlay) return;
+  overlay.classList.add('hidden');
+  overlay.classList.remove('flex');
 }
+
 function showAuthTab(tab) {
-  $('loginForm').classList.toggle('hidden', tab!=='login');
-  $('signupForm').classList.toggle('hidden', tab!=='signup');
-  $('loginTabBtn').className  = tab==='login'
-    ? 'flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all'
-    : 'flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all';
-  $('signupTabBtn').className = tab==='signup'
-    ? 'flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all'
-    : 'flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all';
+  const loginForm   = $('#loginForm');
+  const signupForm  = $('#signupForm');
+  const loginTabBtn = $('#loginTabBtn');
+  const signupTabBtn= $('#signupTabBtn');
+
+  if (!loginForm || !signupForm) return;
+
+  loginForm.classList.toggle('hidden',  tab !== 'login');
+  signupForm.classList.toggle('hidden', tab !== 'signup');
+
+  if (loginTabBtn) {
+    loginTabBtn.className = tab === 'login'
+      ? 'flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all'
+      : 'flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all';
+  }
+  if (signupTabBtn) {
+    signupTabBtn.className = tab === 'signup'
+      ? 'flex-1 py-3 text-sm font-bold text-brand border-b-2 border-brand transition-all'
+      : 'flex-1 py-3 text-sm font-bold text-gray-400 border-b-2 border-transparent transition-all';
+  }
 }
 
 function autoSignupSlug() {
-  const nameEl = $('signupStoreName');
-  const slugEl = $('signupSlug');
-  if (!slugEl.dataset.manual) slugEl.value = slug(nameEl.value);
+  const nameEl = $('#signupStoreName');
+  const slugEl = $('#signupSlug');
+  if (!nameEl || !slugEl) return;
+  if (!slugEl.dataset.manual) {
+    slugEl.value = slugify(nameEl.value);
+  }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const ss = $('signupSlug');
-  if (ss) ss.addEventListener('input', () => { ss.dataset.manual = '1'; });
-});
 
+/* ─────────────────────────────────────────────
+   AUTH: LOGIN
+───────────────────────────────────────────── */
 async function handleLogin() {
-  const email = $('loginEmail').value.trim();
-  const pw    = $('loginPassword').value;
-  if (!email||!pw) { toast('Please fill in all fields','error'); return; }
+  const email = ($('#loginEmail')    || {}).value || '';
+  const pw    = ($('#loginPassword') || {}).value || '';
+
+  if (!email.trim() || !pw.trim()) {
+    showToast('Please fill in all fields', 'error');
+    return;
+  }
+
   setBtnLoading('loginBtn', true, 'Signing in…');
-  const {data, error} = await sb.auth.signInWithPassword({email, password:pw});
+
+  const { data, error } = await sb.auth.signInWithPassword({ email: email.trim(), password: pw });
+
   setBtnLoading('loginBtn', false, '<i class="fa-solid fa-right-to-bracket"></i> Sign In');
-  if (error) { toast(error.message,'error'); return; }
+
+  if (error) {
+    showToast(error.message, 'error');
+    return;
+  }
+
   currentUser = data.user;
   hideAuthModal();
   await loadStoreForAdmin();
   openAdmin();
-  toast('Welcome back! 👋','success');
+  showToast('Welcome back! 👋', 'success');
 }
 
+/* ─────────────────────────────────────────────
+   AUTH: SIGN UP
+───────────────────────────────────────────── */
 async function handleSignup() {
-  const storeName = $('signupStoreName').value.trim();
-  const storeSlug = $('signupSlug').value.trim() || slug(storeName);
-  const email     = $('signupEmail').value.trim();
-  const pw        = $('signupPassword').value;
+  const storeName = (($('#signupStoreName') || {}).value || '').trim();
+  const slugRaw   = (($('#signupSlug')      || {}).value || '').trim();
+  const email     = (($('#signupEmail')     || {}).value || '').trim();
+  const pw        = (($('#signupPassword')  || {}).value || '').trim();
+  const storeSlug = slugRaw || slugify(storeName);
 
-  if (!storeName||!storeSlug||!email||!pw) { toast('Please fill in all fields','error'); return; }
-  if (pw.length < 6) { toast('Password must be at least 6 characters','error'); return; }
+  if (!storeName || !storeSlug || !email || !pw) {
+    showToast('Please fill in all required fields', 'error');
+    return;
+  }
+  if (pw.length < 6) {
+    showToast('Password must be at least 6 characters', 'error');
+    return;
+  }
 
   setBtnLoading('signupBtn', true, 'Creating account…');
 
-  // 1. Sign up user
-  const {data:authData, error:authErr} = await sb.auth.signUp({email, password:pw});
-  if (authErr) { setBtnLoading('signupBtn',false,'<i class="fa-solid fa-rocket"></i> Start Free Trial'); toast(authErr.message,'error'); return; }
+  const { data: authData, error: authErr } = await sb.auth.signUp({ email, password: pw });
+
+  if (authErr) {
+    setBtnLoading('signupBtn', false, '<i class="fa-solid fa-rocket"></i> Start Free Trial');
+    showToast(authErr.message, 'error');
+    return;
+  }
 
   currentUser = authData.user;
-  const now    = new Date();
-  const expiry = new Date(now.getTime() + 9 * 24 * 60 * 60 * 1000); // +9 days
 
-  // 2. Insert store row
+  const now    = new Date();
+  const expiry = new Date(now.getTime() + 9 * 24 * 60 * 60 * 1000);
+
   const payload = {
     user_id:         currentUser.id,
     slug:            storeSlug,
     name:            storeName,
     whatsapp_number: '',
     currency_symbol: 'Rs.',
-    banner_text:     'Welcome to '+storeName+'!',
+    banner_text:     'Welcome to ' + storeName + '!',
     promo_code:      '',
-    categories:      JSON.stringify(J(DEF_CATS)),
-    products:        JSON.stringify(J(DEF_PRODS)),
+    categories:      JSON.stringify(cloneDeep(DEF_CATS)),
+    products:        JSON.stringify(cloneDeep(DEF_PRODS)),
     plan_status:     'trialing',
     trial_starts_at: now.toISOString(),
     plan_expires_at: expiry.toISOString(),
     updated_at:      now.toISOString(),
   };
 
-  const {data:storeData, error:storeErr} = await sb.from('stores').insert(payload).select().single();
-  setBtnLoading('signupBtn',false,'<i class="fa-solid fa-rocket"></i> Start Free Trial');
+  const { data: storeData, error: storeErr } = await sb
+    .from('stores')
+    .insert(payload)
+    .select()
+    .single();
+
+  setBtnLoading('signupBtn', false, '<i class="fa-solid fa-rocket"></i> Start Free Trial');
 
   if (storeErr) {
-    toast('Could not create store: '+storeErr.message,'error');
-    // still proceed — row might be created partially
+    showToast('Account created but store setup failed: ' + storeErr.message, 'error');
     storeRow = payload;
   } else {
     storeRow = storeData;
   }
 
-  // Populate local state from new store
-  store      = { name:storeName, slug:storeSlug, waNumber:'', currency:'Rs.', bannerText:'Welcome to '+storeName+'!', promoCode:'' };
-  categories = J(DEF_CATS);
-  products   = J(DEF_PRODS);
-  saveAll();
+  store = {
+    name:       storeName,
+    slug:       storeSlug,
+    waNumber:   '',
+    currency:   'Rs.',
+    bannerText: 'Welcome to ' + storeName + '!',
+    promoCode:  '',
+  };
+  categories = cloneDeep(DEF_CATS);
+  products   = cloneDeep(DEF_PRODS);
+  saveAllLocal();
 
   hideAuthModal();
   await loadStoreForAdmin();
   openAdmin();
-  toast('Welcome to OrderKaro! 🎉 Your 9-day trial has started.','success');
+  showToast('Welcome to OrderKaro! 🎉 Your 9-day trial has started.', 'success');
 }
 
+/* ─────────────────────────────────────────────
+   AUTH: LOGOUT
+───────────────────────────────────────────── */
 async function handleLogout() {
   await sb.auth.signOut();
-  currentUser = null; storeRow = null;
+  currentUser = null;
+  storeRow    = null;
   closeAdmin();
-  toast('Signed out successfully.','success');
+  showToast('Signed out successfully.', 'success');
 }
 
-/* ── Gated Admin Open ─────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   OPEN ADMIN (GATED)
+───────────────────────────────────────────── */
 async function openAdminGated() {
-  // Check current session first
-  const {data:{session}} = await sb.auth.getSession();
-  if (session) {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session && session.user) {
     currentUser = session.user;
     if (!storeRow) await loadStoreForAdmin();
     openAdmin();
@@ -984,35 +1023,47 @@ async function openAdminGated() {
   }
 }
 
-/* ── Load store data for current logged-in admin ──────────────── */
+/* ─────────────────────────────────────────────
+   LOAD STORE FOR ADMIN (from Supabase)
+───────────────────────────────────────────── */
 async function loadStoreForAdmin() {
   if (!currentUser) return;
-  const {data, error} = await sb.from('stores')
-    .select('*').eq('user_id', currentUser.id).single();
+
+  const { data, error } = await sb
+    .from('stores')
+    .select('*')
+    .eq('user_id', currentUser.id)
+    .single();
+
   if (error || !data) return;
+
   storeRow = data;
 
-  // Merge into local state
   store = {
-    name:       data.name             || store.name,
-    slug:       data.slug             || store.slug,
-    waNumber:   data.whatsapp_number  || store.waNumber,
-    currency:   data.currency_symbol  || store.currency,
-    bannerText: data.banner_text      || store.bannerText,
-    promoCode:  data.promo_code       || store.promoCode,
+    name:       data.name            || store.name,
+    slug:       data.slug            || store.slug,
+    waNumber:   data.whatsapp_number || store.waNumber,
+    currency:   data.currency_symbol || store.currency,
+    bannerText: data.banner_text     || store.bannerText,
+    promoCode:  data.promo_code      || store.promoCode,
   };
-  try { categories = JSON.parse(data.categories) || categories; } catch(e){}
-  try { products   = JSON.parse(data.products)   || products;   } catch(e){}
-  saveAll();
+
+  try { categories = JSON.parse(data.categories) || categories; } catch(e) {}
+  try { products   = JSON.parse(data.products)   || products;   } catch(e) {}
+
+  saveAllLocal();
   updateUI();
 }
 
-/* ── Trial status helpers ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   TRIAL HELPERS
+───────────────────────────────────────────── */
 function trialDaysLeft(row) {
   if (!row || !row.plan_expires_at) return 0;
   const diff = new Date(row.plan_expires_at) - new Date();
-  return Math.max(0, Math.ceil(diff / (1000*60*60*24)));
+  return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
+
 function isStoreActive(row) {
   if (!row) return false;
   if (row.plan_status === 'active') return true;
@@ -1022,30 +1073,36 @@ function isStoreActive(row) {
   return false;
 }
 
-/* ═══════════════════════════════════════════════
-   SUPABASE STORE SYNC
-═══════════════════════════════════════════════ */
+/* ─────────────────────────────────────────────
+   CLOUD SYNC (Supabase upsert)
+───────────────────────────────────────────── */
 async function syncToCloud() {
-  if (!currentUser) { showAuthModal(); return; }
-  const name   = $('aStoreName').value.trim();
-  const sl     = $('aStoreSlug').value.trim();
-  const wa     = $('aWaNumber').value.trim();
-  const cur    = $('aCurrency').value.trim();
-  const banner = $('aBannerText').value.trim();
-  const promo  = $('aPromoCode').value.trim();
-  if (!name) { toast('Store name is required!','error'); return; }
-  if (!sl)   { toast('Store slug is required!','error'); return; }
-  if (!wa)   { toast('WhatsApp number is required!','error'); return; }
+  if (!currentUser) {
+    showAuthModal();
+    return;
+  }
 
-  store = {name, slug:sl, waNumber:wa, currency:cur||'Rs.', bannerText:banner, promoCode:promo};
-  saveAll(); applyStore();
+  const name   = (($('#aStoreName')  || {}).value || '').trim();
+  const sl     = (($('#aStoreSlug')  || {}).value || '').trim();
+  const wa     = (($('#aWaNumber')   || {}).value || '').trim();
+  const cur    = (($('#aCurrency')   || {}).value || '').trim();
+  const banner = (($('#aBannerText') || {}).value || '').trim();
+  const promo  = (($('#aPromoCode')  || {}).value || '').trim();
+
+  if (!name) { showToast('Store name is required!', 'error'); return; }
+  if (!sl)   { showToast('Store slug is required!', 'error'); return; }
+  if (!wa)   { showToast('WhatsApp number is required!', 'error'); return; }
+
+  store = { name, slug: sl, waNumber: wa, currency: cur || 'Rs.', bannerText: banner, promoCode: promo };
+  saveAllLocal();
+  applyStore();
 
   const payload = {
     user_id:         currentUser.id,
     slug:            sl,
     name:            name,
     whatsapp_number: wa,
-    currency_symbol: cur||'Rs.',
+    currency_symbol: cur || 'Rs.',
     banner_text:     banner,
     promo_code:      promo,
     categories:      JSON.stringify(categories),
@@ -1053,50 +1110,82 @@ async function syncToCloud() {
     updated_at:      new Date().toISOString(),
   };
 
-  setSyncUI('busy','Syncing…');
-  $('syncBtn').disabled = true;
-  $('syncBtn').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Syncing…';
+  setSyncUI('busy', 'Syncing…');
 
-  const {data, error} = await sb.from('stores')
-    .upsert(payload, {onConflict:'slug'})
-    .select().single();
+  const syncBtn = $('#syncBtn');
+  if (syncBtn) { syncBtn.disabled = true; syncBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Syncing…'; }
 
-  $('syncBtn').disabled = false;
-  $('syncBtn').innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> Save & Sync to Cloud ☁️';
+  const { data, error } = await sb
+    .from('stores')
+    .upsert(payload, { onConflict: 'slug' })
+    .select()
+    .single();
+
+  if (syncBtn) { syncBtn.disabled = false; syncBtn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> Save & Sync to Cloud ☁️'; }
 
   if (error) {
-    setSyncUI('offline','Sync failed'); toast('Sync failed: '+error.message,'error');
+    setSyncUI('offline', 'Sync failed');
+    showToast('Sync failed: ' + error.message, 'error');
   } else {
     storeRow = data;
-    setSyncUI('online','Synced ✓ just now');
+    setSyncUI('online', 'Synced ✓ just now');
     showLinkBox(sl);
-    toast('Store synced to cloud! ✅','success');
+    showToast('Store synced to cloud! ✅', 'success');
   }
 }
 
 function saveLocal() {
-  store = {
-    name:       $('aStoreName').value.trim()  || store.name,
-    slug:       $('aStoreSlug').value.trim()  || store.slug,
-    waNumber:   $('aWaNumber').value.trim()   || store.waNumber,
-    currency:   $('aCurrency').value.trim()   || 'Rs.',
-    bannerText: $('aBannerText').value.trim(),
-    promoCode:  $('aPromoCode').value.trim(),
-  };
-  saveAll(); updateUI();
-  toast('Saved locally! (not synced)','success');
+  const name   = (($('#aStoreName')  || {}).value || store.name).trim();
+  const sl     = (($('#aStoreSlug')  || {}).value || store.slug).trim();
+  const wa     = (($('#aWaNumber')   || {}).value || store.waNumber).trim();
+  const cur    = (($('#aCurrency')   || {}).value || store.currency).trim();
+  const banner = (($('#aBannerText') || {}).value || '').trim();
+  const promo  = (($('#aPromoCode')  || {}).value || '').trim();
+
+  store = { name, slug: sl, waNumber: wa, currency: cur || 'Rs.', bannerText: banner, promoCode: promo };
+  saveAllLocal();
+  updateUI();
+  showToast('Saved locally! (not synced to cloud)', 'success');
 }
 
 function setSyncUI(state, msg) {
-  const dot = $('syncDot'), st = $('syncStatus');
-  if (!dot||!st) return;
-  dot.className = 'inline-block w-2 h-2 rounded-full ' + (state==='online'?'dot-online':state==='busy'?'dot-busy':'dot-offline');
+  const dot = $('#syncDot');
+  const st  = $('#syncStatus');
+  if (!dot || !st) return;
+  dot.className = 'inline-block w-2 h-2 rounded-full ' +
+    (state === 'online' ? 'dot-online' : state === 'busy' ? 'dot-busy' : 'dot-offline');
   st.textContent = msg;
 }
 
-/* ═══════════════════════════════════════════════
-   FULL UI
-═══════════════════════════════════════════════ */
+/* ─────────────────────────────────────────────
+   CUSTOMER LINK
+───────────────────────────────────────────── */
+function showLinkBox(sl) {
+  const box = $('#customerLinkBox');
+  const inp = $('#customerLinkInput');
+  if (!box || !inp) return;
+  inp.value = location.origin + location.pathname + '?store=' + sl;
+  box.classList.remove('hidden');
+}
+
+function copyLink() {
+  const inp = $('#customerLinkInput');
+  if (!inp) return;
+  navigator.clipboard.writeText(inp.value)
+    .then(() => showToast('Link copied! 📋', 'success'))
+    .catch(() => { inp.select(); document.execCommand('copy'); showToast('Link copied!', 'success'); });
+}
+
+function shareLink() {
+  const inp = $('#customerLinkInput');
+  if (!inp) return;
+  const msg = '🛍️ Shop at *' + store.name + '*!\n' + inp.value;
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* ─────────────────────────────────────────────
+   FULL UI UPDATE
+───────────────────────────────────────────── */
 function updateUI() {
   applyStore();
   renderChips();
@@ -1107,140 +1196,217 @@ function updateUI() {
 }
 
 function applyStore() {
-  document.title = store.name + ' — OrderKaro';
-  setText('storeNameDisplay', store.name);
-  setText('footerName',       store.name);
-  const bt = $('bannerText');
-  if (bt) bt.innerHTML = (store.bannerText||'').replace(/\n/g,'<br/>');
-  const bc = $('bannerCode');
-  if (bc) bc.textContent = store.promoCode||'';
-}
-function setText(id, val) { const el=$(id); if(el) el.textContent=val; }
+  document.title = (store.name || 'OrderKaro') + ' — OrderKaro';
+  setEl('storeNameDisplay', store.name || 'OrderKaro');
+  setEl('footerName', store.name || 'OrderKaro');
 
-/* ── Category chips ───────────────────────────────────────────── */
+  const bt = $('#bannerText');
+  if (bt) bt.innerHTML = (store.bannerText || '').replace(/\n/g, '<br/>');
+
+  const bc = $('#bannerCode');
+  if (bc) bc.textContent = store.promoCode || '';
+}
+
+/* ─────────────────────────────────────────────
+   CATEGORY CHIPS
+───────────────────────────────────────────── */
 function renderChips() {
-  const c = $('categoryChips'); if(!c) return;
-  const all = [{slug:'all',name:'All Items',emoji:'🛍️'}, ...categories];
-  c.innerHTML = all.map(cat => {
+  const container = $('#categoryChips');
+  if (!container) return;
+
+  const allChips = [{ slug: 'all', name: 'All Items', emoji: '🛍️' }, ...categories];
+
+  container.innerHTML = allChips.map(cat => {
     const active = currentCat === cat.slug;
-    return `<button class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 transition-all
-                    ${active?'chip-active border-brand bg-brand text-white':'border-gray-200 bg-white text-gray-600 hover:border-brand/40'}"
-                    data-cat="${cat.slug}" onclick="setCategory('${cat.slug}',this)">
-              ${cat.emoji} ${cat.name}
-            </button>`;
+    return `
+      <button
+        class="chip flex-shrink-0 text-sm font-semibold px-4 py-2 rounded-full border-2 transition-all
+               ${active ? 'chip-active border-brand bg-brand text-white' : 'border-gray-200 bg-white text-gray-600 hover:border-brand/40'}"
+        data-cat="${cat.slug}"
+        onclick="setCategory('${cat.slug}', this)">
+        ${cat.emoji} ${cat.name}
+      </button>`;
   }).join('');
 }
 
 function setCategory(sl, el) {
   currentCat = sl;
+
   document.querySelectorAll('.chip').forEach(c => {
-    c.classList.remove('chip-active','border-brand','bg-brand','text-white');
-    c.classList.add('border-gray-200','bg-white','text-gray-600');
+    c.classList.remove('chip-active', 'border-brand', 'bg-brand', 'text-white');
+    c.classList.add('border-gray-200', 'bg-white', 'text-gray-600');
   });
-  const t = el || document.querySelector(`[data-cat="${sl}"]`);
-  if (t) { t.classList.add('chip-active','border-brand','bg-brand','text-white'); t.classList.remove('border-gray-200','bg-white','text-gray-600'); }
-  let title='All Products', sub='Showing all available items';
-  if (sl!=='all') { const cat=catBy(sl); if(cat){ title=cat.emoji+' '+cat.name; sub='Showing '+cat.name+' items'; } }
-  setText('sectionTitle', title); setText('sectionSub', sub);
+
+  const target = el || document.querySelector(`[data-cat="${sl}"]`);
+  if (target) {
+    target.classList.add('chip-active', 'border-brand', 'bg-brand', 'text-white');
+    target.classList.remove('border-gray-200', 'bg-white', 'text-gray-600');
+  }
+
+  let title = 'All Products', sub = 'Showing all available items';
+  if (sl !== 'all') {
+    const cat = catBySlug(sl);
+    if (cat) { title = cat.emoji + ' ' + cat.name; sub = 'Showing ' + cat.name + ' items'; }
+  }
+
+  setEl('sectionTitle', title);
+  setEl('sectionSub', sub);
   renderGrid();
 }
 
-/* ── Product grid ─────────────────────────────────────────────── */
-function filtered() {
+/* ─────────────────────────────────────────────
+   PRODUCT GRID
+───────────────────────────────────────────── */
+function getFiltered() {
   return products.filter(p => {
-    const mc = currentCat==='all' || p.categorySlug===currentCat;
+    const mc = currentCat === 'all' || p.categorySlug === currentCat;
     const q  = currentSearch.toLowerCase();
-    const ms = !q || p.name.toLowerCase().includes(q) || (p.description||'').toLowerCase().includes(q);
+    const ms = !q || p.name.toLowerCase().includes(q) || (p.description || '').toLowerCase().includes(q);
     return mc && ms;
   });
 }
 
 function renderGrid() {
-  const grid  = $('productGrid');
-  const noRes = $('noResults');
-  const list  = filtered();
-  $('prodCountBadge').textContent = list.length + ' item'+(list.length!==1?'s':'');
-  if (list.length===0) { grid.innerHTML=''; noRes.classList.remove('hidden'); noRes.classList.add('flex'); return; }
-  noRes.classList.add('hidden'); noRes.classList.remove('flex');
+  const grid  = $('#productGrid');
+  const noRes = $('#noResults');
+  if (!grid || !noRes) return;
+
+  const list = getFiltered();
+  const badge = $('#prodCountBadge');
+  if (badge) badge.textContent = list.length + ' item' + (list.length !== 1 ? 's' : '');
+
+  if (!list.length) {
+    grid.innerHTML = '';
+    noRes.classList.remove('hidden');
+    noRes.classList.add('flex');
+    return;
+  }
+
+  noRes.classList.add('hidden');
+  noRes.classList.remove('flex');
 
   grid.innerHTML = list.map(p => {
     const inCart = cartItem(p.id);
     const qty    = inCart ? inCart.qty : 0;
-    const orig   = p.originalPrice || p.orig_price;
-    const disc   = orig ? Math.round((1-p.price/orig)*100) : 0;
-    const cat    = catBy(p.categorySlug);
+    const orig   = p.originalPrice || p.orig_price || null;
+    const disc   = orig ? Math.round((1 - p.price / orig) * 100) : 0;
+    const cat    = catBySlug(p.categorySlug);
+
     return `
       <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col" style="box-shadow:0 2px 16px rgba(0,0,0,.07)">
         <div class="relative overflow-hidden bg-gray-100" style="aspect-ratio:1/1">
-          <img src="${p.img||''}" alt="${p.name}" class="product-img w-full h-full object-cover" loading="lazy"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="absolute inset-0 bg-gray-100 items-center justify-center text-5xl hidden">${p.emoji||'📦'}</div>
-          ${p.badge?`<span class="badge-${p.badge} absolute top-2 left-2 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>`:''}
-          ${disc>0?`<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${disc}%</span>`:''}
-          ${qty>0?`<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>`:''}
+          <img src="${p.img || ''}" alt="${p.name}" class="product-img w-full h-full object-cover" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="absolute inset-0 bg-gray-100 items-center justify-center text-5xl hidden">${p.emoji || '📦'}</div>
+          ${p.badge ? `<span class="badge-${p.badge} absolute top-2 left-2 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">${p.badge}</span>` : ''}
+          ${disc > 0 ? `<span class="absolute top-2 right-2 bg-white text-accent text-[10px] font-extrabold px-1.5 py-0.5 rounded-full shadow">-${disc}%</span>` : ''}
+          ${qty > 0 ? `<div class="absolute bottom-2 right-2 w-6 h-6 bg-wa rounded-full flex items-center justify-center shadow"><span class="text-white text-[10px] font-extrabold">${qty}</span></div>` : ''}
         </div>
         <div class="p-3 flex flex-col flex-1">
-          ${cat?`<p class="text-[10px] text-indigo-400 font-semibold mb-0.5">${cat.emoji} ${cat.name}</p>`:''}
-          <p class="text-[10px] text-gray-400 mb-0.5 truncate">${p.description||''}</p>
+          ${cat ? `<p class="text-[10px] text-indigo-400 font-semibold mb-0.5">${cat.emoji} ${cat.name}</p>` : ''}
+          <p class="text-[10px] text-gray-400 mb-0.5 truncate">${p.description || ''}</p>
           <h3 class="font-bold text-brand text-sm leading-tight mb-2 flex-1">${p.name}</h3>
           <div class="mb-2.5">
             <span class="font-extrabold text-brand text-base">${fmt(p.price)}</span>
-            ${orig?`<span class="text-xs text-gray-400 line-through ml-1">${fmt(orig)}</span>`:''}
+            ${orig ? `<span class="text-xs text-gray-400 line-through ml-1">${fmt(orig)}</span>` : ''}
           </div>
-          ${qty===0
-            ?`<button onclick="addToCart(${p.id})" class="btn-press w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all"><i class="fa-solid fa-plus text-xs"></i> Add to Cart</button>`
-            :`<div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
-               <button onclick="decQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center transition-all"><i class="fa-solid fa-minus text-xs"></i></button>
-               <span class="font-extrabold text-brand text-sm">${qty}</span>
-               <button onclick="incQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center transition-all"><i class="fa-solid fa-plus text-xs"></i></button>
-             </div>`
+          ${qty === 0
+            ? `<button onclick="addToCart(${p.id})" class="btn-press w-full bg-brand text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all"><i class="fa-solid fa-plus text-xs"></i> Add to Cart</button>`
+            : `<div class="flex items-center justify-between bg-gray-50 rounded-xl p-1">
+                 <button onclick="decQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand/10 text-brand flex items-center justify-center transition-all"><i class="fa-solid fa-minus text-xs"></i></button>
+                 <span class="font-extrabold text-brand text-sm">${qty}</span>
+                 <button onclick="incQty(${p.id})" class="qty-btn w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center transition-all"><i class="fa-solid fa-plus text-xs"></i></button>
+               </div>`
           }
         </div>
       </div>`;
   }).join('');
 }
 
-/* ── Cart Logic ───────────────────────────────────────────────── */
-const cartItem   = id => cart.find(i=>i.id===id);
-const totalItems = ()  => cart.reduce((s,i)=>s+i.qty,0);
-const grandTotal = ()  => cart.reduce((s,i)=>s+(i.price*i.qty),0);
+/* ─────────────────────────────────────────────
+   CART LOGIC
+───────────────────────────────────────────── */
+function cartItem(id)   { return cart.find(i => i.id === id); }
+function totalItems()   { return cart.reduce((s, i) => s + i.qty, 0); }
+function grandTotal()   { return cart.reduce((s, i) => s + (i.price * i.qty), 0); }
 
 function addToCart(id) {
-  const p = products.find(x=>x.id===id); if(!p) return;
+  const p = products.find(x => x.id === id);
+  if (!p) return;
   const ex = cartItem(id);
-  if (ex) ex.qty++; else cart.push({id:p.id,name:p.name,price:p.price,img:p.img,emoji:p.emoji||'📦',qty:1});
-  save(LS.C,cart); updateUI();
-  toast('"'+p.name+'" added to cart!','success');
+  if (ex) {
+    ex.qty++;
+  } else {
+    cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, emoji: p.emoji || '📦', qty: 1 });
+  }
+  saveCartLocal();
+  updateUI();
+  showToast('"' + p.name + '" added to cart!', 'success');
 }
-function removeFromCart(id)  { cart=cart.filter(i=>i.id!==id); save(LS.C,cart); updateUI(); }
-function incQty(id) { const i=cartItem(id); if(i){ i.qty++; save(LS.C,cart); updateUI(); } }
-function decQty(id) { const i=cartItem(id); if(!i)return; i.qty<=1?removeFromCart(id):(i.qty--,save(LS.C,cart),updateUI()); }
+
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCartLocal();
+  updateUI();
+}
+
+function incQty(id) {
+  const i = cartItem(id);
+  if (i) { i.qty++; saveCartLocal(); updateUI(); }
+}
+
+function decQty(id) {
+  const i = cartItem(id);
+  if (!i) return;
+  if (i.qty <= 1) removeFromCart(id);
+  else { i.qty--; saveCartLocal(); updateUI(); }
+}
 
 function renderCartDrawer() {
-  const empty=$('emptyCart'), list=$('cartItemsList'), form=$('cartFormSection');
-  const cnt=$('drawerItemCount'), sub=$('sumSubtotal'), tot=$('sumTotal');
-  const n=totalItems(), g=grandTotal();
-  cnt.textContent=n+' item'+(n!==1?'s':'')+' selected';
-  sub.textContent=fmt(g); tot.textContent=fmt(g);
-  if(!cart.length){ empty.classList.remove('hidden'); list.classList.add('hidden'); form.classList.add('hidden'); return; }
-  empty.classList.add('hidden'); list.classList.remove('hidden'); form.classList.remove('hidden');
-  list.innerHTML = cart.map(i=>`
+  const emptyEl = $('#emptyCart');
+  const listEl  = $('#cartItemsList');
+  const formEl  = $('#cartFormSection');
+  const cntEl   = $('#drawerItemCount');
+  const subEl   = $('#sumSubtotal');
+  const totEl   = $('#sumTotal');
+
+  if (!emptyEl || !listEl || !formEl) return;
+
+  const n = totalItems(), g = grandTotal();
+
+  if (cntEl) cntEl.textContent = n + ' item' + (n !== 1 ? 's' : '') + ' selected';
+  if (subEl) subEl.textContent = fmt(g);
+  if (totEl) totEl.textContent = fmt(g);
+
+  if (!cart.length) {
+    emptyEl.classList.remove('hidden');
+    listEl.classList.add('hidden');
+    formEl.classList.add('hidden');
+    return;
+  }
+
+  emptyEl.classList.add('hidden');
+  listEl.classList.remove('hidden');
+  formEl.classList.remove('hidden');
+
+  listEl.innerHTML = cart.map(item => `
     <div class="flex items-center gap-3 bg-gray-50 rounded-2xl p-3">
       <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-2xl">
-        <img src="${i.img||''}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='${i.emoji||'📦'}'"/>
+        <img src="${item.img || ''}" alt="${item.name}" class="w-full h-full object-cover"
+             onerror="this.style.display='none';this.parentElement.innerHTML='${item.emoji || '📦'}'" />
       </div>
       <div class="flex-1 min-w-0">
-        <h4 class="font-bold text-brand text-sm truncate">${i.name}</h4>
-        <p class="text-wa font-extrabold text-sm">${fmt(i.price)}</p>
-        <p class="text-gray-400 text-xs">Subtotal: ${fmt(i.price*i.qty)}</p>
+        <h4 class="font-bold text-brand text-sm truncate">${item.name}</h4>
+        <p class="text-wa font-extrabold text-sm">${fmt(item.price)}</p>
+        <p class="text-gray-400 text-xs">Subtotal: ${fmt(item.price * item.qty)}</p>
       </div>
       <div class="flex flex-col items-center gap-1.5">
         <div class="flex items-center gap-1 bg-white rounded-xl border border-gray-200 p-1">
-          <button onclick="decQty(${i.id})" class="qty-btn w-7 h-7 rounded-lg bg-gray-100 text-brand flex items-center justify-center"><i class="fa-solid fa-minus text-[10px]"></i></button>
-          <span class="w-6 text-center font-extrabold text-brand text-sm">${i.qty}</span>
-          <button onclick="incQty(${i.id})" class="qty-btn w-7 h-7 rounded-lg bg-brand text-white flex items-center justify-center"><i class="fa-solid fa-plus text-[10px]"></i></button>
+          <button onclick="decQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-gray-100 text-brand flex items-center justify-center"><i class="fa-solid fa-minus text-[10px]"></i></button>
+          <span class="w-6 text-center font-extrabold text-brand text-sm">${item.qty}</span>
+          <button onclick="incQty(${item.id})" class="qty-btn w-7 h-7 rounded-lg bg-brand text-white flex items-center justify-center"><i class="fa-solid fa-plus text-[10px]"></i></button>
         </div>
-        <button onclick="removeFromCart(${i.id})" class="text-red-400 text-xs flex items-center gap-1 hover:text-red-500 transition-colors">
+        <button onclick="removeFromCart(${item.id})" class="text-red-400 text-xs flex items-center gap-1 hover:text-red-500 transition-colors">
           <i class="fa-solid fa-trash text-[10px]"></i> Remove
         </button>
       </div>
@@ -1248,168 +1414,288 @@ function renderCartDrawer() {
 }
 
 function updateFloatCart() {
-  const btn=$('floatCart'), badge=$('floatBadge'), tot=$('floatTotal');
-  const n=totalItems();
-  if(n>0){ btn.classList.remove('hidden'); badge.textContent=n; tot.textContent=fmt(grandTotal()); }
-  else   { btn.classList.add('hidden'); }
-}
-function updateHeaderBadge() {
-  const b=$('headerBadge'), n=totalItems();
-  if(n>0){ b.textContent=n; b.style.display='flex'; } else { b.style.display='none'; }
+  const btn   = $('#floatCart');
+  const badge = $('#floatBadge');
+  const tot   = $('#floatTotal');
+  const n = totalItems();
+  if (!btn) return;
+  if (n > 0) {
+    btn.classList.remove('hidden');
+    if (badge) badge.textContent = n;
+    if (tot)   tot.textContent   = fmt(grandTotal());
+  } else {
+    btn.classList.add('hidden');
+  }
 }
 
-/* ── Drawers ──────────────────────────────────────────────────── */
+function updateHeaderBadge() {
+  const b = $('#headerBadge');
+  const n = totalItems();
+  if (!b) return;
+  if (n > 0) { b.textContent = n; b.style.display = 'flex'; }
+  else        { b.style.display = 'none'; }
+}
+
+/* ─────────────────────────────────────────────
+   DRAWERS
+───────────────────────────────────────────── */
 function openCart() {
   closeAdmin(true);
-  const d=$('cartDrawer'), o=$('overlay');
-  d.classList.remove('hidden','drawer-close'); d.classList.add('drawer-open');
-  o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
-  cartOpen=true; document.body.style.overflow='hidden'; renderCartDrawer();
+  const d = $('#cartDrawer');
+  const o = $('#overlay');
+  if (!d || !o) return;
+  d.classList.remove('hidden', 'drawer-close');
+  d.classList.add('drawer-open');
+  o.classList.remove('hidden', 'overlay-close');
+  o.classList.add('overlay-open');
+  cartOpen = true;
+  document.body.style.overflow = 'hidden';
+  renderCartDrawer();
 }
+
 function closeCart() {
-  const d=$('cartDrawer'), o=$('overlay');
-  d.classList.remove('drawer-open'); d.classList.add('drawer-close');
-  if(!adminOpen){ o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
-  cartOpen=false; document.body.style.overflow='';
-  setTimeout(()=>{ d.classList.add('hidden'); d.classList.remove('drawer-close');
-    if(!adminOpen){ o.classList.add('hidden'); o.classList.remove('overlay-close'); } },300);
+  const d = $('#cartDrawer');
+  const o = $('#overlay');
+  if (!d || !o) return;
+  d.classList.remove('drawer-open');
+  d.classList.add('drawer-close');
+  if (!adminOpen) {
+    o.classList.remove('overlay-open');
+    o.classList.add('overlay-close');
+  }
+  cartOpen = false;
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    d.classList.add('hidden');
+    d.classList.remove('drawer-close');
+    if (!adminOpen) {
+      o.classList.add('hidden');
+      o.classList.remove('overlay-close');
+    }
+  }, 300);
 }
+
 function openAdmin() {
   closeCart(true);
-  const a=$('adminPanel'), o=$('overlay');
-  a.classList.remove('hidden','admin-close'); a.classList.add('admin-open');
-  o.classList.remove('hidden','overlay-close'); o.classList.add('overlay-open');
-  adminOpen=true; document.body.style.overflow='hidden';
-  fillAdminForms(); buildEmojiPicker(); buildPresetImgs();
-  // Show user info bar
+  const a = $('#adminPanel');
+  const o = $('#overlay');
+  if (!a || !o) return;
+  a.classList.remove('hidden', 'admin-close');
+  a.classList.add('admin-open');
+  o.classList.remove('hidden', 'overlay-close');
+  o.classList.add('overlay-open');
+  adminOpen = true;
+  document.body.style.overflow = 'hidden';
+  fillAdminForms();
+  buildEmojiPicker();
+  buildPresetImgs();
+
   if (currentUser) {
-    $('adminUserBar').classList.remove('hidden');
-    $('adminUserEmail').textContent = currentUser.email||'';
-    if (storeRow) {
-      const days = trialDaysLeft(storeRow);
+    const userBar   = $('#adminUserBar');
+    const userEmail = $('#adminUserEmail');
+    const planBadge = $('#adminPlanBadge');
+    const trialBadge= $('#trialBadge');
+    const trialDays = $('#trialDaysLeft');
+
+    if (userBar)   userBar.classList.remove('hidden');
+    if (userEmail) userEmail.textContent = currentUser.email || '';
+
+    if (storeRow && planBadge) {
+      const days   = trialDaysLeft(storeRow);
       const status = storeRow.plan_status;
-      $('adminPlanBadge').textContent = status==='active' ? '✅ Active Plan' : status==='trialing' ? `⏳ Trial — ${days}d left` : '❌ Expired';
-      if (status==='trialing' && days > 0) {
-        $('trialBadge').classList.remove('hidden');
-        $('trialDaysLeft').textContent = days;
-      } else { $('trialBadge').classList.add('hidden'); }
+      planBadge.textContent =
+        status === 'active'   ? '✅ Active Plan' :
+        status === 'trialing' ? '⏳ Trial — ' + days + 'd left' : '❌ Expired';
+
+      if (trialBadge && trialDays) {
+        if (status === 'trialing' && days > 0) {
+          trialBadge.classList.remove('hidden');
+          trialDays.textContent = days;
+        } else {
+          trialBadge.classList.add('hidden');
+        }
+      }
     }
+
     if (store.slug) showLinkBox(store.slug);
   }
 }
+
 function closeAdmin(silent) {
-  const a=$('adminPanel'), o=$('overlay');
-  a.classList.remove('admin-open'); a.classList.add('admin-close');
-  if(!cartOpen){ o.classList.remove('overlay-open'); o.classList.add('overlay-close'); }
-  adminOpen=false; document.body.style.overflow='';
-  setTimeout(()=>{ a.classList.add('hidden'); a.classList.remove('admin-close');
-    if(!cartOpen){ o.classList.add('hidden'); o.classList.remove('overlay-close'); } },300);
+  const a = $('#adminPanel');
+  const o = $('#overlay');
+  if (!a || !o) return;
+  a.classList.remove('admin-open');
+  a.classList.add('admin-close');
+  if (!cartOpen) {
+    o.classList.remove('overlay-open');
+    o.classList.add('overlay-close');
+  }
+  adminOpen = false;
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    a.classList.add('hidden');
+    a.classList.remove('admin-close');
+    if (!cartOpen) {
+      o.classList.add('hidden');
+      o.classList.remove('overlay-close');
+    }
+  }, 300);
 }
-function handleOverlayClick(){ if(cartOpen)closeCart(); if(adminOpen)closeAdmin(); }
 
-/* ── Admin Tabs ───────────────────────────────────────────────── */
-const ADMIN_TABS = ['store','categories','products','add'];
+function handleOverlayClick() {
+  if (cartOpen)  closeCart();
+  if (adminOpen) closeAdmin();
+}
+
+/* ─────────────────────────────────────────────
+   ADMIN TABS
+───────────────────────────────────────────── */
+const ADMIN_TABS = ['store', 'categories', 'products', 'add'];
+
+function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 function adminTab(tab) {
-  ADMIN_TABS.forEach(t=>{
-    $('panel'+cap(t)).classList.add('hidden');
-    const b=$('tab'+cap(t));
-    b.classList.remove('tab-on'); b.classList.add('tab-off');
+  ADMIN_TABS.forEach(t => {
+    const panel = $('#panel' + capFirst(t));
+    const btn   = $('#tab'   + capFirst(t));
+    if (panel) panel.classList.add('hidden');
+    if (btn)   { btn.classList.remove('tab-on'); btn.classList.add('tab-off'); }
   });
-  $('panel'+cap(tab)).classList.remove('hidden');
-  const ab=$('tab'+cap(tab));
-  ab.classList.add('tab-on'); ab.classList.remove('tab-off');
-  if(tab==='products')   renderProdList();
-  if(tab==='categories') renderCatList();
-  if(tab==='add')        { cancelEdit(); fillCatDropdown(); }
-}
-const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
 
-/* ── Admin Forms ──────────────────────────────────────────────── */
+  const activePanel = $('#panel' + capFirst(tab));
+  const activeBtn   = $('#tab'   + capFirst(tab));
+  if (activePanel) activePanel.classList.remove('hidden');
+  if (activeBtn)   { activeBtn.classList.add('tab-on'); activeBtn.classList.remove('tab-off'); }
+
+  if (tab === 'products')   renderProdList();
+  if (tab === 'categories') renderCatList();
+  if (tab === 'add')        { cancelEdit(); fillCatDropdown(); }
+}
+
+/* ─────────────────────────────────────────────
+   ADMIN STORE FORM
+───────────────────────────────────────────── */
 function fillAdminForms() {
-  $('aStoreName').value  = store.name||'';
-  $('aStoreSlug').value  = store.slug||'';
-  $('aWaNumber').value   = store.waNumber||'';
-  $('aCurrency').value   = store.currency||'';
-  $('aBannerText').value = store.bannerText||'';
-  $('aPromoCode').value  = store.promoCode||'';
-  renderCatList(); renderProdList(); fillCatDropdown();
-  if (store.slug) { if(storeRow && isStoreActive(storeRow)) setSyncUI('online','Synced ✓'); }
+  const fields = {
+    aStoreName:  store.name       || '',
+    aStoreSlug:  store.slug       || '',
+    aWaNumber:   store.waNumber   || '',
+    aCurrency:   store.currency   || '',
+    aBannerText: store.bannerText || '',
+    aPromoCode:  store.promoCode  || '',
+  };
+
+  Object.entries(fields).forEach(([id, val]) => {
+    const el = $(`#${id}`);
+    if (el) el.value = val;
+  });
+
+  renderCatList();
+  renderProdList();
+  fillCatDropdown();
+
+  if (storeRow && isStoreActive(storeRow)) {
+    setSyncUI('online', 'Synced ✓');
+  }
 }
+
 function liveSlug() {
-  const el=$('aStoreSlug'); if(!el.dataset.manual) el.value=slug($('aStoreName').value);
-}
-document.addEventListener('DOMContentLoaded',()=>{
-  const el=$('aStoreSlug'); if(el) el.addEventListener('input',()=>el.dataset.manual='1');
-});
-
-/* ── Customer Link ────────────────────────────────────────────── */
-function showLinkBox(sl) {
-  const box=$('customerLinkBox'), inp=$('customerLinkInput');
-  if(!box||!inp) return;
-  inp.value = location.origin+location.pathname+'?store='+sl;
-  box.classList.remove('hidden');
-}
-function copyLink() {
-  const inp=$('customerLinkInput'); if(!inp) return;
-  navigator.clipboard.writeText(inp.value)
-    .then(()=>toast('Link copied! 📋','success'))
-    .catch(()=>{ inp.select(); document.execCommand('copy'); toast('Link copied!','success'); });
-}
-function shareLink() {
-  const inp=$('customerLinkInput'); if(!inp) return;
-  const msg=`🛍️ Shop at *${store.name}*!\n${inp.value}`;
-  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+  const nameEl = $('#aStoreName');
+  const slugEl = $('#aStoreSlug');
+  if (!nameEl || !slugEl) return;
+  if (!slugEl.dataset.manual) {
+    slugEl.value = slugify(nameEl.value);
+  }
 }
 
-/* ── Category Management ──────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   CATEGORY MANAGEMENT
+───────────────────────────────────────────── */
 function buildEmojiPicker() {
-  const g=$('emojiPicker'); if(!g) return;
-  g.innerHTML=EMOJI_POOL.map(em=>`
-    <button type="button" onclick="pickEmoji('${em}',this)" class="text-xl px-1.5 py-1 rounded-lg hover:bg-indigo-100 transition-all">${em}</button>`).join('');
+  const grid = $('#emojiPicker');
+  if (!grid) return;
+  grid.innerHTML = EMOJI_POOL.map(em => `
+    <button type="button" onclick="pickEmoji('${em}', this)"
+            class="text-xl px-1.5 py-1 rounded-lg hover:bg-indigo-100 transition-all">${em}</button>`).join('');
 }
-function pickEmoji(em,btn) {
-  selEmoji=em; $('newCatEmoji').value=em;
-  document.querySelectorAll('#emojiPicker button').forEach(b=>b.classList.remove('selected','bg-indigo-100'));
-  btn.classList.add('bg-indigo-100');
+
+function pickEmoji(em, btn) {
+  selEmoji = em;
+  const inp = $('#newCatEmoji');
+  if (inp) inp.value = em;
+  document.querySelectorAll('#emojiPicker button').forEach(b => b.classList.remove('emoji-btn-sel', 'bg-indigo-100'));
+  btn.classList.add('emoji-btn-sel', 'bg-indigo-100');
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  const n=$('newCatName'); if(n) n.addEventListener('input',()=>{ const s=$('newCatSlug'); if(s&&!s.dataset.manual) s.value=slug(n.value); });
-  const sl=$('newCatSlug'); if(sl) sl.addEventListener('input',()=>sl.dataset.manual='1');
-});
+
 function addCategory() {
-  const name=$('newCatName').value.trim();
-  const sl=$('newCatSlug').value.trim()||slug(name);
-  const emoji=$('newCatEmoji').value.trim()||selEmoji||'📦';
-  if(!name){ toast('Category name required!','error'); return; }
-  if(sl==='all'){ toast('"all" is reserved','error'); return; }
-  if(categories.find(c=>c.slug===sl)){ toast('Slug already exists!','error'); return; }
-  categories.push({slug:sl,name,emoji});
-  save(LS.K,categories); renderCatList(); fillCatDropdown(); renderChips();
-  $('newCatName').value=''; $('newCatSlug').value=''; $('newCatEmoji').value=''; selEmoji='';
-  delete $('newCatSlug').dataset.manual;
-  toast('"'+name+'" category added!','success');
+  const nameEl  = $('#newCatName');
+  const slugEl  = $('#newCatSlug');
+  const emojiEl = $('#newCatEmoji');
+
+  const name  = (nameEl  ? nameEl.value.trim()  : '');
+  const sl    = (slugEl  ? slugEl.value.trim()   : '') || slugify(name);
+  const emoji = (emojiEl ? emojiEl.value.trim()  : '') || selEmoji || '📦';
+
+  if (!name) { showToast('Category name is required!', 'error'); return; }
+  if (sl === 'all') { showToast('"all" is reserved — choose another slug.', 'error'); return; }
+  if (categories.find(c => c.slug === sl)) { showToast('That slug already exists!', 'error'); return; }
+
+  categories.push({ slug: sl, name, emoji });
+  lsSave(LS.K, categories);
+
+  if (nameEl)  nameEl.value  = '';
+  if (slugEl)  { slugEl.value = ''; delete slugEl.dataset.manual; }
+  if (emojiEl) emojiEl.value = '';
+  selEmoji = '';
+
+  document.querySelectorAll('#emojiPicker button').forEach(b => b.classList.remove('emoji-btn-sel', 'bg-indigo-100'));
+
+  renderCatList();
+  fillCatDropdown();
+  renderChips();
+  showToast('"' + name + '" category added!', 'success');
 }
+
 function deleteCat(sl) {
-  const cat=categories.find(c=>c.slug===sl); if(!cat) return;
-  const n=products.filter(p=>p.categorySlug===sl).length;
-  if(!confirm(`Delete "${cat.name}"?${n>0?' '+n+' product(s) will be uncategorised.':''}`)) return;
-  categories=categories.filter(c=>c.slug!==sl);
-  if(currentCat===sl) currentCat='all';
-  save(LS.K,categories); renderCatList(); fillCatDropdown(); renderChips(); renderGrid();
-  toast('"'+cat.name+'" deleted!','error');
+  const cat = categories.find(c => c.slug === sl);
+  if (!cat) return;
+  const count = products.filter(p => p.categorySlug === sl).length;
+  if (!confirm('Delete "' + cat.name + '"?' + (count > 0 ? ' ' + count + ' product(s) will become uncategorised.' : ''))) return;
+  categories = categories.filter(c => c.slug !== sl);
+  if (currentCat === sl) currentCat = 'all';
+  lsSave(LS.K, categories);
+  renderCatList();
+  fillCatDropdown();
+  renderChips();
+  renderGrid();
+  showToast('"' + cat.name + '" deleted!', 'error');
 }
+
 function renderCatList() {
-  const list=$('categoryList'), cnt=$('catCount');
-  cnt.textContent=categories.length;
-  if(!categories.length){ list.innerHTML=`<div class="text-center py-8"><div class="text-4xl mb-2">🏷️</div><p class="text-gray-400 text-sm font-semibold">No categories yet.</p></div>`; return; }
-  list.innerHTML=categories.map(c=>`
+  const list = $('#categoryList');
+  const cnt  = $('#catCount');
+  if (cnt) cnt.textContent = categories.length;
+
+  if (!list) return;
+
+  if (!categories.length) {
+    list.innerHTML = `
+      <div class="text-center py-8">
+        <div class="text-4xl mb-2">🏷️</div>
+        <p class="text-gray-400 text-sm font-semibold">No categories yet.</p>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = categories.map(c => `
     <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
       <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-xl flex-shrink-0">${c.emoji}</div>
       <div class="flex-1 min-w-0">
         <h4 class="font-bold text-brand text-sm">${c.name}</h4>
         <div class="flex items-center gap-2 mt-0.5">
           <span class="text-[11px] text-gray-400 font-mono bg-gray-200 px-1.5 py-0.5 rounded">${c.slug}</span>
-          <span class="text-[11px] text-gray-400">${products.filter(p=>p.categorySlug===c.slug).length} products</span>
+          <span class="text-[11px] text-gray-400">${products.filter(p => p.categorySlug === c.slug).length} products</span>
         </div>
       </div>
       <button onclick="deleteCat('${c.slug}')" class="w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors flex-shrink-0">
@@ -1417,227 +1703,417 @@ function renderCatList() {
       </button>
     </div>`).join('');
 }
+
 function fillCatDropdown() {
-  const sel=$('pCategory'); if(!sel) return;
-  const cur=sel.value;
-  sel.innerHTML=categories.length
-    ? categories.map(c=>`<option value="${c.slug}" ${c.slug===cur?'selected':''}>${c.emoji} ${c.name}</option>`).join('')
+  const sel = $('#pCategory');
+  if (!sel) return;
+  const cur = sel.value;
+  sel.innerHTML = categories.length
+    ? categories.map(c => `<option value="${c.slug}" ${c.slug === cur ? 'selected' : ''}>${c.emoji} ${c.name}</option>`).join('')
     : '<option value="">⚠️ Add categories first</option>';
 }
 
-/* ── Products Admin ───────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   PRODUCT ADMIN
+───────────────────────────────────────────── */
 function renderProdList() {
-  const list=$('adminProdList'), cnt=$('prodCount');
-  cnt.textContent=products.length+' product'+(products.length!==1?'s':'')+' in catalog';
-  if(!products.length){ list.innerHTML=`<div class="text-center py-10"><div class="text-5xl mb-3">📦</div><p class="text-gray-400 font-semibold">No products yet.</p><button onclick="adminTab('add')" class="mt-3 bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm">+ Add First</button></div>`; return; }
-  list.innerHTML=products.map(p=>{
-    const cat=catBy(p.categorySlug);
+  const list = $('#adminProdList');
+  const cnt  = $('#prodCount');
+  if (cnt) cnt.textContent = products.length + ' product' + (products.length !== 1 ? 's' : '') + ' in catalog';
+  if (!list) return;
+
+  if (!products.length) {
+    list.innerHTML = `
+      <div class="text-center py-10">
+        <div class="text-5xl mb-3">📦</div>
+        <p class="text-gray-400 font-semibold">No products yet.</p>
+        <button onclick="adminTab('add')" class="mt-3 bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm">+ Add First</button>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = products.map(p => {
+    const cat = catBySlug(p.categorySlug);
     return `
       <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
         <div class="w-14 h-14 rounded-xl overflow-hidden bg-gray-200 flex-shrink-0 flex items-center justify-center text-xl">
-          <img src="${p.img||''}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='${p.emoji||'📦'}'"/>
+          <img src="${p.img || ''}" alt="${p.name}" class="w-full h-full object-cover"
+               onerror="this.style.display='none';this.parentElement.innerHTML='${p.emoji || '📦'}'" />
         </div>
         <div class="flex-1 min-w-0">
           <h4 class="font-bold text-brand text-sm truncate">${p.name}</h4>
           <p class="text-wa font-bold text-sm">${fmt(p.price)}</p>
           <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
-            ${p.badge?`<span class="text-[10px] font-bold bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full">${p.badge}</span>`:''}
-            ${cat?`<span class="text-[10px] text-gray-500 bg-gray-200 px-1.5 py-0.5 rounded-full">${cat.emoji} ${cat.name}</span>`:''}
+            ${p.badge ? `<span class="text-[10px] font-bold bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full">${p.badge}</span>` : ''}
+            ${cat ? `<span class="text-[10px] text-gray-500 bg-gray-200 px-1.5 py-0.5 rounded-full">${cat.emoji} ${cat.name}</span>` : ''}
           </div>
         </div>
         <div class="flex flex-col gap-1.5">
-          <button onclick="editProd(${p.id})" class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition-colors"><i class="fa-solid fa-pen text-xs"></i></button>
-          <button onclick="deleteProd(${p.id})" class="w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors"><i class="fa-solid fa-trash text-xs"></i></button>
+          <button onclick="editProd(${p.id})" class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+            <i class="fa-solid fa-pen text-xs"></i>
+          </button>
+          <button onclick="deleteProd(${p.id})" class="w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-200 transition-colors">
+            <i class="fa-solid fa-trash text-xs"></i>
+          </button>
         </div>
       </div>`;
   }).join('');
 }
 
 function saveProd() {
-  const name   = $('pName').value.trim();
-  const desc   = $('pDesc').value.trim();
-  const price  = parseFloat($('pPrice').value);
-  const orig   = parseFloat($('pOrigPrice').value)||null;
-  const catSl  = $('pCategory').value;
-  const badge  = $('pBadge').value||null;
-  const img    = $('pImg').value.trim();
-  const editId = $('editProdId').value;
-  if(!name)                  { toast('Product name required!','error'); return; }
-  if(isNaN(price)||price<=0) { toast('Please enter a valid price!','error'); return; }
-  if(!catSl)                 { toast('Please select or add a category first!','error'); return; }
-  const cat=catBy(catSl);
-  const emoji=cat?cat.emoji:'📦';
-  const finalImg=img||PRESET_IMGS[0];
-  if(editId) {
-    const idx=products.findIndex(p=>p.id==editId);
-    if(idx>-1) products[idx]={...products[idx],name,description:desc,price,originalPrice:orig,categorySlug:catSl,badge,img:finalImg,emoji};
-    toast('Product updated! ✅','success');
+  const pName     = $('#pName');
+  const pDesc     = $('#pDesc');
+  const pPrice    = $('#pPrice');
+  const pOrigP    = $('#pOrigPrice');
+  const pCat      = $('#pCategory');
+  const pBadge    = $('#pBadge');
+  const pImgEl    = $('#pImg');
+  const editId    = $('#editProdId');
+
+  const name    = (pName    ? pName.value.trim()    : '');
+  const desc    = (pDesc    ? pDesc.value.trim()    : '');
+  const price   = parseFloat(pPrice ? pPrice.value : '0');
+  const orig    = parseFloat(pOrigP ? pOrigP.value  : '') || null;
+  const catSl   = (pCat    ? pCat.value             : '');
+  const badge   = (pBadge  ? pBadge.value           : '') || null;
+  const imgUrl  = (pImgEl  ? pImgEl.value.trim()   : '');
+  const eId     = (editId  ? editId.value           : '');
+
+  if (!name)              { showToast('Product name is required!', 'error'); return; }
+  if (isNaN(price) || price <= 0) { showToast('Please enter a valid price!', 'error'); return; }
+  if (!catSl)             { showToast('Please select or add a category first!', 'error'); return; }
+
+  const cat      = catBySlug(catSl);
+  const emoji    = cat ? cat.emoji : '📦';
+  const finalImg = imgUrl || PRESET_IMGS[0];
+
+  if (eId) {
+    const idx = products.findIndex(p => p.id == eId);
+    if (idx > -1) {
+      products[idx] = { ...products[idx], name, description: desc, price, originalPrice: orig, categorySlug: catSl, badge, img: finalImg, emoji };
+    }
+    showToast('Product updated! ✅', 'success');
   } else {
-    products.push({id:++nextId,name,description:desc,price,originalPrice:orig,categorySlug:catSl,badge,img:finalImg,emoji});
-    toast('"'+name+'" added! 🎉','success');
+    products.push({ id: ++nextId, name, description: desc, price, originalPrice: orig, categorySlug: catSl, badge, img: finalImg, emoji });
+    showToast('"' + name + '" added! 🎉', 'success');
   }
-  save(LS.P,products); updateUI(); renderProdList(); clearProdForm(); adminTab('products');
+
+  lsSave(LS.P, products);
+  updateUI();
+  renderProdList();
+  clearProdForm();
+  adminTab('products');
 }
+
 function editProd(id) {
-  const p=products.find(x=>x.id===id); if(!p) return;
-  fillCatDropdown(); adminTab('add');
-  $('addFormTitle').textContent     = 'Edit Product';
-  $('pName').value                  = p.name;
-  $('pDesc').value                  = p.description||'';
-  $('pPrice').value                 = p.price;
-  $('pOrigPrice').value             = p.originalPrice||'';
-  $('pCategory').value              = p.categorySlug||'';
-  $('pBadge').value                 = p.badge||'';
-  $('pImg').value                   = p.img||'';
-  $('editProdId').value             = p.id;
-  $('saveProdTxt').textContent      = 'Update Product';
-  $('cancelEditBtn').classList.remove('hidden');
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  fillCatDropdown();
+  adminTab('add');
+
+  const title  = $('#addFormTitle');
+  const saveTxt= $('#saveProdTxt');
+  const cancelB= $('#cancelEditBtn');
+
+  if (title)  title.textContent  = 'Edit Product';
+  if (saveTxt) saveTxt.textContent= 'Update Product';
+  if (cancelB) cancelB.classList.remove('hidden');
+
+  const fields = {
+    pName:     p.name,
+    pDesc:     p.description || '',
+    pPrice:    p.price,
+    pOrigPrice:p.originalPrice || '',
+    pCategory: p.categorySlug || '',
+    pBadge:    p.badge || '',
+    pImg:      p.img || '',
+    editProdId:p.id,
+  };
+
+  Object.entries(fields).forEach(([fid, val]) => {
+    const el = $(`#${fid}`);
+    if (el) el.value = val;
+  });
+
   previewImg();
 }
+
 function deleteProd(id) {
-  const p=products.find(x=>x.id===id); if(!p) return;
-  if(!confirm('Delete "'+p.name+'"?')) return;
-  products=products.filter(x=>x.id!==id); cart=cart.filter(i=>i.id!==id);
-  save(LS.P,products); save(LS.C,cart); updateUI(); renderProdList();
-  toast('"'+p.name+'" removed!','error');
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm('Delete "' + p.name + '"?')) return;
+  products = products.filter(x => x.id !== id);
+  cart     = cart.filter(i => i.id !== id);
+  lsSave(LS.P, products);
+  saveCartLocal();
+  updateUI();
+  renderProdList();
+  showToast('"' + p.name + '" removed!', 'error');
 }
+
 function cancelEdit() {
   clearProdForm();
-  $('addFormTitle').textContent='Add New Product';
-  $('saveProdTxt').textContent='Save Product';
-  $('editProdId').value='';
-  $('cancelEditBtn').classList.add('hidden');
+  const title  = $('#addFormTitle');
+  const saveTxt= $('#saveProdTxt');
+  const cancelB= $('#cancelEditBtn');
+  const editId = $('#editProdId');
+  if (title)   title.textContent   = 'Add New Product';
+  if (saveTxt) saveTxt.textContent = 'Save Product';
+  if (cancelB) cancelB.classList.add('hidden');
+  if (editId)  editId.value        = '';
 }
+
 function clearProdForm() {
-  ['pName','pDesc','pPrice','pOrigPrice','pImg'].forEach(id=>{ const el=$(id); if(el) el.value=''; });
-  const cs=$('pCategory'); if(cs&&categories.length) cs.value=categories[0].slug;
-  const bs=$('pBadge'); if(bs) bs.value='';
-  $('imgPreviewBox').classList.add('hidden');
-  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('sel'));
+  ['pName','pDesc','pPrice','pOrigPrice','pImg'].forEach(fid => {
+    const el = $(`#${fid}`);
+    if (el) el.value = '';
+  });
+  const pCat   = $('#pCategory');
+  const pBadge = $('#pBadge');
+  const previewBox = $('#imgPreviewBox');
+  if (pCat && categories.length) pCat.value   = categories[0].slug;
+  if (pBadge)                    pBadge.value = '';
+  if (previewBox) previewBox.classList.add('hidden');
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('sel'));
 }
+
 function resetAll() {
-  if(!confirm('⚠️ Reset all local data to defaults?')) return;
-  products=J(DEF_PRODS); categories=J(DEF_CATS); store={...DEF_STORE}; cart=[];
-  saveAll(); currentCat='all'; updateUI(); fillAdminForms(); renderProdList(); renderCatList();
-  toast('Reset to defaults! 🔄','success');
+  if (!confirm('⚠️ Reset all local data to defaults?')) return;
+  products   = cloneDeep(DEF_PRODS);
+  categories = cloneDeep(DEF_CATS);
+  store      = { ...DEF_STORE };
+  cart       = [];
+  saveAllLocal();
+  currentCat = 'all';
+  updateUI();
+  fillAdminForms();
+  renderProdList();
+  renderCatList();
+  showToast('Reset to defaults! 🔄', 'success');
 }
 
-/* ── Image helpers ────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   IMAGE HELPERS
+───────────────────────────────────────────── */
 function buildPresetImgs() {
-  const g=$('presetImgs'); if(!g) return;
-  g.innerHTML=PRESET_IMGS.map(url=>`
-    <button type="button" data-url="${url}" onclick="selPreset(this)" class="preset-btn rounded-xl overflow-hidden" style="aspect-ratio:1/1">
-      <img src="${url.replace('w=400','w=100')}" class="w-full h-full object-cover" loading="lazy"/></button>`).join('');
-}
-function previewImg() {
-  const url=$('pImg').value.trim();
-  const box=$('imgPreviewBox'), img=$('imgPreview');
-  if(url){ img.src=url; box.classList.remove('hidden'); } else { box.classList.add('hidden'); }
-  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('sel'));
-}
-function selPreset(btn) {
-  $('pImg').value=btn.dataset.url;
-  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('sel'));
-  btn.classList.add('sel'); previewImg();
+  const grid = $('#presetImgs');
+  if (!grid) return;
+  grid.innerHTML = PRESET_IMGS.map(url => `
+    <button type="button" data-url="${url}" onclick="selPreset(this)"
+            class="preset-btn rounded-xl overflow-hidden" style="aspect-ratio:1/1">
+      <img src="${url.replace('w=400','w=100')}" class="w-full h-full object-cover" loading="lazy" />
+    </button>`).join('');
 }
 
-/* ── Search ───────────────────────────────────────────────────── */
+function previewImg() {
+  const urlEl = $('#pImg');
+  const box   = $('#imgPreviewBox');
+  const img   = $('#imgPreview');
+  if (!urlEl || !box || !img) return;
+  const url = urlEl.value.trim();
+  if (url) {
+    img.src = url;
+    box.classList.remove('hidden');
+  } else {
+    box.classList.add('hidden');
+  }
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('sel'));
+}
+
+function selPreset(btn) {
+  const urlEl = $('#pImg');
+  if (urlEl) urlEl.value = btn.dataset.url;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  previewImg();
+}
+
+/* ─────────────────────────────────────────────
+   SEARCH
+───────────────────────────────────────────── */
 function filterProducts() {
-  currentSearch=$('searchInput').value;
-  $('searchClear').classList.toggle('hidden',!currentSearch);
+  const inp = $('#searchInput');
+  currentSearch = inp ? inp.value : '';
+  const clr = $('#searchClear');
+  if (clr) clr.classList.toggle('hidden', !currentSearch);
   renderGrid();
 }
+
 function clearSearch() {
-  $('searchInput').value=''; currentSearch='';
-  $('searchClear').classList.add('hidden'); renderGrid();
+  const inp = $('#searchInput');
+  if (inp) inp.value = '';
+  currentSearch = '';
+  const clr = $('#searchClear');
+  if (clr) clr.classList.add('hidden');
+  renderGrid();
 }
 
-/* ── WhatsApp Order ───────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   WHATSAPP ORDER
+───────────────────────────────────────────── */
 function orderViaWhatsApp() {
-  if(!cart.length){ toast('Add items first!','error'); return; }
-  const name=$('custName').value.trim(), phone=$('custPhone').value.trim(), addr=$('custAddress').value.trim();
-  const payEl=document.querySelector('input[name="payment"]:checked');
-  const pay=payEl?payEl.value:'Cash on Delivery';
-  if(!name)  { hilite('custName','Enter your full name'); return; }
-  if(!phone) { hilite('custPhone','Enter your phone number'); return; }
-  if(!addr)  { hilite('custAddress','Enter delivery address'); return; }
-  const div='--------------------------------';
-  const items=cart.map(i=>`${i.qty}x ${i.name} — ${fmt(i.price*i.qty)}`).join('\n');
-  const msg=[`🛍️ *NEW ORDER FROM WEBSITE*`,div,items,div,
-    `💵 *Total:* ${fmt(grandTotal())}`,`🚚 *Payment:* ${pay}`,``,
-    `📍 *CUSTOMER DETAILS:*`,`• Name: ${name}`,`• Phone: ${phone}`,`• Address: ${addr}`,
-    div,`*Please confirm my order!* 🙏`].join('\n');
-  window.open(`https://wa.me/${store.waNumber||'923001234567'}?text=${encodeURIComponent(msg)}`,'_blank');
-  toast('Redirecting to WhatsApp… ✅','success');
-}
-function hilite(id,msg) {
-  const f=$(id); f.classList.add('border-red-400'); f.focus();
-  toast('⚠️ '+msg,'error'); setTimeout(()=>f.classList.remove('border-red-400'),2500);
+  if (!cart.length) { showToast('Add items first!', 'error'); return; }
+
+  const nameEl  = $('#custName');
+  const phoneEl = $('#custPhone');
+  const addrEl  = $('#custAddress');
+  const payEl   = document.querySelector('input[name="payment"]:checked');
+
+  const name    = nameEl  ? nameEl.value.trim()  : '';
+  const phone   = phoneEl ? phoneEl.value.trim() : '';
+  const address = addrEl  ? addrEl.value.trim()  : '';
+  const payment = payEl   ? payEl.value           : 'Cash on Delivery';
+
+  if (!name)    { hilite('custName',    'Enter your full name');     return; }
+  if (!phone)   { hilite('custPhone',   'Enter your phone number');  return; }
+  if (!address) { hilite('custAddress', 'Enter delivery address');   return; }
+
+  const div   = '--------------------------------';
+  const items = cart.map(i => `${i.qty}x ${i.name} — ${fmt(i.price * i.qty)}`).join('\n');
+
+  const msg = [
+    '🛍️ *NEW ORDER FROM WEBSITE*', div, items, div,
+    '💵 *Total Amount:* ' + fmt(grandTotal()),
+    '🚚 *Payment Method:* ' + payment,
+    '',
+    '📍 *CUSTOMER DETAILS:*',
+    '• Name: '    + name,
+    '• Phone: '   + phone,
+    '• Address: ' + address,
+    div,
+    '*Please confirm my order!* 🙏'
+  ].join('\n');
+
+  const waNum = store.waNumber || '923001234567';
+  window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(msg), '_blank');
+  showToast('Redirecting to WhatsApp… ✅', 'success');
 }
 
-/* ── Toast ────────────────────────────────────────────────────── */
-let _tt=null;
-function toast(msg,type='success') {
-  const t=$('toast'), ti=$('toastInner'), ic=$('toastIcon');
-  $('toastMsg').textContent=msg;
-  if(type==='error'){
-    ti.className='bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 max-w-[90vw]';
-    ic.className='fa-solid fa-circle-exclamation text-white flex-shrink-0';
-  } else {
-    ti.className='bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 max-w-[90vw]';
-    ic.className='fa-solid fa-circle-check text-wa flex-shrink-0';
+function hilite(inputId, msg) {
+  const f = $(`#${inputId}`);
+  if (f) {
+    f.classList.add('border-red-400');
+    f.focus();
+    setTimeout(() => f.classList.remove('border-red-400'), 2500);
   }
+  showToast('⚠️ ' + msg, 'error');
+}
+
+/* ─────────────────────────────────────────────
+   TOAST
+───────────────────────────────────────────── */
+let _toastTimer = null;
+
+function showToast(msg, type) {
+  type = type || 'success';
+  const t  = $('#toast');
+  const ti = $('#toastInner');
+  const ic = $('#toastIcon');
+  const tm = $('#toastMsg');
+
+  if (!t || !ti || !ic || !tm) return;
+
+  tm.textContent = msg;
+
+  if (type === 'error') {
+    ti.className = 'bg-red-600 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 max-w-[90vw]';
+    ic.className = 'fa-solid fa-circle-exclamation text-white flex-shrink-0';
+  } else {
+    ti.className = 'bg-brand text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2 max-w-[90vw]';
+    ic.className = 'fa-solid fa-circle-check text-wa flex-shrink-0';
+  }
+
   t.classList.remove('hidden');
-  if(_tt) clearTimeout(_tt);
-  _tt=setTimeout(()=>t.classList.add('hidden'),2800);
+  if (_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
 }
 
-/* ── Btn loading helper ───────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   BTN LOADING HELPER
+───────────────────────────────────────────── */
 function setBtnLoading(id, loading, html) {
-  const btn=$(id); if(!btn) return;
-  btn.disabled=loading; btn.innerHTML=html;
+  const btn = $(`#${id}`);
+  if (!btn) return;
+  btn.disabled  = loading;
+  btn.innerHTML = html;
 }
 
-/* ── Keyboard ─────────────────────────────────────────────────── */
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){ if(cartOpen)closeCart(); if(adminOpen)closeAdmin(); }
+/* ─────────────────────────────────────────────
+   KEYBOARD
+───────────────────────────────────────────── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (cartOpen)  closeCart();
+    if (adminOpen) closeAdmin();
+  }
 });
 
-/* ═══════════════════════════════════════════════
-   INIT — Entry Point
-═══════════════════════════════════════════════ */
+/* ─────────────────────────────────────────────
+   ATTACH SLUG INPUT LISTENERS
+   (cannot use oninput on static HTML for
+   dynamically-set data-manual flags, so we
+   wire them up here after DOM is ready)
+───────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const signupSlug = $('#signupSlug');
+  if (signupSlug) {
+    signupSlug.addEventListener('input', () => { signupSlug.dataset.manual = '1'; });
+  }
+
+  const aStoreSlug = $('#aStoreSlug');
+  if (aStoreSlug) {
+    aStoreSlug.addEventListener('input', () => { aStoreSlug.dataset.manual = '1'; });
+  }
+
+  const newCatName = $('#newCatName');
+  const newCatSlug = $('#newCatSlug');
+  if (newCatName && newCatSlug) {
+    newCatName.addEventListener('input', () => {
+      if (!newCatSlug.dataset.manual) newCatSlug.value = slugify(newCatName.value);
+    });
+    newCatSlug.addEventListener('input', () => { newCatSlug.dataset.manual = '1'; });
+  }
+});
+
+/* ─────────────────────────────────────────────
+   INIT — ENTRY POINT
+───────────────────────────────────────────── */
 async function init() {
-  const loader   = $('appLoader');
-  const loaderMsg= $('appLoaderMsg');
-  const suspended= $('suspendedScreen');
-  const notFound = $('notFoundScreen');
-  const adminBtn = $('adminToggleBtn');
+  const loaderEl    = $('#appLoader');
+  const loaderMsg   = $('#appLoaderMsg');
+  const suspended   = $('#suspendedScreen');
+  const notFoundEl  = $('#notFoundScreen');
+  const adminBtn    = $('#adminToggleBtn');
 
-  const params    = new URLSearchParams(location.search);
-  const storeParam= params.get('store');
+  const params      = new URLSearchParams(location.search);
+  const storeParam  = params.get('store');
 
-  // ── CUSTOMER VIEW ──────────────────────────────────────────────
+  /* ── CUSTOMER VIEW ── */
   if (storeParam) {
     isCustomerView = true;
-    if (adminBtn) adminBtn.style.display='none';
-    loaderMsg.textContent = 'Loading store…';
+    storeCartKey   = 'ok_cart_' + storeParam;
 
-    const {data, error} = await sb.from('stores').select('*').eq('slug', storeParam).single();
+    if (adminBtn) adminBtn.style.display = 'none';
+    if (loaderMsg) loaderMsg.textContent = 'Loading store…';
+
+    const { data, error } = await sb
+      .from('stores')
+      .select('*')
+      .eq('slug', storeParam)
+      .single();
 
     if (error || !data) {
-      loader.classList.add('hidden');
-      notFound.classList.remove('hidden'); notFound.classList.add('flex');
+      if (loaderEl)   loaderEl.classList.add('hidden');
+      if (notFoundEl) { notFoundEl.classList.remove('hidden'); notFoundEl.classList.add('flex'); }
       return;
     }
 
-    // Subscription/trial guard
     if (!isStoreActive(data)) {
-      loader.classList.add('hidden');
-      suspended.classList.remove('hidden'); suspended.classList.add('flex');
+      if (loaderEl)  loaderEl.classList.add('hidden');
+      if (suspended) { suspended.classList.remove('hidden'); suspended.classList.add('flex'); }
       return;
     }
 
-    // Populate store
     store = {
       name:       data.name            || 'OrderKaro Store',
       slug:       data.slug            || storeParam,
@@ -1646,69 +2122,62 @@ async function init() {
       bannerText: data.banner_text     || 'Welcome!',
       promoCode:  data.promo_code      || '',
     };
-    try { categories = JSON.parse(data.categories) || J(DEF_CATS); } catch(e){ categories=J(DEF_CATS); }
-    try { products   = JSON.parse(data.products)   || []; }          catch(e){ products=[]; }
 
-    // Per-store cart key
-    const cartKey = 'ok_cart_'+storeParam;
-    cart = load(cartKey, []);
-    // Override saveCart
-    const origSaveCart = ()=>save(LS.C, cart);
-    save(LS.C, cart); // noop redirect
-    // Override via save function with store-specific key
-    window._saveCart = ()=>localStorage.setItem(cartKey, JSON.stringify(cart));
+    try { categories = JSON.parse(data.categories) || cloneDeep(DEF_CATS); } catch(e) { categories = cloneDeep(DEF_CATS); }
+    try { products   = JSON.parse(data.products)   || []; }                  catch(e) { products   = []; }
 
-    loader.classList.add('hidden');
+    cart = lsLoad(storeCartKey, []);
+
+    if (loaderEl) loaderEl.classList.add('hidden');
     updateUI();
     return;
   }
 
-  // ── ADMIN / PREVIEW VIEW ───────────────────────────────────────
+  /* ── ADMIN / PREVIEW VIEW ── */
   isCustomerView = false;
-  loaderMsg.textContent = 'Checking session…';
+  storeCartKey   = LS.C;
 
-  // Restore persistent session
-  const {data:{session}} = await sb.auth.getSession();
-  if (session) {
+  if (loaderMsg) loaderMsg.textContent = 'Checking session…';
+
+  const { data: { session } } = await sb.auth.getSession();
+
+  if (session && session.user) {
     currentUser = session.user;
-    loaderMsg.textContent = 'Loading your store…';
+    if (loaderMsg) loaderMsg.textContent = 'Loading your store…';
+    loadAllLocal();
     await loadStoreForAdmin();
+  } else {
+    loadAllLocal();
   }
 
-  // Listen for auth changes (tab focus restore, etc.)
+  nextId = products.length
+    ? Math.max(...products.map(p => p.id), Date.now())
+    : Date.now();
+
+  if (loaderEl) loaderEl.classList.add('hidden');
+  updateUI();
+
+  /* Auto-show auth modal if not logged in and not customer view */
+  if (!session || !session.user) {
+    showAuthModal();
+  }
+
+  /* Listen for session changes (tab refocus, token refresh, etc.) */
   sb.auth.onAuthStateChange(async (event, sess) => {
-    if (event==='SIGNED_IN' && sess) {
-      currentUser=sess.user; await loadStoreForAdmin();
-    } else if (event==='SIGNED_OUT') {
-      currentUser=null; storeRow=null;
+    if (event === 'SIGNED_IN' && sess && sess.user) {
+      currentUser = sess.user;
+      await loadStoreForAdmin();
+    } else if (event === 'SIGNED_OUT') {
+      currentUser = null;
+      storeRow    = null;
     }
   });
-
-  loadLocalData();
-  nextId = products.length ? Math.max(...products.map(p=>p.id), Date.now()) : Date.now();
-  loader.classList.add('hidden');
-  updateUI();
 }
 
-// Override save(LS.C) for customer view carts
-const _origSave = save;
-function saveCart() {
-  if (isCustomerView && window._saveCart) { window._saveCart(); }
-  else { save(LS.C, cart); }
-}
-// Patch addToCart etc to use saveCart()
-const _addToCart = addToCart;
-function addToCart(id) {
-  const p=products.find(x=>x.id===id); if(!p) return;
-  const ex=cartItem(id);
-  if(ex) ex.qty++; else cart.push({id:p.id,name:p.name,price:p.price,img:p.img,emoji:p.emoji||'📦',qty:1});
-  saveCart(); updateUI(); toast('"'+p.name+'" added!','success');
-}
-function removeFromCart(id) { cart=cart.filter(i=>i.id!==id); saveCart(); updateUI(); }
-function incQty(id){ const i=cartItem(id); if(i){ i.qty++; saveCart(); updateUI(); } }
-function decQty(id){ const i=cartItem(id); if(!i)return; i.qty<=1?removeFromCart(id):(i.qty--,saveCart(),updateUI()); }
-
-window.addEventListener('DOMContentLoaded', init);
+/* ─────────────────────────────────────────────
+   BOOT
+───────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>
